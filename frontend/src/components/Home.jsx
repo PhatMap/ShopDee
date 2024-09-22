@@ -10,20 +10,15 @@ import "rc-slider/assets/index.css";
 import Header from "./layout/Header";
 import Footer from "./layout/Footer";
 import Category from "../category/Category";
-import Chatbox from "./Chatbox/Chatbox";
-import { FaBell, FaEnvelope } from "react-icons/fa";
+import Chatbox from "./chatbox/Chatbox";
 
 const Home = () => {
-  const [isChatOpen, setIsChatOpen] = useState(false);
-  const [resPerPage, setResPerPage] = useState(12);
-  const dispatch = useDispatch();
-
   const { products, error } = useSelector((state) => state.products);
   const { categories } = useSelector((state) => state.category);
 
-  const toggleChatBox = () => {
-    setIsChatOpen(!isChatOpen);
-  };
+  const dispatch = useDispatch();
+
+  const [resPerPage, setResPerPage] = useState(12);
 
   useEffect(() => {
     dispatch(getCategoryAll());
@@ -39,29 +34,8 @@ const Home = () => {
   return (
     <Fragment>
       <MetaData title={"Home"} />
-
       <div className="home-container background-2">
         <Header />
-        <img
-          src={"../images/masage.png"}
-          alt="massage"
-          className="fixed-image"
-          onClick={toggleChatBox}
-        />
-
-        <img
-          src={"../images/masage.png"}
-          alt="massage"
-          className="fixed-image"
-          onClick={toggleChatBox}
-        />
-
-        {isChatOpen && (
-          <div className="chat-box">
-            <Chatbox />
-          </div>
-        )}
-
         <div className="home-form">
           <div className="home-component">
             <h1>Danh Mục Sản Phẩm</h1>
@@ -88,6 +62,7 @@ const Home = () => {
         </div>
         <Footer />
       </div>
+      <Chatbox />
     </Fragment>
   );
 };

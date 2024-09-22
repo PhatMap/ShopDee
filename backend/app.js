@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const dotenv = require("dotenv");
-
+const path = require("path");
 const cookieParser = require("cookie-parser");
 const cloudinary = require("cloudinary");
 const bodyParser = require("body-parser");
@@ -70,7 +70,8 @@ const application = require("./routes/application");
 const coupon = require("./routes/coupon");
 const notification = require("./routes/notification");
 const shop = require("./routes/shop");
-const chat =require("./routes/chatbox")
+const chat = require("./routes/chat");
+
 app.use("/api/v1", products);
 app.use("/api/v1", auth);
 app.use("/api/v1", order);
@@ -81,9 +82,13 @@ app.use("/api/v1", application);
 app.use("/api/v1", coupon);
 app.use("/api/v1", notification);
 app.use("/api/v1", shop);
-app.use('/api/v1', chat);
-
+app.use("/api/v1", chat);
 
 app.use(errorMiddlewares);
 
 module.exports = { app, server, io, userSockets };
+
+// app.use(express.static(path.join(__dirname, "../frontend/dist")));
+// app.get("*", (req, res) => {
+//   res.sendFile(path.join(__dirname, "../frontend/dist", "index.html"));
+// });

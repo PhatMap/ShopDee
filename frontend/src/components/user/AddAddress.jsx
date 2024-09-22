@@ -1,7 +1,7 @@
 import React, { Fragment, useState, useEffect } from "react";
 import Address from "./Address";
 import { useDispatch, useSelector } from "react-redux";
-import { addAddress } from "../../actions/userActions"; // Đảm bảo import action từ module hoặc file tương ứng
+import { addAddress } from "../../actions/userActions";
 import { Link, useNavigate } from "react-router-dom";
 import { getUserAddress, clearErrors } from "../../actions/userActions";
 import { ToastContainer, toast } from "react-toastify";
@@ -15,7 +15,8 @@ const AddAddress = () => {
     location: "",
     phone: "",
   });
-  const [successMessage, setSuccessMessage] = useState(""); // Thêm state cho thông báo thành công
+
+  const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const { error } = useSelector((state) => state.auth);
   const [AddressError, setAddressError] = useState("");
@@ -47,7 +48,7 @@ const AddAddress = () => {
       address.town &&
       address.location
     ) {
-      setAddressError(""); // Ẩn thông báo lỗi khi đã nhập đầy đủ thông tin địa chỉ
+      setAddressError("");
     }
     if (error) {
       toast.error(error);
@@ -55,13 +56,12 @@ const AddAddress = () => {
     }
   }, [dispatch, address.phone, address, error]);
   const isValidPhoneNumber = (phone) => {
-    // Sử dụng biểu thức chính quy để kiểm tra định dạng số điện thoại
     const phoneRegex = /^[0-9]{10}$/;
     return phoneRegex.test(phone);
   };
 
   const handleAddAddress = async (event) => {
-    event.preventDefault(); // Ngăn chặn hành động mặc định của form submit
+    event.preventDefault();
     if (
       !address.province ||
       !address.district ||
@@ -71,7 +71,7 @@ const AddAddress = () => {
       setAddressError("Vui lòng nhập đầy đủ thông tin địa chỉ.");
       return;
     }
-    // Kiểm tra xem số điện thoại đã nhập và đúng định dạng chưa
+
     if (!isValidPhoneNumber(address.phone)) {
       setErrorMessage("Số điện thoại không hợp lệ. Vui lòng kiểm tra lại.");
       return;

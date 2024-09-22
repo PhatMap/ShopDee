@@ -33,28 +33,27 @@ import AdminCentre from "./components/admin/Centre";
 import ShopCentre from "./components/shop/Centre";
 import SocketManager from "./components/user/SocketManager";
 import ShopRegister from "./components/shop/register/Register";
+import { useDispatch } from "react-redux";
 
 function App() {
-  const history = useNavigate();
-  const location = useLocation();
+  const dispatch = useDispatch();
   const [stripeApiKey, setStripeApiKey] = useState("");
 
   useEffect(() => {
-    store.dispatch(loadUser());
-
-    async function getStripeApiKey() {
-      try {
-        const { data } = await axios.get("/api/v1/stripeapi");
-        setStripeApiKey(data.stripeApiKey);
-      } catch (error) {
-        if (error.response.status === 401) {
-          console.log("User not authenticated");
-        } else {
-          console.error("Error fetching Stripe API key:", error.message);
-        }
-      }
-    }
-    getStripeApiKey();
+    dispatch(loadUser());
+    // async function getStripeApiKey() {
+    //   try {
+    //     const { data } = await axios.get("/api/v1/stripeapi");
+    //     setStripeApiKey(data.stripeApiKey);
+    //   } catch (error) {
+    //     if (error.response.status === 401) {
+    //       console.log("User not authenticated");
+    //     } else {
+    //       console.error("Error fetching Stripe API key:", error.message);
+    //     }
+    //   }
+    // }
+    // getStripeApiKey();
   }, []);
 
   return (

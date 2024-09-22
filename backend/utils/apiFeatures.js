@@ -1,3 +1,5 @@
+const chat = require("../models/chat");
+
 class APIFeatures {
   constructor(query, queryStr) {
     this.query = query;
@@ -54,26 +56,6 @@ class APIFeatures {
     return this;
   }
 
-  filterApplication() {
-    const { keyword, status } = this.queryStr;
-
-    let query = {};
-
-    if (keyword) {
-      query.$or = [
-        { "shopInfor.shopName": { $regex: keyword, $options: "i" } },
-        { "shopInfor.ownerName": { $regex: keyword, $options: "i" } },
-        { "shopInfor.email": { $regex: keyword, $options: "i" } },
-      ];
-    }
-
-    if (status) {
-      query.status = status;
-    }
-
-    this.query = this.query.find(query);
-    return this;
-  }
   filterAdminProducts() {
     const { keyword, approved } = this.queryStr;
 
@@ -86,6 +68,7 @@ class APIFeatures {
     this.query = this.query.find(query);
     return this;
   }
+
   filterShopProducts() {
     const { keyword, approved } = this.queryStr;
 
@@ -105,6 +88,7 @@ class APIFeatures {
     this.query = this.query.find(query);
     return this;
   }
+
   filterCategory() {
     const { keyword } = this.queryStr;
 
@@ -120,6 +104,7 @@ class APIFeatures {
     this.query = this.query.find(query);
     return this;
   }
+
   filterReviews() {
     const { keyword } = this.queryStr;
 
@@ -151,6 +136,7 @@ class APIFeatures {
     }
     return this;
   }
+
   filterOrder() {
     const { keyword, orderStatus } = this.queryStr;
 
@@ -162,6 +148,16 @@ class APIFeatures {
     this.query = this.query.find(query);
     return this;
   }
+
+  filterRole(chats, role) {
+    return chats.filter((chat) => {
+      return (
+        chat.role !== role &&
+        (chat.role === "shopkeeper" || chat.role === "customer")
+      );
+    });
+  }
+
   search() {
     const keyword = this.queryStr.keyword
       ? {
@@ -172,13 +168,18 @@ class APIFeatures {
         }
       : {};
 
+    this.query = this.query.find({ ...keyword });
+    return this;
+  }
+
+  categorize() {
     const category = this.queryStr.category
       ? {
           category: this.queryStr.category,
         }
       : {};
 
-    this.query = this.query.find({ ...keyword }).find({ ...category });
+    this.query = this.query.find({ ...category });
     return this;
   }
 

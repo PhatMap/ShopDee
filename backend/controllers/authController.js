@@ -113,13 +113,19 @@ exports.googleLoginUser = catchAsyncErrors(async (req, res, next) => {
   const password = generateRandomPassword();
 
   if (!user) {
+    const result = await cloudinary.v2.uploader.upload(avatar, {
+      folder: "avatars",
+      width: 150,
+      crop: "scale",
+    });
+
     user = await User.create({
       name,
       email,
       password,
       avatar: {
-        public_id: googleId,
-        url: avatar,
+        public_id: result.public_id,
+        url: result.secure_url,
       },
       address: [],
     });
