@@ -6,6 +6,10 @@ class APIFeatures {
     this.queryStr = queryStr;
   }
 
+  filterMyChats(chats) {
+    return chats.filter((chat) => chat.messages.length > 0);
+  }
+
   filterUser() {
     const { keyword, status, roles } = this.queryStr;
 

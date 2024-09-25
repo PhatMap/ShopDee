@@ -1,4 +1,10 @@
-import React, { useState, useEffect, Fragment } from "react";
+import React, {
+  useState,
+  useEffect,
+  Fragment,
+  useRef,
+  useCallback,
+} from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { useNavigate } from "react-router-dom";
@@ -8,7 +14,8 @@ import {
   getUserChats,
   sendMessage,
 } from "../../actions/chatActions";
-import { set } from "mongoose";
+import ChatDetails from "./ChatDetails";
+import { GET_CHAT_DETAIL_RESET } from "../../constants/chatConstants";
 
 const Chatbox = () => {
   const { user } = useSelector((state) => state.auth);
@@ -22,21 +29,15 @@ const Chatbox = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [keyword, setKeyword] = useState("");
   const [chatClicked, setChatClicked] = useState("");
-  const [chat, setChat] = useState(null);
-  const [receiver, setReceiver] = useState(null);
-  const [chatList, setChatList] = useState([]);
-  const [images, setImages] = useState([]);
-  const [message, setMessage] = useState("");
-  const [isInputFocused, setIsInputFocused] = useState(false);
 
   const handlerOpen = () => {
     if (!user) {
       history("/login");
     } else {
       setKeyword("");
-      setChat(null);
       setIsOpen(!isOpen);
       dispatch(getUserChats());
+      dispatch({ type: GET_CHAT_DETAIL_RESET });
     }
   };
 
@@ -51,40 +52,7 @@ const Chatbox = () => {
 
   const handlerCloseChat = () => {
     setIsOpen(false);
-    setChat(null);
     setKeyword("");
-  };
-
-  const handlerSendMessage = () => {
-    const formData = new FormData();
-    const currentDate = new Date();
-    formData.set("date", currentDate.toISOString());
-    formData.set("chatId", chat._id);
-    formData.set("message", message);
-    images.forEach((image) => {
-      formData.append("images", image);
-    });
-
-    dispatch(sendMessage(formData));
-
-    setMessage("");
-    setImages([]);
-  };
-
-  const onChange = (e) => {
-    const files = Array.from(e.target.files);
-
-    files.forEach((file) => {
-      const reader = new FileReader();
-
-      reader.onload = () => {
-        if (reader.readyState === 2) {
-          setImages((oldArray) => [...oldArray, reader.result]);
-        }
-      };
-
-      reader.readAsDataURL(file);
-    });
   };
 
   useEffect(() => {
@@ -92,16 +60,6 @@ const Chatbox = () => {
       dispatch(getChats({ keyword }));
     }
   }, [keyword]);
-
-  useEffect(() => {
-    if (chatDetails && chatDetails._id) {
-      setChat(chatDetails);
-      const Receiver = chatDetails.participants.filter(
-        (p) => p.userId !== user._id
-      );
-      setReceiver(Receiver[0]);
-    }
-  }, [chatDetails]);
 
   return (
     <Fragment>
@@ -118,7 +76,7 @@ const Chatbox = () => {
             <div className={`chatbox-overlay `}>
               <div
                 className={`chatbox-container ${
-                  chat && chat._id ? "chart-container-open" : ""
+                  chatDetails && chatDetails._id ? "chart-container-open" : ""
                 }`}
               >
                 <input
@@ -130,16 +88,18 @@ const Chatbox = () => {
                 <div className="chatbox-list">
                   {keyword === "" ? (
                     myChats &&
+                    myChats.length > 0 &&
                     myChats.map((user) => (
                       <div
-                        key={user._id}
+                        key={user.userId}
                         className={`chatbox-element ${
-                          chatClicked === user._id
+                          chatClicked === user.userId
                             ? "chatbox-element-clicked"
                             : ""
                         }`}
-                        onMouseDown={() => setChatClicked(user._id)}
+                        onMouseDown={() => setChatClicked(user.userId)}
                         onMouseUp={() => setChatClicked("")}
+                        onClick={() => handlerOpenChatDetails(user.userId)}
                       >
                         <img src={user.avatar?.url} />
                         <div className="chatbox-content">
@@ -177,55 +137,7 @@ const Chatbox = () => {
                   )}
                 </div>
               </div>
-              <div className={`chatbox-details`} hidden={!chat || !chat._id}>
-                <div className="chatbox-details-cotnainer">
-                  <div className="chatbox-details-header">
-                    <img
-                      src={receiver && receiver._id && receiver.avatar?.url}
-                    />
-                    <h5>{receiver && receiver._id && receiver.name}</h5>
-                  </div>
-                  <div className="chatbox-details-message-list"></div>
-                  <div className="chatbox-details-sendbox">
-                    <div className="chatbox-details-sendbox-elements">
-                      <label>
-                        <i className="fa fa-file-image-o"></i>
-                        <input
-                          type="file"
-                          name="images"
-                          onChange={onChange}
-                          multiple
-                          hidden
-                        />
-                      </label>
-                      <input
-                        type="text"
-                        placeholder="Nhập tin nhắn..."
-                        onFocus={() => setIsInputFocused(true)}
-                        onBlur={
-                          message.trim() === ""
-                            ? () => setIsInputFocused(false)
-                            : null
-                        }
-                        onChange={(e) => setMessage(e.target.value)}
-                        value={message}
-                      />
-                    </div>
-                    <button
-                      className={`${
-                        isInputFocused
-                          ? message.trim() === ""
-                            ? "disabled"
-                            : ""
-                          : "disabled"
-                      }`}
-                      onClick={() => handlerSendMessage()}
-                    >
-                      <i className="fa fa-send"></i>
-                    </button>
-                  </div>
-                </div>
-              </div>
+              <ChatDetails />
             </div>
           </div>
         )}

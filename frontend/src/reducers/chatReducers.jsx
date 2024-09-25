@@ -7,6 +7,8 @@ import {
   GET_CHAT_DETAIL_FAIL,
   SEND_MESSAGE_SUCCESS,
   SEND_MESSAGE_FAIL,
+  NEW_MESSAGE,
+  GET_CHAT_DETAIL_RESET,
 } from "../constants/chatConstants";
 
 export const myChatsReducer = (
@@ -65,6 +67,7 @@ export const chatReducer = (
 ) => {
   switch (action.type) {
     case GET_CHAT_DETAIL_SUCCESS:
+    case NEW_MESSAGE:
       return {
         ...state,
         chat: action.payload.chat,
@@ -86,6 +89,12 @@ export const chatReducer = (
       return {
         ...state,
         error: action.payload,
+      };
+
+    case GET_CHAT_DETAIL_RESET:
+      return {
+        ...state,
+        chat: null,
       };
 
     default:

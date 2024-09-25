@@ -4,33 +4,31 @@ const cloudinary = require("cloudinary");
 const catchAsyncErrors = require("../middlewares/catchAsyncErrors");
 const APIFeatures = require("../utils/apiFeatures");
 
-// exports.uploadChatImages = catchAsyncErrors(async (req, res, next) => {
-//   let images = Array.isArray(req.body.images)
-//     ? req.body.images
-//     : [req.body.images];
-//   let imagesLinks = [];
-
-//   for (let i = 0; i < images.length; i++) {
-//     const result = await cloudinary.v2.uploader.upload(images[i], {
-//       folder: "chat_images",
-//     });
-
-//     imagesLinks.push({
-//       public_id: result.public_id,
-//       url: result.secure_url,
-//     });
-//   }
-//   console.log("imagesLinks", imagesLinks);
-//   res.status(201).json({
-//     success: true,
-//     images: imagesLinks,
-//   });
-// });
-
 exports.getUserChats = catchAsyncErrors(async (req, res, next) => {
-  const chats = await Chat.find({ participants: req.user._id })
-    .sort({ createdAt: -1, _id: -1 })
-    .limit(5);
+  const apiFeatures = new APIFeatures(
+    Chat.find({
+      participants: {
+        $all: [{ $elemMatch: { userId: req.user._id } }],
+      },
+    }),
+    req.query
+  ).sort({ createdAt: -1, id: -1 });
+
+  let chats = await apiFeatures.query;
+
+  chats = apiFeatures.filterMyChats(chats).slice(0, 5);
+
+  let otherParticipants = [];
+
+  chats = chats.map((chat) => {
+    const participants = chat.participants.filter(
+      (participant) => participant.userId.toString() !== req.user._id.toString()
+    );
+
+    otherParticipants = otherParticipants.concat(participants);
+  });
+
+  chats = otherParticipants;
 
   res.status(200).json({ success: true, chats });
 });
@@ -91,10 +89,28 @@ exports.getChatDetails = catchAsyncErrors(async (req, res, next) => {
         },
       ],
     });
+  } else {
+    chat.messages = chat.messages.slice(-5);
   }
-
   res.status(200).json({ success: true, chat });
 });
+
+function getDatePart(date) {
+  if (typeof date === "string") {
+    return date.split("T")[0];
+  }
+  if (date instanceof Date) {
+    return date.toISOString().split("T")[0];
+  }
+  return null;
+}
+
+let io, userSockets;
+
+exports.setIo = (_io, _userSockets) => {
+  io = _io;
+  userSockets = _userSockets;
+};
 
 exports.sendMessage = catchAsyncErrors(async (req, res, next) => {
   const { message, chatId, date, images } = req.body;
@@ -106,11 +122,8 @@ exports.sendMessage = catchAsyncErrors(async (req, res, next) => {
   }
 
   let push = false;
-  const inputDate = new Date(date);
-  const sendDate = inputDate.toDateString();
-
   for (const section of chat.messages) {
-    if (new Date(section.date).toDateString() === sendDate) {
+    if (getDatePart(section.date) === getDatePart(date)) {
       section.content.push({
         senderId: req.user._id,
         message,
@@ -136,5 +149,21 @@ exports.sendMessage = catchAsyncErrors(async (req, res, next) => {
 
   chat.save();
 
-  res.status(200).json({ success: true });
+  const latestMessages = [...chat.messages].slice(-5);
+
+  res.status(200).json({
+    success: true,
+    chat: { ...chat.toObject(), messages: latestMessages },
+  });
+
+  const otherParticipant = chat.participants.filter(
+    (participant) => participant.userId.toString() !== req.user._id.toString()
+  );
+
+  if (io && userSockets.has(otherParticipant[0].userId.toString())) {
+    const socketId = userSockets.get(otherParticipant[0].userId.toString());
+    io.to(socketId).emit("newMessage", {
+      chat: { ...chat.toObject(), messages: latestMessages },
+    });
+  }
 });
