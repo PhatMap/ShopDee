@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { sendMessage } from "../../actions/chatActions";
+import Message from "./Message";
 
 const ChatDetails = () => {
   const { chat: chatDetails } = useSelector((state) => state.chat);
@@ -53,18 +54,7 @@ const ChatDetails = () => {
     let isMounted = true;
     if (chatDetails && chatDetails._id) {
       if (messageListRef.current) {
-        const { scrollHeight, clientHeight } = messageListRef.current;
-        const isOverflow = scrollHeight > clientHeight;
-
-        if (!isOverflow) {
-          setChat(chatDetails);
-        } else {
-          const reversedChatDetails = {
-            ...chatDetails,
-            messages: [...chatDetails.messages].reverse(),
-          };
-          setChat(reversedChatDetails);
-        }
+        setChat(chatDetails);
 
         const Receiver = chatDetails.participants.filter(
           (p) => p.userId !== user._id
@@ -86,10 +76,6 @@ const ChatDetails = () => {
     };
   }, [chatDetails]);
 
-  useEffect(() => {
-    console.log(chatDetails);
-  }, [chatDetails]);
-
   return (
     <div className={`chatbox-details`} hidden={!chat || !chat._id}>
       <div className="chatbox-details-cotnainer">
@@ -102,19 +88,7 @@ const ChatDetails = () => {
             chat._id &&
             chat.messages.length > 0 &&
             chat.messages.map((section, index) => (
-              <div key={index} className={`chatbox-details-message-date`}>
-                <h6>{section.date.split("T")[0]}</h6>
-                {section.content.map((attribute, index) => (
-                  <div
-                    key={index}
-                    className={`chatbox-details-message ${
-                      attribute.senderId === user._id ? "sender" : "receiver"
-                    }`}
-                  >
-                    <p>{attribute.message}</p>
-                  </div>
-                ))}
-              </div>
+              <Message key={index} section={section} user={user} />
             ))}
         </div>
         <div className="chatbox-details-sendbox">
@@ -142,10 +116,10 @@ const ChatDetails = () => {
           </div>
           <button
             className={`${
-              isInputFocused
-                ? message.trim() === ""
-                  ? "disabled"
-                  : ""
+              isInputFocused && message.trim() !== ""
+                ? ""
+                : images.length > 0
+                ? ""
                 : "disabled"
             }`}
             onClick={() => handlerSendMessage()}

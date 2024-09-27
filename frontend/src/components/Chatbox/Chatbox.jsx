@@ -2,8 +2,6 @@ import React, {
   useState,
   useEffect,
   Fragment,
-  useRef,
-  useCallback,
 } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -14,8 +12,8 @@ import {
   getUserChats,
   sendMessage,
 } from "../../actions/chatActions";
-import ChatDetails from "./ChatDetails";
 import { GET_CHAT_DETAIL_RESET } from "../../constants/chatConstants";
+import ChatDetails from "./ChatDetails";
 
 const Chatbox = () => {
   const { user } = useSelector((state) => state.auth);

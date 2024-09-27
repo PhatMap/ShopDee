@@ -121,12 +121,29 @@ exports.sendMessage = catchAsyncErrors(async (req, res, next) => {
     return next(new ErrorHandler("Chat not found", 404));
   }
 
+  let imageUrls = [];
+  if (images) {
+    let imageArray = Array.isArray(images) ? images : [images];
+
+    for (let i = 0; i < imageArray.length; i++) {
+      const result = await cloudinary.v2.uploader.upload(imageArray[i], {
+        folder: "test",
+      });
+
+      imageUrls.push({
+        public_id: result.public_id,
+        url: result.secure_url,
+      });
+    }
+  }
+
   let push = false;
   for (const section of chat.messages) {
     if (getDatePart(section.date) === getDatePart(date)) {
       section.content.push({
         senderId: req.user._id,
         message,
+        images: imageUrls,
         timestamp: date,
       });
       push = true;
@@ -141,6 +158,7 @@ exports.sendMessage = catchAsyncErrors(async (req, res, next) => {
         {
           senderId: req.user._id,
           message,
+          images: imageUrls,
           timestamp: date,
         },
       ],
