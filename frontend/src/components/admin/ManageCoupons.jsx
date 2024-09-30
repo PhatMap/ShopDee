@@ -2,7 +2,11 @@ import React, { Fragment, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import DataTable from "../layout/DataTable";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllCoupons, deleteCoupon,toggleStatus  } from "../../actions/couponActions";
+import {
+  getAllCoupons,
+  deleteCoupon,
+  toggleStatus,
+} from "../../actions/couponActions";
 import Pagination from "react-js-pagination";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -11,16 +15,17 @@ import {
   UPDATE_COUPON_RESET,
   TOGGLE_STATUS_RESET,
   CREATE_COUPON_RESET,
-  CLEAR_ERRORS
+  CLEAR_ERRORS,
 } from "../../constants/couponConstants";
 
 const ManageCoupons = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const { loading, error, coupons, totalCoupons, success,isStatusUpdated } = useSelector(
-    (state) => state.coupon // Ensure this matches the slice name in your root reducer
-  );
+  const { loading, error, coupons, totalCoupons, success, isStatusUpdated } =
+    useSelector(
+      (state) => state.coupon // Ensure this matches the slice name in your root reducer
+    );
 
   const [currentPage, setCurrentPage] = useState(1);
   const [keyword, setKeyword] = useState("");
@@ -29,30 +34,30 @@ const ManageCoupons = () => {
 
   const [status, setStatus] = useState("all");
   const [role, setRole] = useState("all");
-  
-    useEffect(() => {
-      if (isStatusUpdated) {
-        toast.success("Cập nhật trạng thái thành công");
-        dispatch({ type: TOGGLE_STATUS_RESET });
-        dispatch(getAllCoupons(currentPage, keyword, status, role));
-      }
-    }, [dispatch, isStatusUpdated, currentPage, keyword, status, role]);
 
-    useEffect(() => {
+  useEffect(() => {
+    if (isStatusUpdated) {
+      toast.success("Cập nhật trạng thái thành công");
+      dispatch({ type: TOGGLE_STATUS_RESET });
       dispatch(getAllCoupons(currentPage, keyword, status, role));
+    }
+  }, [dispatch, isStatusUpdated, currentPage, keyword, status, role]);
 
-      if (success) {
-        toast.success("Xóa Thành Công Phiếu Giảm Giá");
-        dispatch({ type: DELETE_COUPON_RESET });
-        dispatch({ type: UPDATE_COUPON_RESET });
-        dispatch({ type: CREATE_COUPON_RESET });
-      }
+  useEffect(() => {
+    dispatch(getAllCoupons(currentPage, keyword, status, role));
 
-      if (error) {
-        toast.error(error);
-        dispatch({ type: CLEAR_ERRORS });
-      }
-    }, [dispatch, success, error, currentPage, keyword, status, role]);
+    if (success) {
+      toast.success("Xóa Thành Công Phiếu Giảm Giá");
+      dispatch({ type: DELETE_COUPON_RESET });
+      dispatch({ type: UPDATE_COUPON_RESET });
+      dispatch({ type: CREATE_COUPON_RESET });
+    }
+
+    if (error) {
+      toast.error(error);
+      dispatch({ type: CLEAR_ERRORS });
+    }
+  }, [dispatch, success, error, currentPage, keyword, status, role]);
   const deleteHandler = (id) => {
     setShow(true);
     setCouponToDelete(id);
@@ -62,7 +67,6 @@ const ManageCoupons = () => {
     dispatch(deleteCoupon(couponToDelete));
     dispatch(getAllCoupons(currentPage, keyword));
     setShow(false);
-
   };
 
   const handleSearch = (e) => {
@@ -147,7 +151,7 @@ const ManageCoupons = () => {
                 </button>
                 <button
                   className="btn btn-warning py-1 ml-2"
-                  onClick={() => handleBanCoupon (coupon._id)}
+                  onClick={() => handleBanCoupon(coupon._id)}
                 >
                   <i
                     className={`fa ${
@@ -178,70 +182,39 @@ const ManageCoupons = () => {
     setCurrentPage(pageNumber);
   };
 
-
-
   return (
     <Fragment>
       <ToastContainer />
-      <h1
-        className="my-5"
-        style={{ fontWeight: "bold", textAlign: "center", fontSize: "24px" }}
-      >
-        Quản lý Phiếu Giảm Giá
-      </h1>
-
-      <div className="mb-4" style={{ display: "flex", marginLeft: "5rem" }}>
-        <Link to="/admin/coupon/new" className="btn btn-primary">
-          Thêm phiếu giảm giá mới
-        </Link>
-      </div>
-      <form
-        onSubmit={handleSearch}
-        style={{
-          display: "flex",
-          marginLeft: "5rem",
-          gap: "10px",
-          marginBottom: "20px",
-        }}
-      >
-        <input
-          type="text"
-          placeholder="Tìm kiếm phiếu giảm giá..."
-          value={keyword}
-          onChange={(e) => setKeyword(e.target.value)}
-          style={{
-            padding: "10px",
-            borderRadius: "5px",
-            border: "1px solid #ccc",
-          }}
-        />
-         <select value={status} onChange={handleStatusChange} style={{ padding: "10px", borderRadius: "5px", border: "1px solid #ccc" }}>
-          <option value="all">Tất cả trạng thái</option>
-          <option value="active">Đang hoạt động</option>
-          <option value="inactive">Ngưng hoạt động</option>
-        </select>
-        <select value={role} onChange={handleRoleChange} style={{ padding: "10px", borderRadius: "5px", border: "1px solid #ccc" }}>
-          <option value="all">Tất cả vai trò</option>
-          <option value="admin">Admin</option>
-          <option value="shopkeeper">Shopkeeper</option>
-        </select>
-       
-      </form>
-      {loading ? (
-        <h2 style={{ textAlign: "center" }}>Đang tải...</h2>
-      ) : (
-        <Fragment>
-          <div style={{ display: "flex", justifyContent: "center" }}>
+      <div className="admin-layout">
+        <div className="admin-container">
+          <div className="flex-center-screen">
+            <div className="manage-category-head">
+              <h1>Quản lý Phiếu Giảm Giá</h1>
+            </div>
+            <div className="head-model-1">
+              <button onClick={() => history("/admin/addUser")}>
+                <i className="fa fa-plus"></i> <p>Thêm Phiếu Giảm Giá</p>
+              </button>
+              <input
+                className="search-input-2"
+                type="search"
+                placeholder="Search here..."
+                onChange={(e) => handleSearch(e)}
+              />            
+              <div className="select-bar-4">
+                <select value={status} onChange={handleStatusChange}>
+                  <option value="all">Tất cả trạng thái</option>
+                  <option value="active">Đang hoạt động</option>
+                  <option value="inactive">Ngưng hoạt động</option>
+                </select>
+                <select value={role} onChange={handleRoleChange}>
+                  <option value="all">Tất cả vai trò</option>
+                  <option value="admin">Admin</option>
+                  <option value="shopkeeper">Shopkeeper</option>
+                </select>
+              </div>
+            </div>
             <DataTable data={setCoupons()} />
-          </div>
-          <div
-            className="d-flex justify-content-center mt-5"
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              marginBottom: "2rem",
-            }}
-          >
             <Pagination
               activePage={currentPage}
               itemsCountPerPage={10}
@@ -255,8 +228,8 @@ const ManageCoupons = () => {
               linkClass="page-link"
             />
           </div>
-        </Fragment>
-      )}
+        </div>
+      </div>
       {show && (
         <div className="delete-notify-container">
           <div className="delete-notify-form">

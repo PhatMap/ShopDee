@@ -6,6 +6,7 @@ const {
   getChats,
   getChatDetails,
   sendMessage,
+  updateMessage,
 } = require("../controllers/chatController");
 
 const { isAuthenticatedUser } = require("../middlewares/auth");
@@ -17,6 +18,7 @@ router.route("/chats").get(isAuthenticatedUser, getChats);
 router
   .route("/chats/details")
   .get(isAuthenticatedUser, getChatDetails)
-  .post(isAuthenticatedUser, sendMessage);
+  .post(isAuthenticatedUser, sendMessage)
+  .put(isAuthenticatedUser, updateMessage);
 
 module.exports = router;

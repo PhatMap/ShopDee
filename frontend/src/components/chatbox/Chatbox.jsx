@@ -6,7 +6,6 @@ import {
   getChatDetails,
   getChats,
   getUserChats,
-  sendMessage,
 } from "../../actions/chatActions";
 import { GET_CHAT_DETAIL_RESET } from "../../constants/chatConstants";
 import ChatDetails from "./ChatDetails";

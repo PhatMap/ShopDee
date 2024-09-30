@@ -88,7 +88,12 @@ const ChatDetails = () => {
             chat._id &&
             chat.messages.length > 0 &&
             chat.messages.map((section, index) => (
-              <Message key={index} section={section} user={user} />
+              <Message
+                key={index}
+                chatId={chat._id}
+                section={section}
+                user={user}
+              />
             ))}
         </div>
         <div className="chatbox-details-sendbox">

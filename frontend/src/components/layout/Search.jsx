@@ -20,7 +20,7 @@ const Search = () => {
     <form className="Search-form" onSubmit={searchHandler}>
       <i className="fa fa-search Search-icon"></i>
       <input
-        className="Search-input"
+        className="search-input-2"
         type="search"
         placeholder="Search here..."
         value={keyword}

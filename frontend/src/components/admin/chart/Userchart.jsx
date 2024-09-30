@@ -68,31 +68,34 @@ const Userchart = ({ userData = { storekeeper: 20, customer: 80 } }) => {
   };
 
   return (
-    <div className="pie-chart-container">
+    <div>
       <h1>Số Lượng Người Dùng</h1>
-      <ResponsiveContainer width="100%" height={200}>
-        <PieChart title="Số lượng người dùng">
-          <Pie
-            data={data}
-            cx="50%"
-            cy="50%"
-            labelLine={false}
-            label={renderCustomizedLabel}
-            outerRadius={80}
-            fill="#8884d8"
-            dataKey="value"
-          >
-            {data.map((entry, index) => (
-              <Cell
-                key={`cell-${index}`}
-                fill={COLORS[index % COLORS.length]}
-              />
-            ))}
-          </Pie>
-          <Tooltip />
-          <Legend content={renderCusomizedLegend} />
-        </PieChart>
-      </ResponsiveContainer>
+
+      <div className="pie-chart-container">
+        <ResponsiveContainer width="100%" height={200}>
+          <PieChart title="Số lượng người dùng">
+            <Pie
+              data={data}
+              cx="50%"
+              cy="50%"
+              labelLine={false}
+              label={renderCustomizedLabel}
+              outerRadius={80}
+              fill="#8884d8"
+              dataKey="value"
+            >
+              {data.map((entry, index) => (
+                <Cell
+                  key={`cell-${index}`}
+                  fill={COLORS[index % COLORS.length]}
+                />
+              ))}
+            </Pie>
+            <Tooltip />
+            <Legend content={renderCusomizedLegend} />
+          </PieChart>
+        </ResponsiveContainer>
+      </div>
     </div>
   );
 };

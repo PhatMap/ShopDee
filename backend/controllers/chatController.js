@@ -10,9 +10,9 @@ exports.getUserChats = catchAsyncErrors(async (req, res, next) => {
       participants: {
         $all: [{ $elemMatch: { userId: req.user._id } }],
       },
-    }),
+    }).sort({ updatedAt: -1 }),
     req.query
-  ).sort({ createdAt: -1, id: -1 });
+  );
 
   let chats = await apiFeatures.query;
 
@@ -184,4 +184,34 @@ exports.sendMessage = catchAsyncErrors(async (req, res, next) => {
       chat: { ...chat.toObject(), messages: latestMessages },
     });
   }
+});
+
+exports.updateMessage = catchAsyncErrors(async (req, res, next) => {
+  const { chatId, sectionId, messageId, icon } = req.body;
+
+  const chat = await Chat.findById(chatId);
+
+  if (!chat) {
+    return res.status(400).json({
+      success: false,
+      message: "Chat không tồn tại",
+    });
+  }
+
+  let update = false;
+  for (const message of chat.messages) {
+    if (message._id.toString() === sectionId.toString()) {
+      for (const content of message.content) {
+        if (content._id.toString() === messageId.toString()) {
+          content.icon = icon;
+          update = true;
+          break;
+        }
+      }
+    }
+  }
+
+  chat.save();
+
+  res.status(200).json({ success: true, chat });
 });

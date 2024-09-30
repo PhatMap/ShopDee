@@ -7,6 +7,8 @@ import {
   GET_CHAT_DETAIL_SUCCESS,
   SEND_MESSAGE_SUCCESS,
   SEND_MESSAGE_FAIL,
+  UPDATE_MESSAGE_SUCCESS,
+  UPDATE_MESSAGE_FAIL,
 } from "../constants/chatConstants";
 
 export const getUserChats = () => async (dispatch) => {
@@ -83,6 +85,22 @@ export const sendMessage = (message) => async (dispatch) => {
   } catch (error) {
     dispatch({
       type: SEND_MESSAGE_FAIL,
+      payload: error.response ? error.response.data.message : error.message,
+    });
+  }
+};
+
+export const updateMessage = (message) => async (dispatch) => {
+  try {
+    const { data } = await axios.put(`/api/v1/chats/details`, message);
+
+    dispatch({
+      type: UPDATE_MESSAGE_SUCCESS,
+      payload: { chat: data.chat },
+    });
+  } catch (error) {
+    dispatch({
+      type: UPDATE_MESSAGE_FAIL,
       payload: error.response ? error.response.data.message : error.message,
     });
   }

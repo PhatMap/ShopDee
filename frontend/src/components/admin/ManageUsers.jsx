@@ -17,6 +17,7 @@ import {
   DELETE_USER_RESET,
   UPDATE_USER_RESET,
 } from "../../constants/userConstants";
+import CustomizeDataTable from "./CustomizeDataTable";
 
 const ManageUsers = () => {
   const { loading, error, users, total } = useSelector(
@@ -262,104 +263,154 @@ const ManageUsers = () => {
       <div className="admin-layout">
         <div className="admin-container">
           <div className="flex-center-screen">
-            <div className="manage-category-head">
-              <h1>Quản Lý Người Dùng</h1>
-            </div>
-            <div className="tabs">
-              <label htmlFor="all" className={status === "" ? "marked" : ""}>
-                <input
-                  type="radio"
-                  id="all"
-                  name="status"
-                  value="all"
-                  onChange={() => handleSegmentedTab("all")}
-                  checked={status === ""}
-                />
-                Tất cả trạng thái
-              </label>
-
-              <label
-                htmlFor="active"
-                className={status === "active" ? "marked" : ""}
-              >
-                <input
-                  type="radio"
-                  id="active"
-                  name="status"
-                  value="active"
-                  onChange={() => handleSegmentedTab("active")}
-                  checked={status === "active"}
-                />
-                Đang hoạt động
-              </label>
-              <label
-                htmlFor="inactive"
-                className={status === "inactive" ? "marked" : ""}
-              >
-                <input
-                  type="radio"
-                  id="inactive"
-                  name="status"
-                  value="inactive"
-                  onChange={() => handleSegmentedTab("inactive")}
-                  checked={status === "inactive"}
-                />
-                Ngưng hoạt động
-              </label>
-            </div>
-
-            <div className="flex-horizental">
-              <div className="select-bar-1">
-                <button onClick={() => handleResPerPage(1)}>1</button>
-                <button onClick={() => handleResPerPage(10)}>10</button>
-                <button onClick={() => handleResPerPage(100)}>100</button>
+            <div className="top-bar">
+              <div className="manage-category-head">
+                <h1>Quản Lý Người Dùng</h1>
               </div>
-              <div className="select-bar-2">
-                <button onClick={() => handleCheckAll()}>Tất cả</button>
-                <label className="check-btn">
+              <div className="tabs">
+                <div className="select-bar-3">
+                  <label
+                    htmlFor="all"
+                    className={status === "" ? "marked" : ""}
+                  >
+                    <input
+                      type="radio"
+                      id="all"
+                      name="status"
+                      value="all"
+                      onChange={() => handleSegmentedTab("all")}
+                      checked={status === ""}
+                    />
+                    Tất cả trạng thái
+                  </label>
+
+                  <label
+                    htmlFor="active"
+                    className={status === "active" ? "marked" : ""}
+                  >
+                    <input
+                      type="radio"
+                      id="active"
+                      name="status"
+                      value="active"
+                      onChange={() => handleSegmentedTab("active")}
+                      checked={status === "active"}
+                    />
+                    Đang hoạt động
+                  </label>
+                  <label
+                    htmlFor="inactive"
+                    className={status === "inactive" ? "marked" : ""}
+                  >
+                    <input
+                      type="radio"
+                      id="inactive"
+                      name="status"
+                      value="inactive"
+                      onChange={() => handleSegmentedTab("inactive")}
+                      checked={status === "inactive"}
+                    />
+                    Ngưng hoạt động
+                  </label>
+                </div>
+
+                <div className="select-bar-1">
+                  <button
+                    className={resPerPage === 1 ? "marked" : ""}
+                    onClick={() => handleResPerPage(1)}
+                  >
+                    1
+                  </button>
+                  <button
+                    className={resPerPage === 10 ? "marked" : ""}
+                    onClick={() => handleResPerPage(10)}
+                  >
+                    10
+                  </button>
+                  <button
+                    className={resPerPage === 100 ? "marked" : ""}
+                    onClick={() => handleResPerPage(100)}
+                  >
+                    100
+                  </button>
+                </div>
+              </div>
+              <div className="flex-horizental">
+                <div className="manage-category-form-btns">
+                  <button onClick={() => history("/admin/addUser")}>
+                    <i className="fa fa-plus"></i> <p>Thêm người dùng</p>
+                  </button>
                   <input
-                    type="checkbox"
-                    checked={checkList[0]}
-                    onChange={() => handleCheckbox(0)}
-                    className="cart-checkbox"
+                    className="search-input-1"
+                    type="search"
+                    placeholder="Search here..."
+                    onChange={(e) => handleSearch(e)}
                   />
-                  <p>Khách hàng</p>
-                </label>
-                <label className="check-btn">
-                  <input
-                    type="checkbox"
-                    checked={checkList[1]}
-                    onChange={() => handleCheckbox(1)}
-                    className="cart-checkbox"
-                  />
-                  <p>Chủ cửa hàng</p>
-                </label>
-                <label className="check-btn">
-                  <input
-                    type="checkbox"
-                    checked={checkList[2]}
-                    onChange={() => handleCheckbox(2)}
-                    className="cart-checkbox"
-                  />
-                  <p>Quản trị viên</p>
-                </label>
+                </div>
+                <div className="select-bar-2">
+                  <button
+                    className={`${
+                      !checkList[0] && !checkList[1] && !checkList[2]
+                        ? "marked"
+                        : ""
+                    }`}
+                    onClick={() => handleCheckAll()}
+                  >
+                    Tất cả
+                  </button>
+                  <label className={`${checkList[0] ? "selected" : ""}`}>
+                    <input
+                      type="checkbox"
+                      checked={checkList[0]}
+                      onChange={() => handleCheckbox(0)}
+                      hidden={true}
+                    />
+                    <p>Khách hàng</p>
+                    <img
+                      src="/images/checked.png"
+                      width={10}
+                      height={10}
+                      className="pin"
+                      hidden={!checkList[0]}
+                    />
+                  </label>
+                  <label className={`${checkList[1] ? "selected" : ""}`}>
+                    <input
+                      type="checkbox"
+                      checked={checkList[1]}
+                      onChange={() => handleCheckbox(1)}
+                      hidden={true}
+                    />
+                    <p>Chủ cửa hàng</p>
+                    <img
+                      src="/images/checked.png"
+                      width={10}
+                      height={10}
+                      className="pin"
+                      hidden={!checkList[1]}
+                    />
+                  </label>
+                  <label className={`${checkList[2] ? "selected" : ""}`}>
+                    <input
+                      type="checkbox"
+                      checked={checkList[2]}
+                      onChange={() => handleCheckbox(2)}
+                      hidden={true}
+                    />
+                    <p>Quản trị viên</p>
+                    <img
+                      src="/images/checked.png"
+                      width={10}
+                      height={10}
+                      className="pin"
+                      hidden={!checkList[2]}
+                    />
+                  </label>
+                </div>
               </div>
             </div>
-            <div className="horizontal-1 size-1 manage-category-form-btns">
-              <button
-                className="add-btn"
-                onClick={() => history("/admin/addUser")}
-              >
-                <i className="fa fa-plus"></i> Thêm người dùng
-              </button>
-              <input
-                className="Search-input"
-                type="search"
-                placeholder="Search here..."
-                onChange={(e) => handleSearch(e)}
-              />
-            </div>
-            <DataTable data={setUsers()} />
+
+            <CustomizeDataTable data={setUsers()} />
             <Pagination
               activePage={currentPage}
               itemsCountPerPage={total > resPerPage ? resPerPage : total}

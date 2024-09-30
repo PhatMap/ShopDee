@@ -200,80 +200,89 @@ const ManageProducts = () => {
           setDecide={setDecide}
         />
       )}
-      <div className="manage-application-container">
-        <div>
-          <h1 className="display-4 text-center">Quản Lý Sản Phẩm</h1>
-          <p className="lead text-center">Manage Products</p>
-          <hr />
-        </div>
-        <div className="tabs">
-          <label
-            htmlFor="pending"
-            className={approved === "pending" ? "marked" : ""}
-          >
-            <input
-              type="radio"
-              id="pending"
-              name="status"
-              value="pending"
-              onChange={() => handleSegmentedTab("pending")}
-              checked={approved === "pending"}
+      <div className="admin-layout">
+        <div className="admin-container">
+          <div className="flex-center-screen">
+            <div>
+              <h1 className="display-4 text-center">Quản Lý Sản Phẩm</h1>
+              <p className="lead text-center">Manage Products</p>
+              <hr />
+            </div>
+            <div className="tabs-1">
+              <div className="select-bar-3">
+                <input
+                  className="search-input-1"
+                  type="search"
+                  placeholder="Search here..."
+                  onChange={(e) => handleSearch(e)}
+                />
+              </div>
+              <div className="select-bar-3">
+                <label
+                  htmlFor="pending"
+                  className={approved === "pending" ? "marked" : ""}
+                >
+                  <input
+                    type="radio"
+                    id="pending"
+                    name="status"
+                    value="pending"
+                    onChange={() => handleSegmentedTab("pending")}
+                    checked={approved === "pending"}
+                  />
+                  <p>Chờ Duyệt</p>
+                </label>
+                <label
+                  htmlFor="approved"
+                  className={approved === "approved" ? "marked" : ""}
+                >
+                  <input
+                    type="radio"
+                    id="approved"
+                    name="status"
+                    value="approved"
+                    onChange={() => handleSegmentedTab("approved")}
+                    checked={approved === "approved"}
+                  />
+                  <p>Đã Duyệt</p>
+                </label>
+                <label
+                  htmlFor="rejected"
+                  className={approved === "rejected" ? "marked" : ""}
+                >
+                  <input
+                    type="radio"
+                    id="rejected"
+                    name="status"
+                    value="rejected"
+                    onChange={() => handleSegmentedTab("rejected")}
+                    checked={approved === "rejected"}
+                  />
+                  <p>Từ Chối</p>
+                </label>
+              </div>
+              <div className="select-bar-1">
+                <button onClick={() => handleResPerPage(5)}>5</button>
+                <button onClick={() => handleResPerPage(10)}>10</button>
+                <button onClick={() => handleResPerPage(100)}>100</button>
+              </div>
+            </div>
+
+            <DataTable data={setProducts()} />
+            <Pagination
+              activePage={currentPage}
+              itemsCountPerPage={total > resPerPage ? resPerPage : total}
+              totalItemsCount={total > resPerPage ? total : 1}
+              onChange={setCurrentPageNo}
+              nextPageText={"Tiếp"}
+              prevPageText={"Trước"}
+              firstPageText={"Đầu"}
+              lastPageText={"Cuối"}
+              itemClass="page-item"
+              linkClass="page-link"
             />
-            Chờ Duyệt
-          </label>
-          <label
-            htmlFor="approved"
-            className={approved === "approved" ? "marked" : ""}
-          >
-            <input
-              type="radio"
-              id="approved"
-              name="status"
-              value="approved"
-              onChange={() => handleSegmentedTab("approved")}
-              checked={approved === "approved"}
-            />
-            Đã Duyệt
-          </label>
-          <label
-            htmlFor="rejected"
-            className={approved === "rejected" ? "marked" : ""}
-          >
-            <input
-              type="radio"
-              id="rejected"
-              name="status"
-              value="rejected"
-              onChange={() => handleSegmentedTab("rejected")}
-              checked={approved === "rejected"}
-            />
-            Từ Chối
-          </label>
+          </div>
         </div>
-        <div className="select-bar">
-          <button onClick={() => handleResPerPage(5)}>5</button>
-          <button onClick={() => handleResPerPage(10)}>10</button>
-          <button onClick={() => handleResPerPage(100)}>100</button>
-        </div>
-        <input
-          className="Search-input"
-          type="search"
-          placeholder="Search here..."
-          onChange={(e) => handleSearch(e)}
-        />
-        <DataTable data={setProducts()} />
-        <Pagination
-          activePage={currentPage}
-          itemsCountPerPage={total > resPerPage ? resPerPage : total}
-          totalItemsCount={total > resPerPage ? total : 1}
-          onChange={setCurrentPageNo}
-          nextPageText={"Tiếp"}
-          prevPageText={"Trước"}
-          firstPageText={"Đầu"}
-          lastPageText={"Cuối"}
-          itemClass="page-item"
-          linkClass="page-link"
-        />
       </div>
     </Fragment>
   );

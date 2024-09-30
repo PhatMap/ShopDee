@@ -1,6 +1,9 @@
 import React, { useCallback, useRef, useState } from "react";
+import { useDispatch } from "react-redux";
+import { updateMessage } from "../../actions/chatActions";
 
-const Message = ({ section, user }) => {
+const Message = ({ chatId, section, user }) => {
+  const dispatch = useDispatch();
   const iconList = [
     "https://static.xx.fbcdn.net/images/emoji.php/v9/t47/1/32/1f621.png",
     ,
@@ -17,7 +20,7 @@ const Message = ({ section, user }) => {
   ];
 
   const [showIconBox, setShowIconBox] = useState(null);
-  const [showButtonIcon, setShowButtonIconx] = useState(null);
+  const [showButtonIcon, setShowButtonIcon] = useState(null);
   const timeoutRef = useRef(null);
 
   const handleMouseEnter = useCallback((index) => {
@@ -32,6 +35,17 @@ const Message = ({ section, user }) => {
       setShowIconBox(null);
     }, 1000);
   }, []);
+
+  const handlerAddIcon = (icon) => {
+    const formData = new FormData();
+    formData.set("chatId", chatId);
+    formData.set("sectionId", section._id);
+    formData.set("messageId", section.content[showButtonIcon]._id);
+    formData.set("icon", icon);
+    dispatch(updateMessage(formData));
+    setShowIconBox(null);
+  };
+
   return (
     <div className={`chatbox-details-message-date`}>
       <h6>{section.date.split("T")[0]}</h6>
@@ -47,11 +61,11 @@ const Message = ({ section, user }) => {
             className={`chatbox-details-message ${
               attribute.senderId === user._id ? "sender" : "receiver"
             }`}
-            onMouseEnter={() => setShowButtonIconx(index)}
-            onMouseLeave={() => setShowButtonIconx(null)}
+            onMouseEnter={() => setShowButtonIcon(index)}
+            onMouseLeave={() => setShowButtonIcon(null)}
           >
             <p>{attribute.message}</p>
-            {showButtonIcon === index && (
+            {(showButtonIcon === index || section.content[index].icon) && (
               <button
                 className={`message-icon-btns ${
                   attribute.senderId === user._id ? "sender" : "receiver"
@@ -59,21 +73,71 @@ const Message = ({ section, user }) => {
                 onMouseEnter={() => handleMouseEnter(index)}
                 onMouseLeave={handleMouseLeave}
               >
-                <i className="fa fa-thumbs-o-up icon-point">
-                  {showIconBox === index && (
-                    <span
-                      className={`message-icon-show ${
-                        attribute.senderId === user._id ? "sender" : "receiver"
-                      }`}
-                      onMouseEnter={() => handleMouseEnter(index)}
-                      onMouseLeave={() => setShowIconBox(null)}
-                    >
-                      {iconList.map((icon) => (
-                        <img width={25} height={25} src={icon} alt="icon" />
-                      ))}
-                    </span>
-                  )}
-                </i>
+                {section.content[index].icon ? (
+                  <div className="icon-point">
+                    <img
+                      width={15}
+                      height={15}
+                      src={section.content[index].icon}
+                      alt="icon"
+                    />
+                    {showIconBox === index && (
+                      <span
+                        className={`message-icon-show ${
+                          attribute.senderId === user._id
+                            ? "sender"
+                            : "receiver"
+                        }`}
+                        onMouseEnter={() => handleMouseEnter(index)}
+                      >
+                        {iconList.map((icon, iconIndex) => (
+                          <img
+                            key={iconIndex}
+                            width={25}
+                            height={25}
+                            src={icon}
+                            alt="icon"
+                            onClick={() => {
+                              handlerAddIcon(icon);
+                            }}
+                          />
+                        ))}
+                      </span>
+                    )}
+                  </div>
+                ) : (
+                  <div className="icon-point">
+                    <img
+                      width={15}
+                      height={15}
+                      src={"./images/thumb-up.png"}
+                      alt="icon"
+                    />
+                    {showIconBox === index && (
+                      <span
+                        className={`message-icon-show ${
+                          attribute.senderId === user._id
+                            ? "sender"
+                            : "receiver"
+                        }`}
+                        onMouseEnter={() => handleMouseEnter(index)}
+                        onMouseLeave={() => setShowIconBox(null)}
+                      >
+                        {iconList.map((icon) => (
+                          <img
+                            width={25}
+                            height={25}
+                            src={icon}
+                            alt="icon"
+                            onClick={() => {
+                              handlerAddIcon(icon);
+                            }}
+                          />
+                        ))}
+                      </span>
+                    )}
+                  </div>
+                )}
               </button>
             )}
           </div>
