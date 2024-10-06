@@ -1,7 +1,7 @@
 import React, { Fragment, useState, useEffect } from "react";
 import Loader from "../layout/Loader";
 import MetaData from "../layout/MetaData";
-import ListReviews from "../review/ListReviews";
+import ReviewsList from "../review/ReviewsList";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useDispatch, useSelector } from "react-redux";
@@ -381,7 +381,7 @@ const ProductDetails = () => {
           <div style={{ marginTop: "-10rem", marginBottom: "2rem" }}>
             <Review productId={id} user={user} hasPurchased={hasPurchased} />
           </div>
-          <ListReviews productId={id} />
+          <ReviewsList productId={id} />
         </div>
       </div>
     </Fragment>

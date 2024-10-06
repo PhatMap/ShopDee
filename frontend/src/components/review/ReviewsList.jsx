@@ -4,9 +4,11 @@ import Pagination from "react-js-pagination";
 import { getReviewsInProduct } from "../../actions/productActions";
 import Loader from "../layout/Loader";
 
-const ListReviews = ({ productId }) => {
+const ReviewsList = ({ productId }) => {
   const dispatch = useDispatch();
-  const { reviews, totalReviews, loading, error } = useSelector((state) => state.reviewsInProduct);
+  const { reviews, totalReviews, loading, error } = useSelector(
+    (state) => state.reviewsInProduct
+  );
   const [currentPage, setCurrentPage] = useState(1);
   const resPerPage = 10; // Số lượng kết quả mỗi trang
 
@@ -15,7 +17,7 @@ const ListReviews = ({ productId }) => {
       dispatch(getReviewsInProduct(productId, currentPage, resPerPage));
     }
   }, [dispatch, productId, currentPage, resPerPage]);
-  console.log("totalReviews",totalReviews);
+  console.log("totalReviews", totalReviews);
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
@@ -24,8 +26,6 @@ const ListReviews = ({ productId }) => {
     <Fragment>
       {loading ? (
         <Loader />
-      ) : error ? (
-        <p className="redColor">{error}</p>
       ) : (
         <Fragment>
           <div className="reviews">
@@ -34,7 +34,10 @@ const ListReviews = ({ productId }) => {
                 <div key={review._id} className="review-card">
                   <p className="review-user">{review.name}</p>
                   <div className="rating-outer">
-                    <div className="rating-inner" style={{ width: `${(review.rating / 5) * 100}%` }}></div>
+                    <div
+                      className="rating-inner"
+                      style={{ width: `${(review.rating / 5) * 100}%` }}
+                    ></div>
                   </div>
                   <p className="review-comment">{review.comment}</p>
                 </div>
@@ -71,4 +74,4 @@ const ListReviews = ({ productId }) => {
   );
 };
 
-export default ListReviews;
+export default ReviewsList;

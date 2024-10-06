@@ -11,7 +11,7 @@ import {
   uploadImages,
 } from "../../actions/productActions";
 import { NEW_PRODUCT_RESET } from "../../constants/productConstants";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Back from "../layout/Back";
 import Variant from "./Variant";
 import AddVariant from "./AddVariant";
@@ -28,6 +28,7 @@ const NewProduct = () => {
   const [imagesPreview, setImagesPreview] = useState([]);
   const [variants, setVariants] = useState([]);
   const [show, setShow] = useState(false);
+  const [selectedImage, setSelectedImage] = useState(null);
 
   const [emptyPrice, setEmptyPrice] = useState(false);
   const [emptyName, setEmptyName] = useState(false);
@@ -45,7 +46,6 @@ const NewProduct = () => {
     categories,
   } = useSelector((state) => state.category);
 
-  // Handle potential category errors
   useEffect(() => {
     if (categoryError) {
       toast.error(categoryError);
@@ -194,6 +194,10 @@ const NewProduct = () => {
   };
 
   const onChange = (e) => {
+    if (imagesPreview.length >= 5) {
+      return toast.error("Chỉ được tối đa 5 hình");
+    }
+    
     const files = Array.from(e.target.files);
 
     files.forEach((file) => {
@@ -274,152 +278,160 @@ const NewProduct = () => {
     setImages(newImagesFiles);
   };
 
+  const handlerSwap = (index) => {
+    if (selectedImage === null) {
+      setSelectedImage(index);
+    } else {
+      if (index === selectedImage || imagesPreview.length === 1) {
+        setSelectedImage(null);
+      } else {
+        const copy = [...imagesPreview];
+        const temp = copy[index];
+        copy[index] = copy[selectedImage];
+        copy[selectedImage] = temp;
+        setImagesPreview(copy);
+        setSelectedImage(null);
+      }
+    }
+  };
+
   return (
     <Fragment>
       <MetaData title={"New Product"} />
-      <div className="new-product-container">
-        <div className="new-product-form-container">
-          <form
-            className="new-product-form"
-            onSubmit={submitHandler}
-            encType="multipart/form-data"
-          >
-            <Back />
-            <h1
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                fontSize: "25px",
-              }}
+      <div className="admin-layout">
+        <div className="admin-container">
+          <div className="flex-center-screen">
+            <Link
+              type="button"
+              className="back-btn-1"
+              onClick={() => history(-1)}
             >
-              Thêm sản phẩm
-            </h1>
-            <div className="new-product-column">
-              <div className="new-product-row-one">
-                <div className="new-product-form-group">
-                  <label htmlFor="category_field">Danh mục</label>
-                  <select
-                    className={`form-control ${emptyCategory ? "invalid" : ""}`}
-                    id="category_field"
-                    value={category}
-                    onChange={(e) => {
-                      setEmptyCategory(false);
-                      if (e.target.value !== "") {
-                        setCategory(e.target.value);
-                      }
+              Quay lại
+            </Link>
+            <div className="manage-head">
+              <h1>Thêm Sản Phẩm</h1>
+            </div>
+            <div className="group-1">
+              <div className="new-product-form-group ">
+                <label htmlFor="category_field">Danh mục</label>
+                <select
+                  className={`form-control ${emptyCategory ? "invalid" : ""}`}
+                  id="category_field"
+                  value={category}
+                  onChange={(e) => {
+                    setEmptyCategory(false);
+                    if (e.target.value !== "") {
+                      setCategory(e.target.value);
+                    }
+                  }}
+                >
+                  <option value="">Chọn một danh mục</option>
+                  {categories &&
+                    categories.map((category) => (
+                      <option key={category._id} value={category._id}>
+                        {category.vietnameseName}
+                      </option>
+                    ))}
+                </select>
+                {emptyCategory ? (
+                  <p
+                    style={{
+                      fontWeight: "normal",
+                      color: "red",
+                      fontSize: "13px",
                     }}
                   >
-                    <option value="">Chọn một danh mục</option>
-                    {categories &&
-                      categories.map((category) => (
-                        <option key={category._id} value={category._id}>
-                          {category.vietnameseName}
-                        </option>
-                      ))}
-                  </select>
-                  {emptyCategory ? (
-                    <p
-                      style={{
-                        fontWeight: "normal",
-                        color: "red",
-                        fontSize: "13px",
-                      }}
-                    >
-                      Sản phẩm chưa chọn danh mục
-                    </p>
-                  ) : (
-                    ""
-                  )}
-                </div>
-                <div className="new-product-form-group">
-                  <label htmlFor="name_field">Tên sản phẩm</label>
-                  <input
-                    type="text"
-                    id="name_field"
-                    placeholder="Nhập tên sản phẩm"
-                    className={`form-control ${emptyName ? "invalid" : ""}`}
-                    value={name}
-                    onChange={(e) => {
-                      setEmptyName(false);
-                      setName(e.target.value);
-                    }}
-                  />
-                  {emptyName ? (
-                    <p
-                      style={{
-                        fontWeight: "normal",
-                        color: "red",
-                        fontSize: "13px",
-                      }}
-                    >
-                      Sản phẩm chưa có tên
-                    </p>
-                  ) : (
-                    ""
-                  )}
-                </div>
-                <div className="new-product-form-group">
-                  <label htmlFor="price_field">Giá cơ bản</label>
-                  <input
-                    type="text"
-                    placeholder="Nhập giá sản phẩm"
-                    className={`form-control ${emptyPrice ? "invalid" : ""}`}
-                    value={price < 0 ? 0 : price}
-                    onChange={(e) => handlePriceChange(e)}
-                  />
-                  {emptyPrice ? (
-                    <p
-                      style={{
-                        fontWeight: "normal",
-                        color: "red",
-                        fontSize: "13px",
-                      }}
-                    >
-                      Sản phẩm chưa có giá
-                    </p>
-                  ) : (
-                    ""
-                  )}
-                </div>
+                    Sản phẩm chưa chọn danh mục
+                  </p>
+                ) : (
+                  ""
+                )}
               </div>
-              <div className="new-product-row-two">
-                <div className="new-product-form-group">
-                  <label htmlFor="description_field">Mô tả</label>
-                  <textarea
-                    placeholder="Nhập mô tả sản phẩm"
-                    className={`form-control ${
-                      emptyDescription ? "invalid" : ""
-                    }`}
-                    id="description_field"
-                    rows="8"
-                    value={description}
-                    onChange={(e) => {
-                      setEmptyDescription(false);
-                      setDescription(e.target.value);
+
+              <div className="new-product-form-group">
+                <label htmlFor="price_field">Giá gốc</label>
+                <input
+                  type="text"
+                  placeholder="Nhập giá gốc sản phẩm"
+                  className={`form-control ${emptyPrice ? "invalid" : ""}`}
+                  value={price < 0 ? 0 : price}
+                  onChange={(e) => handlePriceChange(e)}
+                />
+                {emptyPrice ? (
+                  <p
+                    style={{
+                      fontWeight: "normal",
+                      color: "red",
+                      fontSize: "13px",
                     }}
-                  ></textarea>
-                  {emptyDescription ? (
-                    <p
-                      style={{
-                        fontWeight: "normal",
-                        color: "red",
-                        fontSize: "13px",
-                      }}
-                    >
-                      Sản phẩm chưa có mô tả
-                    </p>
-                  ) : (
-                    ""
-                  )}
-                </div>
+                  >
+                    Sản phẩm chưa có giá gốc
+                  </p>
+                ) : (
+                  ""
+                )}
               </div>
             </div>
+            <div className="new-product-form-group">
+              <label htmlFor="name_field">Tên sản phẩm</label>
+              <input
+                type="text"
+                id="name_field"
+                placeholder="Nhập tên sản phẩm"
+                className={`form-control ${emptyName ? "invalid" : ""}`}
+                value={name}
+                onChange={(e) => {
+                  setEmptyName(false);
+                  setName(e.target.value);
+                }}
+              />
+              {emptyName ? (
+                <p
+                  style={{
+                    fontWeight: "normal",
+                    color: "red",
+                    fontSize: "13px",
+                  }}
+                >
+                  Sản phẩm chưa có tên
+                </p>
+              ) : (
+                ""
+              )}
+            </div>
+            <div className="new-product-textarea">
+              <label htmlFor="description_field">Mô tả</label>
+              <textarea
+                placeholder="Nhập mô tả sản phẩm"
+                className={`form-control ${emptyDescription ? "invalid" : ""}`}
+                id="description_field"
+                rows="8"
+                value={description}
+                onChange={(e) => {
+                  setEmptyDescription(false);
+                  setDescription(e.target.value);
+                }}
+              ></textarea>
+              {emptyDescription ? (
+                <p
+                  style={{
+                    fontWeight: "normal",
+                    color: "red",
+                    fontSize: "13px",
+                  }}
+                >
+                  Sản phẩm chưa có mô tả
+                </p>
+              ) : (
+                ""
+              )}
+            </div>
 
-            <div className="form-group">
-              <label>Ảnh </label>
-              <div className="">
+            <div className="add-image-1">
+              <label>Ảnh sản phẩm (Tối đa 5 hình)</label>
+              <div className="group-2">
                 <label
-                  className={`upload-form ${emptyImages ? "invalid" : ""}`}
+                  className={`upload-form-1 ${emptyImages ? "invalid" : ""}`}
                   onDrop={handleDrop}
                   onDragOver={handleDragOver}
                   onDragLeave={handleDragLeave}
@@ -431,61 +443,59 @@ const NewProduct = () => {
                     multiple
                     hidden
                   />
-                  <i
-                    class="fa fa-cloud-upload"
-                    aria-hidden="true"
-                    style={{ fontSize: "30px" }}
-                  ></i>
+                  <i class="fa fa-camera" aria-hidden="true"></i>
                   <p>
-                    <strong>Kéo Thả </strong>hoặc <strong>Nhấn </strong>
-                    để đưa ảnh lên
+                    <strong>Kéo Thả </strong>
+                    <br></br>hoặc <strong>Nhấn </strong>
                   </p>
                 </label>
-                {emptyImages ? (
-                  <p
-                    style={{
-                      fontWeight: "normal",
-                      color: "red",
-                      fontSize: "13px",
-                    }}
-                  >
-                    Sản phẩm chưa có ảnh
-                  </p>
-                ) : (
-                  ""
-                )}
-              </div>
-
-              <div
-                style={{
-                  display: "flex",
-                  gap: "40px",
-                  flexWrap: "wrap",
-                  maxWidth: "calc(8 * (75px + 40px))",
-                }}
-              >
-                {imagesPreview.map((img, index) => (
-                  <div
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      height: "50px",
-                      gap: "5px",
-                    }}
-                  >
-                    <img
-                      src={img}
-                      key={index}
-                      alt="Images Preview"
-                      style={{ height: "100%" }}
-                    />
-                    <i
-                      className="fa fa-remove variant-remove-btn"
-                      onClick={() => handlerImageRemove(index)}
-                    ></i>
+                <div className="image-container-1">
+                  <div className="image-list">
+                    {imagesPreview.map((img, index) => (
+                      <div className="image-form-1">
+                        <label className="image-form-1-elements">
+                          <i
+                            className="close-1 fa fa-times"
+                            onClick={() => handlerImageRemove(index)}
+                          ></i>
+                          <i
+                            className={`change-1  ${
+                              selectedImage !== null
+                                ? selectedImage != index
+                                  ? "fa fa-check-circle-o"
+                                  : "fa fa-exchange"
+                                : "fa fa-exchange"
+                            }`}
+                            onClick={() => handlerSwap(index)}
+                          ></i>
+                        </label>
+                        <img
+                          src={img}
+                          key={index}
+                          alt="Images Preview"
+                          width={120}
+                          height={150}
+                          onMouseEnter={() => {}}
+                        />
+                        <p>Ảnh {index + 1}</p>
+                      </div>
+                    ))}
                   </div>
-                ))}
+                </div>
               </div>
+              {emptyImages ? (
+                <p
+                  style={{
+                    fontWeight: "normal",
+                    color: "red",
+                    fontSize: "13px",
+                  }}
+                >
+                  Sản phẩm chưa có ảnh
+                </p>
+              ) : (
+                ""
+              )}
             </div>
 
             <div>
@@ -540,7 +550,7 @@ const NewProduct = () => {
             <button type="submit" className="new-product-btn" disabled={load}>
               {load ? "ĐANG THÊM..." : "THÊM SẢN PHẨM"}
             </button>
-          </form>
+          </div>
         </div>
       </div>
     </Fragment>

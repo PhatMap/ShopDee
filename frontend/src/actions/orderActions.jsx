@@ -27,7 +27,7 @@ import {
   MOMO_TRANSACTION_SUCCESS,
   FETCH_ORDER_STATS_REQUEST,
   FETCH_ORDER_STATS_SUCCESS,
-  FETCH_ORDER_STATS_FAIL
+  FETCH_ORDER_STATS_FAIL,
 } from "../constants/orderConstants";
 import {
   EMPTY_CART_FAIL,
@@ -150,31 +150,35 @@ export const getOrderDetails = (id) => async (dispatch) => {
     });
   }
 };
-export const allOrders = (currentPage = 1, keyword = "", status = "all", resPerPage = 10) => async (dispatch) => {
-  try {
-    dispatch({ type: ALL_ORDERS_REQUEST });
+export const allOrders =
+  (currentPage = 1, keyword = "", status = "all", resPerPage = 10) =>
+  async (dispatch) => {
+    try {
+      dispatch({ type: ALL_ORDERS_REQUEST });
 
-    const { data } = await axios.get(`/api/v1/shop/orders?page=${currentPage}&keyword=${keyword}&orderStatus=${status}&resPerPage=${resPerPage}`);
+      const { data } = await axios.get(
+        `/api/v1/shop/orders?page=${currentPage}&keyword=${keyword}&orderStatus=${status}&resPerPage=${resPerPage}`
+      );
 
-    dispatch({
-      type: ALL_ORDERS_SUCCESS,
-      payload: {
-        orders: data.orders,
-        totalOrders: data.totalOrders,
-        totalAmount: data.totalAmount,
-        totalPaidAmount: data.totalPaidAmount,
-        totalPendingAmount: data.totalPendingAmount,
-        resPerPage: data.resPerPage,
-        filteredOrdersCount: data.filteredOrdersCount,
-      },
-    });
-  } catch (error) {
-    dispatch({
-      type: ALL_ORDERS_FAIL,
-      payload: error.response.data.message,
-    });
-  }
-};
+      dispatch({
+        type: ALL_ORDERS_SUCCESS,
+        payload: {
+          orders: data.orders,
+          totalOrders: data.totalOrders,
+          totalAmount: data.totalAmount,
+          totalPaidAmount: data.totalPaidAmount,
+          totalPendingAmount: data.totalPendingAmount,
+          resPerPage: data.resPerPage,
+          filteredOrdersCount: data.filteredOrdersCount,
+        },
+      });
+    } catch (error) {
+      dispatch({
+        type: ALL_ORDERS_FAIL,
+        payload: error.response.data.message,
+      });
+    }
+  };
 
 // update order
 export const updateOrder = (id, orderData) => async (dispatch) => {
@@ -254,31 +258,28 @@ export const checkOrderReview = (userId, productId) => async (dispatch) => {
   }
 };
 
-
-
-
 export const fetchOrderStats = () => async (dispatch) => {
   try {
-      dispatch({ type: FETCH_ORDER_STATS_REQUEST });
+    dispatch({ type: FETCH_ORDER_STATS_REQUEST });
 
-      // Gửi yêu cầu tới máy chủ
-      const response = await fetch("/api/v1/order-stats");
-      const data = await response.json();
+    // Gửi yêu cầu tới máy chủ
+    const response = await fetch("/api/v1/order-stats");
+    const data = await response.json();
 
-      // Gửi dữ liệu thành công đến reducer
-      dispatch({
-          type: FETCH_ORDER_STATS_SUCCESS,
-          payload: {
-            monthlyRevenue:data.monthlyRevenue,
-            monthlyOrderCount:data.monthlyOrderCount,
-          }
-      });
-      console.log("Data from server:", data);
+    // Gửi dữ liệu thành công đến reducer
+    dispatch({
+      type: FETCH_ORDER_STATS_SUCCESS,
+      payload: {
+        monthlyRevenue: data.monthlyRevenue,
+        monthlyOrderCount: data.monthlyOrderCount,
+      },
+    });
+    console.log("Data from server:", data);
   } catch (error) {
-      // Gửi thông báo lỗi đến reducer
-      dispatch({
-          type: FETCH_ORDER_STATS_FAIL,
-          payload: error.message
-      });
+    // Gửi thông báo lỗi đến reducer
+    dispatch({
+      type: FETCH_ORDER_STATS_FAIL,
+      payload: error.message,
+    });
   }
 };

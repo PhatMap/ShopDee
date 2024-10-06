@@ -18,14 +18,17 @@ import { formatToVNDWithVND } from "../../utils/formatHelper";
 const OrdersList = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
   const [showModal, setShowModal] = useState(false);
   const [deleteOrderId, setDeleteOrderId] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
   const [keyword, setKeyword] = useState("");
   const [status, setStatus] = useState("");
   const [resPerPage] = useState(10);
+  const [showPreloader, setShowPreloader] = useState(true);
 
-  const { loading, error, orders, totalOrders, filteredOrdersCount } = useSelector((state) => state.allOrders);
+  const { loading, error, orders, totalOrders, filteredOrdersCount } =
+    useSelector((state) => state.allOrders);
   const { isDeleted } = useSelector((state) => state.order);
 
   const statusTranslations = {
@@ -37,7 +40,6 @@ const OrdersList = () => {
   };
 
   useEffect(() => {
-    console.log("Fetching orders with:", { currentPage, keyword, status, resPerPage });
     dispatch(allOrders(currentPage, keyword, status, resPerPage));
 
     if (error) {
@@ -50,6 +52,12 @@ const OrdersList = () => {
       navigate("/shopkeeper/orders");
       dispatch({ type: DELETE_ORDER_RESET });
     }
+
+    const timer = setTimeout(() => {
+      setShowPreloader(false);
+    }, 100);
+
+    return () => clearTimeout(timer);
   }, [dispatch, error, isDeleted, navigate, currentPage, keyword, status]);
 
   const deleteOrderHandler = (id, orderStatus) => {
@@ -69,30 +77,11 @@ const OrdersList = () => {
   const setOrders = () => {
     const data = {
       columns: [
-        {
-          label: "Tên Khách Hàng",
-          field: "name",
-          sort: "asc",
-        },
-        {
-          label: "Số Sản Phẩm",
-          field: "numofItems",
-          sort: "asc",
-        },
-        {
-          label: "Tổng Tiền",
-          field: "amount",
-          sort: "asc",
-        },
-        {
-          label: "Trạng thái đơn",
-          field: "status",
-          sort: "asc",
-        },
-        {
-          label: "Tác vụ",
-          field: "actions",
-        },
+        { label: "Tên Khách Hàng", field: "name", sort: "asc" },
+        { label: "Số Sản Phẩm", field: "numofItems", sort: "asc" },
+        { label: "Tổng Tiền", field: "amount", sort: "asc" },
+        { label: "Trạng thái đơn", field: "status", sort: "asc" },
+        { label: "Tác vụ", field: "actions" },
       ],
       rows: [],
     };
@@ -140,121 +129,63 @@ const OrdersList = () => {
   const handleSearch = (e) => {
     e.preventDefault();
     setCurrentPage(1);
-    dispatch(allOrders(1, keyword, status, resPerPage));
+    loadOrders();
   };
 
   const handleStatusChange = (e) => {
     setStatus(e.target.value);
     setCurrentPage(1);
-    dispatch(allOrders(1, keyword, e.target.value, resPerPage));
+    loadOrders();
   };
 
   return (
     <Fragment>
       <MetaData title={"All Orders"} />
       <ToastContainer />
-      <div className="sidebar-content-container">
-        <div className="manage-product-container">
-          <Fragment>
-            <h1
-              className="my-4"
-              style={{
-                fontSize: "40px",
-                fontWeight: "bold",
-                textAlign: "center",
-              }}
-            >
-              Tất Cả Đơn Hàng
-            </h1>
-
-            <form
-              onSubmit={handleSearch}
-              style={{
-                display: "flex",
-                marginLeft: "5rem",
-                gap: "10px",
-                marginBottom: "20px",
-              }}
-            >
-              <input
-                type="text"
-                placeholder="Tìm kiếm đơn hàng..."
-                value={keyword}
-                onChange={(e) => setKeyword(e.target.value)}
-                style={{
-                  padding: "10px",
-                  borderRadius: "5px",
-                  border: "1px solid #ccc",
-                }}
-              />
-              <select
-                value={status}
-                onChange={handleStatusChange}
-                style={{
-                  padding: "10px",
-                  borderRadius: "5px",
-                  border: "1px solid #ccc",
-                }}
-              >
-                <option value="">Tất cả trạng thái</option>
-                <option value="Processing">Xử Lý</option>
-                <option value="canceled">Đơn đã Hủy</option>
-                <option value="Order Confirmed">Xác Nhận</option>
-                <option value="Shipping">Giao Hàng</option>
-                <option value="Delivered">Hoàn Thành</option>
-              </select>
-              
-            </form>
-
-            {loading ? (
-              <Loader />
-            ) : (
-              <Fragment>
-                <DataTable data={setOrders()} />
-                <div
-                  className="d-flex justify-content-center mt-5"
-                  style={{
-                    display: "flex",
-                    justifyContent: "center",
-                    marginBottom: "2rem",
-                  }}
-                >
-                  <Pagination
-                    activePage={currentPage}
-                    itemsCountPerPage={resPerPage}
-                    totalItemsCount={filteredOrdersCount}
-                    onChange={handlePageChange}
-                    nextPageText={"Next"}
-                    prevPageText={"Prev"}
-                    firstPageText={"First"}
-                    lastPageText={"Last"}
-                    itemClass="page-item"
-                    linkClass="page-link"
-                    pageRangeDisplayed={5}
+      {showPreloader ? (
+        <Loader />
+      ) : (
+        <div className="admin-layout">
+          <div className="admin-container">
+            <div className="flex-center-screen">
+              <div className="manage-category-head">
+                <h1>Quản Lý Đơn Hàng</h1>
+              </div>
+              <div className="flex-horizental">
+                <div className="manage-category-form-btns">
+                  <input
+                    type="search"
+                    className="search-input-1"
+                    placeholder="Tìm kiếm đơn hàng..."
+                    value={keyword}
+                    onChange={(e) => setKeyword(e.target.value)}
                   />
                 </div>
-              </Fragment>
-            )}
-          </Fragment>
-        </div>
-      </div>
-      {showModal && (
-        <div className="delete-notify-container">
-          <div className="delete-notify-form">
-            <h1> Bạn có chắc chắn muốn xóa đơn hàng này không?</h1>
-            <div className="delete-notify-btn-container">
-              <button
-                className="delete-notify-btn-container-yes"
-                onClick={() => handleDeleteConfirmed(deleteOrderId)}
-              >
-                Yes
-              </button>
-              <button
-                className="delete-notify-btn-container-no"
-                onClick={() => setShowModal(false)}
-              >
-                No
-              </button>
+                <div className="select-bar-4">
+                  <select value={status} onChange={handleStatusChange}>
+                    <option value="">Tất cả trạng thái</option>
+                    <option value="Processing">Xử Lý</option>
+                    <option value="canceled">Đơn đã Hủy</option>
+                    <option value="Order Confirmed">Xác Nhận</option>
+                    <option value="Shipping">Giao Hàng</option>
+                    <option value="Delivered">Hoàn Thành</option>
+                  </select>
+                </div>
+              </div>
+              {!loading ? <DataTable data={setOrders()} /> : <Loader />}
+              <Pagination
+                activePage={currentPage}
+                itemsCountPerPage={resPerPage}
+                totalItemsCount={filteredOrdersCount}
+                onChange={handlePageChange}
+                nextPageText={"Next"}
+                prevPageText={"Prev"}
+                firstPageText={"First"}
+                lastPageText={"Last"}
+                itemClass="page-item"
+                linkClass="page-link"
+                pageRangeDisplayed={5}
+              />
             </div>
           </div>
         </div>

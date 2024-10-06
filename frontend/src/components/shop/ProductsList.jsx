@@ -23,13 +23,15 @@ import {
 import DeleteNotify from "../layout/DeleteNotify";
 import { formatToVNDWithVND } from "../../utils/formatHelper";
 import { getShop } from "../../actions/shopActions";
+import CustomizeDataTable from "../admin/CustomizeDataTable";
+import DataTable from "../layout/DataTable";
 
 const ProductsList = () => {
   const history = useNavigate();
   const dispatch = useDispatch();
-
   const [show, setShow] = useState(false);
   const [id, setId] = useState("");
+  const [showPreloader, setShowPreloader] = useState(true);
 
   const { loading, error, products, productsCount } = useSelector(
     (state) => state.shopProducts
@@ -39,7 +41,6 @@ const ProductsList = () => {
   const [approved, setApproved] = useState("");
   const [keyword, setKeyword] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
-console.log("shop",shop);
   const {
     error: deleteError,
     isDeleted,
@@ -50,15 +51,18 @@ console.log("shop",shop);
   useEffect(() => {
     dispatch(getShop());
   }, []);
- 
 
   useEffect(() => {
-    console.log("shop._id",shop._id);
     if (shop) {
       dispatch(getShopProducts(shop._id, approved, keyword, currentPage));
-      
+
       dispatch(getCategoryAll());
     }
+    const timer = setTimeout(() => {
+      setShowPreloader(false);
+    }, 100);
+
+    return () => clearTimeout(timer);
   }, [shop]);
 
   useEffect(() => {
@@ -156,66 +160,65 @@ console.log("shop",shop);
       acc[category._id] = category.vietnameseName;
       return acc;
     }, {});
-    if (products && products.length > 0) {
-      products.forEach((product) => {
-        data.rows.push({
-          category: categoryMap[product.category] || "Trống",
-          image: (
-            <img
-              src={product.images[0].url}
-              alt={product.name}
-              style={{ width: "50px", height: "50px" }}
-            />
-          ),
-          name: product.name,
-          price: `${formatToVNDWithVND(product.price)}`,
-          totalStock: product.totalStock,
-          approved:
-            product.approved === "approved"
-              ? "Đã Duyệt"
-              : product.approved === "rejected"
-              ? "Chưa Duyệt"
-              : product.approved === "pending"
-              ? "Đang Xử Lý"
-              : "Chưa Gửi",
-          status: product.status === "active" ? "Hoạt Động" : "Bị Ngưng",
-          actions: (
-            <Fragment>
-              <div className="flex-horizontal">
-                <Link
-                  to={`/shop/product/${product._id}`}
-                  className="btn btn-primary py-1 px-2"
-                >
-                  <i className="fa fa-pencil"></i>
-                </Link>
-                <button
-                  className="btn btn-danger py-1 px-2 ml-2"
-                  onClick={() => {
-                    setShow(true);
-                    setId(product._id);
-                  }}
-                >
-                  <i className="fa fa-trash"></i>
-                </button>
-                <button
-                  className="btn btn-info py-1 px-2 ml-2"
-                  onClick={() => {
-                    if (
-                      product.approved === "waiting" ||
-                      product.approved === "rejected"
-                    ) {
-                      handleSend(product._id);
-                    }
-                  }}
-                >
-                  <i className="fa fa-send"></i>
-                </button>
-              </div>
-            </Fragment>
-          ),
-        });
+
+    products.forEach((product) => {
+      data.rows.push({
+        category: categoryMap[product.category] || "Trống",
+        image: (
+          <img
+            src={product.images[0].url}
+            alt={product.name}
+            style={{ width: "50px", height: "50px" }}
+          />
+        ),
+        name: product.name,
+        price: `${formatToVNDWithVND(product.price)}`,
+        totalStock: product.totalStock,
+        approved:
+          product.approved === "approved"
+            ? "Đã Duyệt"
+            : product.approved === "rejected"
+            ? "Chưa Duyệt"
+            : product.approved === "pending"
+            ? "Đang Xử Lý"
+            : "Chưa Gửi",
+        status: product.status === "active" ? "Hoạt Động" : "Bị Ngưng",
+        actions: (
+          <Fragment>
+            <div className="flex-horizontal">
+              <Link
+                to={`/shop/product/${product._id}`}
+                className="btn btn-primary py-1 px-2"
+              >
+                <i className="fa fa-pencil"></i>
+              </Link>
+              <button
+                className="btn btn-danger py-1 px-2 ml-2"
+                onClick={() => {
+                  setShow(true);
+                  setId(product._id);
+                }}
+              >
+                <i className="fa fa-trash"></i>
+              </button>
+              <button
+                className="btn btn-info py-1 px-2 ml-2"
+                onClick={() => {
+                  if (
+                    product.approved === "waiting" ||
+                    product.approved === "rejected"
+                  ) {
+                    handleSend(product._id);
+                  }
+                }}
+              >
+                <i className="fa fa-send"></i>
+              </button>
+            </div>
+          </Fragment>
+        ),
       });
-    }
+    });
 
     return data;
   };
@@ -224,116 +227,68 @@ console.log("shop",shop);
     productData.set("approved", "pending");
     dispatch(updateProductBasic(id, productData));
   };
-  console.log("productsCount", productsCount);
   const deleteProductHandler = (id) => {
     dispatch(deleteProduct(id));
   };
+
   return (
     <Fragment>
       <MetaData title={"All Products"} />
-      <div className="sidebar-content-container">
-        <div className="manage-product-container">
-          <h1
-            className="my-4"
-            style={{
-              fontSize: "40px",
-              fontWeight: "bold",
-              textAlign: "center",
-            }}
-          >
-            Tất Cả Sản Phẩm{" "}
-          </h1>
-          <div>
-            <Link
-              to="/shopkeeper/product"
-              className="product-add-btn-container"
-            >
-              <i className="fa fa-plus product-add-btn"></i>
-              <p>Thêm Sản Phẩm </p>
-            </Link>
-          </div>
-          <div>
-            <input
-              type="text"
-              placeholder="Tìm kiếm sản phẩm..."
-              value={keyword}
-              onChange={(e) => setKeyword(e.target.value)}
-              style={{
-                padding: "10px",
-                borderRadius: "5px",
-                border: "1px solid #ccc",
-                marginRight: "10px",
-              }}
-            />
-            <select
-              value={approved}
-              onChange={handleApprovedChange}
-              style={{
-                padding: "10px",
-                borderRadius: "5px",
-                border: "1px solid #ccc",
-              }}
-            >
-              {" "}
-              <option value="">Tất cả vai trò</option>
-              <option value="waiting">Chưa Gửi</option>
-              <option value="pending">Đang Xử Lý</option>
-              <option value="approved">Đã Duyệt</option>
-              <option value="rejected">Chưa Duyệt</option>
-            </select>
-          </div>
-          {loading ? (
-            <Loader />
-          ) : (
-            <Fragment>
-              <div className="table-responsive">
-                <table className="table table-bordered table-striped">
-                  <thead>
-                    <tr>
-                      {setProducts().columns.map((column, index) => (
-                        <th key={index}>{column.label}</th>
-                      ))}
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {setProducts().rows.map((row, index) => (
-                      <tr key={index}>
-                        {Object.values(row).map((value, idx) => (
-                          <td key={idx}>{value}</td>
-                        ))}
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
+      {showPreloader ? (
+        <Loader />
+      ) : (
+        <div className="admin-layout">
+          <div className="admin-container">
+            <div className="flex-center-screen">
+              <div className="product-list-container">
+                <div className="manage-category-head">
+                  <h1>Quản Lý Sản Phẩm</h1>
+                </div>
+                <div className="flex-horizental">
+                  <div className="manage-category-form-btns">
+                    <button onClick={() => history("/shopkeeper/product")}>
+                      <i className="fa fa-plus"></i> <p>Thêm Sản Phẩm</p>
+                    </button>
+                    <input
+                      className="search-input-1"
+                      type="search"
+                      placeholder="Tìm kiếm sản phẩm..."
+                      value={keyword}
+                      onChange={(e) => setKeyword(e.target.value)}
+                    />
+                  </div>
+                  <div className="select-bar-4">
+                    <select value={approved} onChange={handleApprovedChange}>
+                      <option value="">Tất cả trạng thái</option>
+                      <option value="waiting">Chưa Gửi</option>
+                      <option value="pending">Đang Xử Lý</option>
+                      <option value="approved">Đã Duyệt</option>
+                      <option value="rejected">Chưa Duyệt</option>
+                    </select>
+                  </div>
+                </div>
               </div>
-              <div
-                className="d-flex justify-content-center mt-5"
-                style={{ marginBottom: "2rem" }}
-              >
-                <Pagination
-                  activePage={currentPage}
-                  itemsCountPerPage={10}
-                  totalItemsCount={productsCount}
-                  onChange={handlePageChange}
-                  nextPageText={"Next"}
-                  prevPageText={"Prev"}
-                  firstPageText={"First"}
-                  lastPageText={"Last"}
-                  itemClass="page-item"
-                  linkClass="page-link"
-                />
-              </div>
-            </Fragment>
-          )}
+              {!loading ? <DataTable data={setProducts()} /> : <Loader />}
+              <Pagination
+                activePage={currentPage}
+                itemsCountPerPage={10}
+                totalItemsCount={productsCount}
+                onChange={handlePageChange}
+                nextPageText={"Next"}
+                prevPageText={"Prev"}
+                firstPageText={"First"}
+                lastPageText={"Last"}
+                itemClass="page-item"
+                linkClass="page-link"
+              />
+            </div>
+          </div>
         </div>
-        {show && (
-          <DeleteNotify
-            func={deleteProductHandler}
-            paras={[id]}
-            show={setShow}
-          />
-        )}
-      </div>
+      )}
+
+      {show && (
+        <DeleteNotify func={deleteProductHandler} paras={[id]} show={setShow} />
+      )}
     </Fragment>
   );
 };
