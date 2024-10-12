@@ -157,19 +157,13 @@ export const allOrders =
       dispatch({ type: ALL_ORDERS_REQUEST });
 
       const { data } = await axios.get(
-        `/api/v1/shop/orders?page=${currentPage}&keyword=${keyword}&orderStatus=${status}&resPerPage=${resPerPage}`
+        `/api/v1/admin/orders?page=${currentPage}&keyword=${keyword}&orderStatus=${status}&resPerPage=${resPerPage}`
       );
 
       dispatch({
         type: ALL_ORDERS_SUCCESS,
         payload: {
           orders: data.orders,
-          totalOrders: data.totalOrders,
-          totalAmount: data.totalAmount,
-          totalPaidAmount: data.totalPaidAmount,
-          totalPendingAmount: data.totalPendingAmount,
-          resPerPage: data.resPerPage,
-          filteredOrdersCount: data.filteredOrdersCount,
         },
       });
     } catch (error) {

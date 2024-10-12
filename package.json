@@ -1,5 +1,5 @@
 {
-  "name": "shopit",
+  "name": "ShopDee",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -9,7 +9,7 @@
     "prod": "SET NODE_ENV=PRODUCTION& nodemon backend/server",
     "seeder": "node backend/utils/seeder.js"
   },
-  "author": "",
+  "author": "Tran Trung Phat",
   "license": "ISC",
   "dependencies": {
     "axios": "^1.7.2",
@@ -28,6 +28,7 @@
     "nodemailer": "^6.9.7",
     "react-chartjs-2": "^5.2.0",
     "react-rating-stars-component": "^2.2.0",
+    "ShopDee": "file:",
     "socket.io": "^4.7.5",
     "stripe": "^14.19.0",
     "validator": "^13.11.0",

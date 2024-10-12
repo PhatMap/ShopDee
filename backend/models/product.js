@@ -1,174 +1,151 @@
 const mongoose = require("mongoose");
 
-const productSchema = new mongoose.Schema({
-  name: {
-    type: String,
-    required: [true, "please enter product name"],
-    trim: true,
-    maxLength: [100, "Product name can not exceed 100 characters"],
-  },
-  price: {
-    type: Number,
-    required: [true, "please enter product price"],
-    validate: {
-      validator: function (value) {
-        return value >= 0;
-      },
-      message: "Product price cannot be negative",
+const productSchema = new mongoose.Schema(
+  {
+    name: {
+      type: String,
+      required: [true, "please enter product name"],
+      trim: true,
+      maxLength: [100, "Product name can not exceed 100 characters"],
     },
-  },
-  description: {
-    type: String,
-    required: [true, "please enter product description"],
-  },
-  ratings: {
-    type: Number,
-    default: 0,
-  },
-  images: [
-    {
-      public_id: {
-        type: String,
-        required: true,
-      },
-      url: {
-        type: String,
-        required: true,
+    price: {
+      type: Number,
+      required: [true, "please enter product price"],
+      validate: {
+        validator: function (value) {
+          return value >= 0;
+        },
+        message: "Product price cannot be negative",
       },
     },
-  ],
-  variants: [
-    {
+    description: {
+      type: String,
+      required: [true, "please enter product description"],
+    },
+    ratings: {
+      type: Number,
+      default: 0,
+    },
+    images: [
+      {
+        public_id: {
+          type: String,
+          required: true,
+        },
+        url: {
+          type: String,
+          required: true,
+        },
+      },
+    ],
+    type: {
       name: {
         type: String,
         required: true,
       },
-      images: [
-        {
-          public_id: {
-            type: String,
-            required: true,
-          },
-          url: {
-            type: String,
-            required: true,
-          },
-        },
-      ],
-      inventory: [
-        {
-          size: {
-            type: String,
-            required: true,
-          },
-          price: {
-            type: Number,
-            required: [true, "please enter product price"],
-            validate: {
-              validator: function (value) {
-                return value >= 0;
-              },
-              message: "Product price cannot be negative",
-            },
-          },
-          stock: {
-            type: Number,
-            required: true,
-            maxLength: [5, "Product stock cannot exceed 5 characters"],
-            default: 0,
-            validate: {
-              validator: function (value) {
-                return value >= 0;
-              },
-              message: "Product stock cannot be negative",
-            },
-          },
-        },
-      ],
-      totalStock: {
-        type: Number,
-        required: true,
-        default: 0,
-        validate: {
-          validator: function (value) {
-            return value >= 0;
-          },
-          message: "Product total stock cannot be negative",
-        },
-      },
-    },
-  ],
-  totalStock: {
-    type: Number,
-    required: true,
-    default: 0,
-    validate: {
-      validator: function (value) {
-        return value >= 0;
-      },
-      message: "Product total stock cannot be negative",
-    },
-  },
-  category: {
-    type: mongoose.Schema.ObjectId,
-    ref: "Category",
-    required: true,
-  },
-  numOfReviews: {
-    type: Number,
-    default: 0,
-  },
-  reviews: [
-    {
-      user: {
-        type: mongoose.Schema.ObjectId,
-        ref: "User",
-        required: true,
-      },
-      name: {
+      value: {
         type: String,
         required: true,
       },
+    },
+    variants: [
+      {
+        label: {
+          type: String,
+          required: true,
+        },
+        images: [
+          {
+            public_id: {
+              type: String,
+              required: true,
+            },
+            url: {
+              type: String,
+              required: true,
+            },
+          },
+        ],
+        inventory: [
+          {
+            choice: {
+              type: String,
+              required: true,
+            },
+            price: {
+              type: Number,
+              required: [true, "please enter product price"],
+              validate: {
+                validator: function (value) {
+                  return value >= 0;
+                },
+                message: "Product price cannot be negative",
+              },
+            },
+            stock: {
+              type: Number,
+              maxLength: [5, "Product stock cannot exceed 5 characters"],
+              default: 0,
+              validate: {
+                validator: function (value) {
+                  return value >= 0;
+                },
+                message: "Product stock cannot be negative",
+              },
+            },
+          },
+        ],
+        totalVariants: {
+          type: Number,
+          default: 0,
+          validate: {
+            validator: function (value) {
+              return value >= 0;
+            },
+            message: "Product total stock cannot be negative",
+          },
+        },
+      },
+    ],
+    totalStock: {
+      type: Number,
+      default: 0,
+      validate: {
+        validator: function (value) {
+          return value >= 0;
+        },
+        message: "Product total stock cannot be negative",
+      },
+    },
+    categoryId: {
+      type: mongoose.Schema.ObjectId,
+      ref: "Category",
+      required: true,
+    },
+    review: {
       rating: {
         type: Number,
         required: true,
+        default: 0,
       },
-      comment: {
-        type: String,
+      numberOfReviews: {
+        type: Number,
         required: true,
+        default: 0,
       },
     },
-  ],
-  user: {
-    type: mongoose.Schema.ObjectId,
-    ref: "User",
-    required: true,
+    creatorId: {
+      type: mongoose.Schema.ObjectId,
+      ref: "User",
+      required: true,
+    },
+    status: {
+      type: String,
+      required: true,
+      default: "inactive",
+    },
   },
-  createAt: {
-    type: Date,
-    default: Date.now,
-  },
-  status: {
-    type: String,
-    required: true,
-    default: "inactive",
-  },
-  approved: {
-    type: String,
-    required: true,
-    default: "waiting",
-  },
-  approvedAt: {
-    type: Date,
-  },
-  approvedBy: {
-    type: mongoose.Schema.ObjectId,
-    ref: "User",
-  },
-  shopId: {
-    type: String,
-    ref: "Shop",
-  },
-});
+  { timestamps: true }
+);
 
 module.exports = mongoose.model("Product", productSchema);

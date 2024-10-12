@@ -144,7 +144,6 @@ export const register = (userData) => async (dispatch) => {
       type: REGISTER_USER_SUCCESS,
       payload: data.user,
     });
-    console.log("thanh con");
   } catch (error) {
     dispatch({
       type: REGISTER_USER_FAIL,

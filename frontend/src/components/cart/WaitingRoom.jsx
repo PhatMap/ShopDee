@@ -98,7 +98,7 @@ const WaitingRoom = () => {
             color: "red",
             fontSize: "300px",
           }}
-          class="fa fa-exclamation-circle"
+          className="fa fa-exclamation-circle"
         ></i>
         <button
           onClick={() => history(-1)}

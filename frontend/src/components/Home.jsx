@@ -6,7 +6,6 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { getProducts } from "../actions/productActions";
 import { getCategoryAll } from "../actions/categoryActions";
-import "rc-slider/assets/index.css";
 import Header from "./layout/Header";
 import Footer from "./layout/Footer";
 import Category from "../category/Category";

@@ -139,7 +139,6 @@ export const authReducer = (state = { user: {} }, action) => {
 
         isAuthenticated: true,
         user: action.payload.user,
-        shop: action.payload.shop,
       };
 
     case LOGOUT_SUCCESS:
@@ -192,7 +191,6 @@ export const authReducer = (state = { user: {} }, action) => {
         isAuthenticated: true,
         isGoogleLoggedIn: true,
         user: action.payload.user,
-        shop: action.payload.shop,
       };
 
     case GOOGLE_LOGIN_FAIL:

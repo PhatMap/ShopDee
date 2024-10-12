@@ -16,11 +16,9 @@ server.listen(PORT, () => {
 });
 
 const payment = require("./controllers/paymentController");
-const notify = require("./controllers/applicationController");
 const message = require("./controllers/chatController");
 
 payment.setIo(io);
-notify.setIo(io, userSockets);
 message.setIo(io, userSockets);
 
 process.on("unhandledRejection", (err) => {

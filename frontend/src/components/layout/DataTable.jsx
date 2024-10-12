@@ -19,7 +19,6 @@ const DataTable = ({ data }) => {
           </tr>
         ))}
       </tbody>
-
     </table>
   );
 };
