@@ -19,7 +19,12 @@ export const formatToVNDWithSymbol = (number, symbol = "VND") => {
   return parts.join("");
 };
 
+export const formatSize = (sizeInBytes) => {
+  return (sizeInBytes / 1024).toFixed(2) + " KB";
+};
+
 export const formatToVNDWithVND = (number) =>
   formatToVNDWithSymbol(number, "VNĐ");
 export const formatToVNDWithDong = (number) =>
   formatToVNDWithSymbol(number, "đồng");
+export const formatToNumber = (number) => formatToVNDWithSymbol(number, "");

@@ -10,7 +10,6 @@ import {
 
 const Userchart = ({ userData = { storekeeper: 20, customer: 80 } }) => {
   const data = [
-    { name: "Storekeeper", value: userData.storekeeper },
     { name: "Customer", value: userData.customer },
   ];
 
@@ -70,7 +69,6 @@ const Userchart = ({ userData = { storekeeper: 20, customer: 80 } }) => {
   return (
     <div>
       <h1>Số Lượng Người Dùng</h1>
-
       <div className="pie-chart-container">
         <ResponsiveContainer width="100%" height={200}>
           <PieChart title="Số lượng người dùng">

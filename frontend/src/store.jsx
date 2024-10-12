@@ -1,6 +1,6 @@
 import { createStore, combineReducers, applyMiddleware } from "redux";
 import { thunk } from "redux-thunk";
-import { composeWithDevTools } from "redux-devtools-extension";
+import { composeWithDevTools } from "@redux-devtools/extension";
 
 import {
   productsReducer,
@@ -12,7 +12,6 @@ import {
   reviewReducer,
   reviewsInProductReducer,
   productCategoriesReducer,
-  shopProductsReducer,
 } from "./reducers/productReducers";
 import {
   authReducer,
@@ -32,15 +31,9 @@ import {
   orderReducer,
   momoReducer,
 } from "./reducers/orderReducers";
-import {
-  applicationReducer,
-  applicationsReducer,
-  newApplicationReducer,
-} from "./reducers/applicationReducers";
 import { categoryReducer } from "./reducers/categoryReducers";
 import { notificationsReducer } from "./reducers/notificationsReducers";
 import { couponReducer } from "./reducers/couponReducer";
-import { shopReducer } from "./reducers/shopReducers";
 import {
   chatReducer,
   chatsReducer,
@@ -69,16 +62,11 @@ const reducer = combineReducers({
   orderDetails: orderDetailsReducer,
   order: orderReducer,
   newReview: newReviewReducer,
-  newApplication: newApplicationReducer,
   category: categoryReducer,
-  applications: applicationsReducer,
-  application: applicationReducer,
   notifications: notificationsReducer,
   reviewsInProduct: reviewsInProductReducer,
   coupon: couponReducer,
   productCategories: productCategoriesReducer,
-  shopProducts: shopProductsReducer,
-  shop: shopReducer,
   myChats: myChatsReducer,
   chats: chatsReducer,
   chat: chatReducer,

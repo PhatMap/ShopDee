@@ -1,5 +1,4 @@
 const User = require("../models/user");
-const Shop = require("../models/shop");
 const ErrorHandler = require("../utils/errorHandler");
 const catchAsyncErrors = require("../middlewares/catchAsyncErrors");
 const sendToken = require("../utils/jwtToken");
@@ -84,12 +83,7 @@ exports.loginUser = catchAsyncErrors(async (req, res) => {
     });
   }
 
-  let shop = null;
-  if (user.role === "shopkeeper") {
-    shop = await Shop.findOne({ ownerId: user.id });
-  }
-
-  sendToken(user, 200, res, shop);
+  sendToken(user, 200, res);
 });
 
 const generateRandomPassword = () => {
@@ -131,12 +125,8 @@ exports.googleLoginUser = catchAsyncErrors(async (req, res, next) => {
     });
   }
 
-  let shop = null;
-  if (user.role === "shopkeeper") {
-    shop = await Shop.findOne({ ownerId: user._id });
-  }
 
-  sendToken(user, 200, res, shop);
+  sendToken(user, 200, res);
 });
 
 exports.forgotPassword = catchAsyncErrors(async (req, res, next) => {

@@ -1,72 +1,32 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 
-const Sidebar = React.memo(({ path }) => {
+const Sidebar = () => {
   return (
     <div className="sidebar-wrapper">
       <nav className="sidebar-form">
         <ul className="sidebar-element-container">
           <li>
-            <Link
-              to="/admin/dashboard"
-              className={`sidebar-element ${
-                path.startsWith("/admin/dashboard") ? "active" : ""
-              }`}
-            >
+            <Link to="/admin/dashboard" className="sidebar-element">
               <i className="fa fa-tachometer"></i> Thống kê
             </Link>
           </li>
 
           <li>
-            <Link
-              to="/admin/products"
-              className={`sidebar-element ${
-                path === "/admin/products" ? "active" : ""
-              }`}
-            >
-              <i className="fa fa-shopping-bag "></i> Quản lý sản phẩm
+            <Link to="/admin/products" className="sidebar-element">
+              <i className="fa fa-product-hunt"></i> Quản lý Sản Phẩm
             </Link>
           </li>
 
           <li>
-            <Link
-              to="/admin/applications"
-              className={`sidebar-element ${
-                path === "/admin/applications" ? "active" : ""
-              }`}
-            >
-              <i className="fa fa-handshake-o"></i> Quản lý Đơn Đăng ký Bán Hàng
+            <Link to="/admin/orders" className="sidebar-element">
+              <i className="fa fa-shopping-basket"></i> Quản lý Đơn Hàng
             </Link>
           </li>
 
           <li>
-            <Link
-              to="/admin/users"
-              className={`sidebar-element ${
-                path === "/admin/users" ? "active" : ""
-              }`}
-            >
-              <i className="fa fa-users"></i> Quản lý Người Dùng
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/admin/categories"
-              className={`sidebar-element ${
-                path === "/admin/categories" ? "active" : ""
-              }`}
-            >
-              <i className="fa fa-th-large"></i> Quản Lý Danh Mục
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/admin/coupons"
-              className={`sidebar-element ${
-                path === "/admin/coupons" ? "active" : ""
-              }`}
-            >
-              <i className="fa fa-ticket"></i> Quản Lý Khuyễn Mãi
+            <Link to="/admin/reviews" className="sidebar-element">
+              <i className="fa fa-star"></i> Quản lý Đánh Giá
             </Link>
           </li>
 
@@ -79,6 +39,6 @@ const Sidebar = React.memo(({ path }) => {
       </nav>
     </div>
   );
-});
+};
 
 export default Sidebar;

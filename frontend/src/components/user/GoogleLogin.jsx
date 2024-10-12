@@ -15,12 +15,11 @@ function LoginGoogle() {
 
   const { user, isAuthenticated, error } = useSelector((state) => state.auth);
   let route = "/";
+
   useEffect(() => {
     if (user) {
       if (user.role === "admin") {
         route = "/admin/dashboard";
-      } else if (user.role === "shopkeeper") {
-        route = "/shop/dashboard";
       }
     }
   }, [user]);

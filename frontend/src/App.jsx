@@ -23,17 +23,15 @@ import AddAddress from "./components/user/AddAddress";
 import UpdateAddress from "./components/user/UpdateAddress";
 import ProtectedRoute from "./components/route/ProtectedRoute";
 import { loadUser } from "./actions/userActions";
-import store from "./store";
-import axios from "axios";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import WaitingRoom from "./components/cart/WaitingRoom";
 import ScrollToTop from "./utils/ScrollToTop";
 import AdminCentre from "./components/admin/Centre";
-import ShopCentre from "./components/shop/Centre";
+import AdCentre from "./components/ad/Centre";
 import SocketManager from "./components/user/SocketManager";
-import ShopRegister from "./components/shop/register/Register";
 import { useDispatch } from "react-redux";
+import ChoicesPick from "./components/help/ChoicesPick";
 
 function App() {
   const dispatch = useDispatch();
@@ -135,18 +133,10 @@ function App() {
               path="/order/:id"
               element={<ProtectedRoute component={OrderDetails} />}
             />
-            <Route
-              path="/shop/register"
-              element={<ProtectedRoute component={ShopRegister} />}
-            />
-          </Routes>
 
-          <Routes>
             <Route
-              path="/shopkeeper/*"
-              element={
-                <ProtectedRoute isShopkeeper={true} component={ShopCentre} />
-              }
+              path="/help/on-choices-pick"
+              element={<ProtectedRoute component={ChoicesPick} />}
             />
           </Routes>
 
@@ -154,8 +144,15 @@ function App() {
             <Route
               path="/admin/*"
               element={
-                <ProtectedRoute isAdmin={true} component={AdminCentre} />
+                <ProtectedRoute isadmin={true} component={AdminCentre} />
               }
+            />
+          </Routes>
+
+          <Routes>
+            <Route
+              path="/test/*"
+              element={<ProtectedRoute isadmin={true} component={AdCentre} />}
             />
           </Routes>
         </div>

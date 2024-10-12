@@ -36,9 +36,6 @@ import {
   GET_PRODUCT_CATEGORIES_SUCCESS,
   GET_PRODUCT_CATEGORIES_FAIL,
   CLEAR_ERRORS,
-  GET_SHOP_PRODUCTS_REQUEST,
-  GET_SHOP_PRODUCTS_SUCCESS,
-  GET_SHOP_PRODUCTS_FAIL,
 } from "../constants/productConstants";
 
 export const getProducts =
@@ -83,7 +80,7 @@ export const uploadImages = (image) => async (dispatch) => {
       },
     };
     const { data } = await axios.post(
-      `/api/v1/shop/uploadImages`,
+      `/api/v1/admin/uploadImages`,
       image,
       config
     );
@@ -102,7 +99,7 @@ export const uploadSectionImages = (image) => async (dispatch) => {
       },
     };
     const { data } = await axios.post(
-      `/api/v1/shop/section/upload/images`,
+      `/api/v1/admin/section/upload/images`,
       image,
       config
     );
@@ -123,7 +120,7 @@ export const newProduct = (productData) => async (dispatch) => {
       },
     };
     const { data } = await axios.post(
-      `/api/v1/shop/product/new`,
+      `/api/v1/admin/product/new`,
       productData,
       config
     );
@@ -144,7 +141,7 @@ export const deleteProduct = (id) => async (dispatch) => {
   try {
     dispatch({ type: DELETE_PRODUCT_REQUEST });
 
-    const { data } = await axios.delete(`/api/v1/shop/product/${id}`);
+    const { data } = await axios.delete(`/api/v1/admin/product/${id}`);
 
     dispatch({
       type: DELETE_PRODUCT_SUCCESS,
@@ -169,7 +166,7 @@ export const updateProduct = (id, productData) => async (dispatch) => {
     };
 
     const { data } = await axios.put(
-      `/api/v1/shop/product/${id}`,
+      `/api/v1/admin/product/${id}`,
       productData,
       config
     );
@@ -199,7 +196,7 @@ export const updateProductBasic = (id, productData) => async (dispatch) => {
     };
 
     const { data } = await axios.put(
-      `/api/v1/shop/product/update/${id}`,
+      `/api/v1/admin/product/update/${id}`,
       productData,
       config
     );
@@ -260,26 +257,6 @@ export const newReview = (reviewData) => async (dispatch) => {
   }
 };
 
-export const getShopProducts =
-  (shopId, approved = "", keyword = "", currentPage = 1, resPerPage = 10) =>
-  async (dispatch) => {
-    try {
-      dispatch({ type: GET_SHOP_PRODUCTS_REQUEST });
-
-      let url = `/api/v1/shop/products?shopId=${shopId}&approved=${approved}&keyword=${keyword}&page=${currentPage}&resPerPage=${resPerPage}`;
-      const { data } = await axios.get(url);
-
-      dispatch({
-        type: GET_SHOP_PRODUCTS_SUCCESS,
-        payload: { products: data.products, productsCount: data.productsCount },
-      });
-    } catch (error) {
-      dispatch({
-        type: GET_SHOP_PRODUCTS_FAIL,
-        payload: error.response.data.message,
-      });
-    }
-  };
 
 export const getAdminProducts =
   (approved = "pending", keyword = "", currentPage = 1, resPerPage = 5) =>

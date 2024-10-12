@@ -23,12 +23,12 @@ router
   .post(isAuthenticatedUser, checkOrderReview);
 
 router
-  .route("/shop/orders")
-  .get(isAuthenticatedUser, authorizeRoles("shopkeeper"), allOrders);
+  .route("/admin/orders")
+  .get(isAuthenticatedUser, authorizeRoles("admin"), allOrders);
 
 router
-  .route("/shop/order/:id")
-  .put(isAuthenticatedUser, authorizeRoles("shopkeeper"), updateOrder)
-  .delete(isAuthenticatedUser, authorizeRoles("shopkeeper"), deleteOrder);
+  .route("/admin/order/:id")
+  .put(isAuthenticatedUser, authorizeRoles("admin"), updateOrder)
+  .delete(isAuthenticatedUser, authorizeRoles("admin"), deleteOrder);
 
 module.exports = router;

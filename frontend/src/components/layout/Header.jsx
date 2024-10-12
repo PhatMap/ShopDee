@@ -306,11 +306,8 @@ const Header = () => {
                     <p>{user && user.name}</p>
                     <p>{user && user.email}</p>
                     <hr />
-                    {user && user.role === "shopkeeper" && (
-                      <Link
-                        className="dropdown-item"
-                        to="/shopkeeper/dashboard"
-                      >
+                    {user && user.role === "admin" && (
+                      <Link className="dropdown-item" to="/admin/dashboard">
                         Quản Lí
                       </Link>
                     )}

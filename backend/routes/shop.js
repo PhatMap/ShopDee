@@ -11,16 +11,16 @@ const router = express.Router();
 
 router
   .route("/shop/section/upload/images")
-  .post(isAuthenticatedUser, authorizeRoles("shopkeeper"), uploadImages);
+  .post(isAuthenticatedUser, authorizeRoles("admin"), uploadImages);
 
 router
   .route("/shop/me")
-  .put(isAuthenticatedUser, authorizeRoles("shopkeeper"), updateShop)
-  .get(isAuthenticatedUser, authorizeRoles("shopkeeper"), getShop);
+  .put(isAuthenticatedUser, authorizeRoles("admin"), updateShop)
+  .get(isAuthenticatedUser, authorizeRoles("admin"), getShop);
 
 router
   .route("/shop/section")
-  .put(isAuthenticatedUser, authorizeRoles("shopkeeper"), updateShopSection)
-  .delete(isAuthenticatedUser, authorizeRoles("shopkeeper"), deleteShopSection);
+  .put(isAuthenticatedUser, authorizeRoles("admin"), updateShopSection)
+  .delete(isAuthenticatedUser, authorizeRoles("admin"), deleteShopSection);
 
 module.exports = router;
