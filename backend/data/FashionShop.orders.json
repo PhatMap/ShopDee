@@ -1,0 +1,1911 @@
+[{
+  "_id": {
+    "$oid": "6665eaa33f01a763816842d3"
+  },
+  "shippingInfo": {
+    "province": "Tỉnh Hà Giang",
+    "district": "Huyện Mèo Vạc",
+    "town": "Xã Khâu Vai",
+    "location": "Ho Chi Minh City, VNM",
+    "phone": "0367562350"
+  },
+  "user": {
+    "$oid": "6627e33c55f5c45cedf90d21"
+  },
+  "userName": "Trần Trung Phá",
+  "orderItems": [
+    {
+      "product": {
+        "$oid": "665c47161d029f5510250a29"
+      },
+      "variant": {
+        "$oid": "665c47161d029f5510250a2c"
+      },
+      "inventory": {
+        "$oid": "665c47161d029f5510250a2f"
+      },
+      "name": "SET BỘ ÁO DÀI Ý CHÂU",
+      "variantName": "Đỏ",
+      "quantity": 1,
+      "image": "https://res.cloudinary.com/dfbo1ecn9/image/upload/v1717273519/products/b3fpn0zxrxec7vcom8vd.webp",
+      "price": 64,
+      "size": "M",
+      "_id": {
+        "$oid": "6665e788dec86152475d17ba"
+      }
+    }
+  ],
+  "paymentInfo": {
+    "id": "pi_3PPppzJQzZIRhEZl2973EhY3",
+    "status": "succeeded"
+  },
+  "paidAt": {
+    "$date": "2024-06-09T17:47:15.266Z"
+  },
+  "itemsPrice": 64,
+  "taxPrice": 3.2,
+  "shippingPrice": 25,
+  "totalPrice": 92.2,
+  "orderStatus": "Delivered",
+  "createAt": {
+    "$date": "2024-06-09T17:47:15.273Z"
+  },
+  "__v": 0,
+  "deliverAt": {
+    "$date": "2024-06-15T10:31:51.243Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "666d6d3baf01a052f787e944"
+  },
+  "shippingInfo": {
+    "province": "Tỉnh Hà Giang",
+    "district": "Huyện Mèo Vạc",
+    "town": "Xã Khâu Vai",
+    "location": "Ho Chi Minh City, VNM",
+    "phone": "0367562350"
+  },
+  "user": {
+    "$oid": "6627e33c55f5c45cedf90d21"
+  },
+  "userName": "Trần Trung Phá",
+  "orderItems": [
+    {
+      "product": {
+        "$oid": "665c47161d029f5510250aa8"
+      },
+      "variant": {
+        "$oid": "6665c3949ef241f8ae8c1fdf"
+      },
+      "inventory": {
+        "$oid": "665c47161d029f5510250ab2"
+      },
+      "name": "Quần Dài Kaki Nam Trơn Lưng Thun Rút Dây Form Straight Crop",
+      "variantName": "Mây Bạc",
+      "quantity": 1,
+      "image": "https://res.cloudinary.com/dfbo1ecn9/image/upload/v1717280199/products/upf8ezqhbnjwrcl02zbw.webp",
+      "price": 60000,
+      "size": "XXL",
+      "_id": {
+        "$oid": "666738570887b000d783760c"
+      }
+    }
+  ],
+  "paymentInfo": {
+    "id": "1718447419060476267",
+    "status": "succeeded"
+  },
+  "paidAt": {
+    "$date": "2024-06-15T10:30:19.079Z"
+  },
+  "itemsPrice": 60000,
+  "taxPrice": 3000,
+  "shippingPrice": 0,
+  "totalPrice": 63000,
+  "orderStatus": "Delivered",
+  "createAt": {
+    "$date": "2024-06-15T10:30:19.091Z"
+  },
+  "__v": 0,
+  "deliverAt": {
+    "$date": "2024-06-15T10:30:48.588Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "666dba8142e4f5518f8268b1"
+  },
+  "shippingInfo": {
+    "province": "Tỉnh Hà Giang",
+    "district": "Huyện Mèo Vạc",
+    "town": "Xã Khâu Vai",
+    "location": "Ho Chi Minh City, VNM",
+    "phone": "0367562350"
+  },
+  "user": {
+    "$oid": "6627e33c55f5c45cedf90d21"
+  },
+  "userName": "Trần Trung Phá",
+  "orderItems": [
+    {
+      "product": {
+        "$oid": "665c47161d029f5510250aa8"
+      },
+      "variant": {
+        "$oid": "6665c3949ef241f8ae8c1fdf"
+      },
+      "inventory": {
+        "$oid": "665c47161d029f5510250aaf"
+      },
+      "name": "Quần Dài Kaki Nam Trơn Lưng Thun Rút Dây Form Straight Crop",
+      "variantName": "Mây Bạc",
+      "quantity": 1,
+      "image": "https://res.cloudinary.com/dfbo1ecn9/image/upload/v1717280199/products/upf8ezqhbnjwrcl02zbw.webp",
+      "price": 540000,
+      "size": "M",
+      "_id": {
+        "$oid": "666738520887b000d78375df"
+      }
+    }
+  ],
+  "paymentInfo": {
+    "id": "1718467201446986283",
+    "status": "Progress"
+  },
+  "paidAt": {
+    "$date": "2024-06-15T16:00:01.461Z"
+  },
+  "itemsPrice": 540000,
+  "taxPrice": 27000,
+  "shippingPrice": 0,
+  "totalPrice": 567000,
+  "orderStatus": "Processing",
+  "createAt": {
+    "$date": "2024-06-15T16:00:01.468Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "666dba8842e4f5518f8268eb"
+  },
+  "shippingInfo": {
+    "province": "Tỉnh Hà Giang",
+    "district": "Huyện Mèo Vạc",
+    "town": "Xã Khâu Vai",
+    "location": "Ho Chi Minh City, VNM",
+    "phone": "0367562350"
+  },
+  "user": {
+    "$oid": "6627e33c55f5c45cedf90d21"
+  },
+  "userName": "Trần Trung Phá",
+  "orderItems": [
+    {
+      "product": {
+        "$oid": "665c47161d029f5510250aa8"
+      },
+      "variant": {
+        "$oid": "6665c3949ef241f8ae8c1fdf"
+      },
+      "inventory": {
+        "$oid": "665c47161d029f5510250ab0"
+      },
+      "name": "Quần Dài Kaki Nam Trơn Lưng Thun Rút Dây Form Straight Crop",
+      "variantName": "Mây Bạc",
+      "quantity": 1,
+      "image": "https://res.cloudinary.com/dfbo1ecn9/image/upload/v1717280199/products/upf8ezqhbnjwrcl02zbw.webp",
+      "price": 560000,
+      "size": "L",
+      "_id": {
+        "$oid": "666738540887b000d78375eb"
+      }
+    }
+  ],
+  "paymentInfo": {
+    "id": "1718467208272235974",
+    "status": "Progress"
+  },
+  "paidAt": {
+    "$date": "2024-06-15T16:00:08.288Z"
+  },
+  "itemsPrice": 560000,
+  "taxPrice": 28000,
+  "shippingPrice": 0,
+  "totalPrice": 588000,
+  "orderStatus": "Processing",
+  "createAt": {
+    "$date": "2024-06-15T16:00:08.289Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "666dba8f42e4f5518f826921"
+  },
+  "shippingInfo": {
+    "province": "Tỉnh Hà Giang",
+    "district": "Huyện Mèo Vạc",
+    "town": "Xã Khâu Vai",
+    "location": "Ho Chi Minh City, VNM",
+    "phone": "0367562350"
+  },
+  "user": {
+    "$oid": "6627e33c55f5c45cedf90d21"
+  },
+  "userName": "Trần Trung Phá",
+  "orderItems": [
+    {
+      "product": {
+        "$oid": "665c47161d029f5510250aa8"
+      },
+      "variant": {
+        "$oid": "6665c3949ef241f8ae8c1fdf"
+      },
+      "inventory": {
+        "$oid": "665c47161d029f5510250ab1"
+      },
+      "name": "Quần Dài Kaki Nam Trơn Lưng Thun Rút Dây Form Straight Crop",
+      "variantName": "Mây Bạc",
+      "quantity": 1,
+      "image": "https://res.cloudinary.com/dfbo1ecn9/image/upload/v1717280199/products/upf8ezqhbnjwrcl02zbw.webp",
+      "price": 580000,
+      "size": "XL",
+      "_id": {
+        "$oid": "666738550887b000d78375fa"
+      }
+    }
+  ],
+  "paymentInfo": {
+    "id": "1718467215636329901",
+    "status": "Progress"
+  },
+  "paidAt": {
+    "$date": "2024-06-15T16:00:15.654Z"
+  },
+  "itemsPrice": 580000,
+  "taxPrice": 29000,
+  "shippingPrice": 0,
+  "totalPrice": 609000,
+  "orderStatus": "Processing",
+  "createAt": {
+    "$date": "2024-06-15T16:00:15.657Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "666dba9742e4f5518f826953"
+  },
+  "shippingInfo": {
+    "province": "Tỉnh Hà Giang",
+    "district": "Huyện Mèo Vạc",
+    "town": "Xã Khâu Vai",
+    "location": "Ho Chi Minh City, VNM",
+    "phone": "0367562350"
+  },
+  "user": {
+    "$oid": "6627e33c55f5c45cedf90d21"
+  },
+  "userName": "Trần Trung Phá",
+  "orderItems": [
+    {
+      "product": {
+        "$oid": "665c47161d029f5510250aa8"
+      },
+      "variant": {
+        "$oid": "6665c3949ef241f8ae8c1fe7"
+      },
+      "inventory": {
+        "$oid": "665c47161d029f5510250ab7"
+      },
+      "name": "Quần Dài Kaki Nam Trơn Lưng Thun Rút Dây Form Straight Crop",
+      "variantName": "Đen",
+      "quantity": 1,
+      "image": "https://res.cloudinary.com/dfbo1ecn9/image/upload/v1717280200/products/cd1kysoc2idluvh1zr3l.webp",
+      "price": 560000,
+      "size": "L",
+      "_id": {
+        "$oid": "666738590887b000d7837621"
+      }
+    }
+  ],
+  "paymentInfo": {
+    "id": "1718467223216279400",
+    "status": "Progress"
+  },
+  "paidAt": {
+    "$date": "2024-06-15T16:00:23.234Z"
+  },
+  "itemsPrice": 560000,
+  "taxPrice": 28000,
+  "shippingPrice": 0,
+  "totalPrice": 588000,
+  "orderStatus": "Processing",
+  "createAt": {
+    "$date": "2024-06-15T16:00:23.236Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "666dbaa342e4f5518f826993"
+  },
+  "shippingInfo": {
+    "province": "Tỉnh Hà Giang",
+    "district": "Huyện Mèo Vạc",
+    "town": "Xã Khâu Vai",
+    "location": "Ho Chi Minh City, VNM",
+    "phone": "0367562350"
+  },
+  "user": {
+    "$oid": "6627e33c55f5c45cedf90d21"
+  },
+  "userName": "Trần Trung Phá",
+  "orderItems": [
+    {
+      "product": {
+        "$oid": "665c47161d029f5510250a29"
+      },
+      "variant": {
+        "$oid": "665c47161d029f5510250a2c"
+      },
+      "inventory": {
+        "$oid": "665c47161d029f5510250a2f"
+      },
+      "name": "SET BỘ ÁO DÀI Ý CHÂU",
+      "variantName": "Đỏ",
+      "quantity": 1,
+      "image": "https://res.cloudinary.com/dfbo1ecn9/image/upload/v1717273519/products/b3fpn0zxrxec7vcom8vd.webp",
+      "price": 64,
+      "size": "M",
+      "_id": {
+        "$oid": "6667400e0887b000d7837e9f"
+      }
+    }
+  ],
+  "paymentInfo": {
+    "id": "1718467235104744008",
+    "status": "Progress"
+  },
+  "paidAt": {
+    "$date": "2024-06-15T16:00:35.119Z"
+  },
+  "itemsPrice": 64,
+  "taxPrice": 3.2,
+  "shippingPrice": 25,
+  "totalPrice": 92.2,
+  "orderStatus": "Processing",
+  "createAt": {
+    "$date": "2024-06-15T16:00:35.121Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "666dbac142e4f5518f826e65"
+  },
+  "shippingInfo": {
+    "province": "Tỉnh Hà Giang",
+    "district": "Huyện Mèo Vạc",
+    "town": "Xã Khâu Vai",
+    "location": "Ho Chi Minh City, VNM",
+    "phone": "0367562350"
+  },
+  "user": {
+    "$oid": "6627e33c55f5c45cedf90d21"
+  },
+  "userName": "Trần Trung Phá",
+  "orderItems": [
+    {
+      "product": {
+        "$oid": "665c47161d029f5510250aa8"
+      },
+      "variant": {
+        "$oid": "6665c3949ef241f8ae8c1fe7"
+      },
+      "inventory": {
+        "$oid": "665c47161d029f5510250ab7"
+      },
+      "name": "Quần Dài Kaki Nam Trơn Lưng Thun Rút Dây Form Straight Crop",
+      "variantName": "Đen",
+      "quantity": 1,
+      "image": "https://res.cloudinary.com/dfbo1ecn9/image/upload/v1717280200/products/cd1kysoc2idluvh1zr3l.webp",
+      "price": 560000,
+      "size": "L",
+      "_id": {
+        "$oid": "666dbab242e4f5518f826e01"
+      }
+    }
+  ],
+  "paymentInfo": {
+    "id": "1718467265674394008",
+    "status": "Progress"
+  },
+  "paidAt": {
+    "$date": "2024-06-15T16:01:05.692Z"
+  },
+  "itemsPrice": 560000,
+  "taxPrice": 28000,
+  "shippingPrice": 0,
+  "totalPrice": 588000,
+  "orderStatus": "Processing",
+  "createAt": {
+    "$date": "2024-06-15T16:01:05.694Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "666dbac742e4f5518f826e9f"
+  },
+  "shippingInfo": {
+    "province": "Tỉnh Hà Giang",
+    "district": "Huyện Mèo Vạc",
+    "town": "Xã Khâu Vai",
+    "location": "Ho Chi Minh City, VNM",
+    "phone": "0367562350"
+  },
+  "user": {
+    "$oid": "6627e33c55f5c45cedf90d21"
+  },
+  "userName": "Trần Trung Phá",
+  "orderItems": [
+    {
+      "product": {
+        "$oid": "665c47161d029f5510250aa8"
+      },
+      "variant": {
+        "$oid": "6665c3949ef241f8ae8c1fdf"
+      },
+      "inventory": {
+        "$oid": "665c47161d029f5510250ab2"
+      },
+      "name": "Quần Dài Kaki Nam Trơn Lưng Thun Rút Dây Form Straight Crop",
+      "variantName": "Mây Bạc",
+      "quantity": 1,
+      "image": "https://res.cloudinary.com/dfbo1ecn9/image/upload/v1717280199/products/upf8ezqhbnjwrcl02zbw.webp",
+      "price": 60000,
+      "size": "XXL",
+      "_id": {
+        "$oid": "666dbab642e4f5518f826e0d"
+      }
+    }
+  ],
+  "paymentInfo": {
+    "id": "1718467271037394711",
+    "status": "Progress"
+  },
+  "paidAt": {
+    "$date": "2024-06-15T16:01:11.052Z"
+  },
+  "itemsPrice": 60000,
+  "taxPrice": 3000,
+  "shippingPrice": 0,
+  "totalPrice": 63000,
+  "orderStatus": "Processing",
+  "createAt": {
+    "$date": "2024-06-15T16:01:11.054Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "666dbacb42e4f5518f826ed5"
+  },
+  "shippingInfo": {
+    "province": "Tỉnh Hà Giang",
+    "district": "Huyện Mèo Vạc",
+    "town": "Xã Khâu Vai",
+    "location": "Ho Chi Minh City, VNM",
+    "phone": "0367562350"
+  },
+  "user": {
+    "$oid": "6627e33c55f5c45cedf90d21"
+  },
+  "userName": "Trần Trung Phá",
+  "orderItems": [
+    {
+      "product": {
+        "$oid": "665c47161d029f5510250aa8"
+      },
+      "variant": {
+        "$oid": "6665c3949ef241f8ae8c1fdf"
+      },
+      "inventory": {
+        "$oid": "665c47161d029f5510250ab1"
+      },
+      "name": "Quần Dài Kaki Nam Trơn Lưng Thun Rút Dây Form Straight Crop",
+      "variantName": "Mây Bạc",
+      "quantity": 1,
+      "image": "https://res.cloudinary.com/dfbo1ecn9/image/upload/v1717280199/products/upf8ezqhbnjwrcl02zbw.webp",
+      "price": 580000,
+      "size": "XL",
+      "_id": {
+        "$oid": "666dbab842e4f5518f826e1c"
+      }
+    }
+  ],
+  "paymentInfo": {
+    "id": "1718467275368345492",
+    "status": "Progress"
+  },
+  "paidAt": {
+    "$date": "2024-06-15T16:01:15.383Z"
+  },
+  "itemsPrice": 580000,
+  "taxPrice": 29000,
+  "shippingPrice": 0,
+  "totalPrice": 609000,
+  "orderStatus": "Processing",
+  "createAt": {
+    "$date": "2024-06-15T16:01:15.385Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "666dbad042e4f5518f826f07"
+  },
+  "shippingInfo": {
+    "province": "Tỉnh Hà Giang",
+    "district": "Huyện Mèo Vạc",
+    "town": "Xã Khâu Vai",
+    "location": "Ho Chi Minh City, VNM",
+    "phone": "0367562350"
+  },
+  "user": {
+    "$oid": "6627e33c55f5c45cedf90d21"
+  },
+  "userName": "Trần Trung Phá",
+  "orderItems": [
+    {
+      "product": {
+        "$oid": "665c47161d029f5510250aa8"
+      },
+      "variant": {
+        "$oid": "6665c3949ef241f8ae8c1fdf"
+      },
+      "inventory": {
+        "$oid": "665c47161d029f5510250ab0"
+      },
+      "name": "Quần Dài Kaki Nam Trơn Lưng Thun Rút Dây Form Straight Crop",
+      "variantName": "Mây Bạc",
+      "quantity": 1,
+      "image": "https://res.cloudinary.com/dfbo1ecn9/image/upload/v1717280199/products/upf8ezqhbnjwrcl02zbw.webp",
+      "price": 560000,
+      "size": "L",
+      "_id": {
+        "$oid": "666dbab942e4f5518f826e2e"
+      }
+    }
+  ],
+  "paymentInfo": {
+    "id": "1718467280920901568",
+    "status": "Progress"
+  },
+  "paidAt": {
+    "$date": "2024-06-15T16:01:20.937Z"
+  },
+  "itemsPrice": 560000,
+  "taxPrice": 28000,
+  "shippingPrice": 0,
+  "totalPrice": 588000,
+  "orderStatus": "Processing",
+  "createAt": {
+    "$date": "2024-06-15T16:01:20.939Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "667174bb28b6c253ff2383e1"
+  },
+  "shippingInfo": {
+    "province": "Tỉnh Hà Giang",
+    "district": "Huyện Mèo Vạc",
+    "town": "Xã Khâu Vai",
+    "location": "Ho Chi Minh City, VNM",
+    "phone": "0367562350"
+  },
+  "user": {
+    "$oid": "6627e33c55f5c45cedf90d21"
+  },
+  "userName": "Trần Trung Phá",
+  "orderItems": [
+    {
+      "product": {
+        "$oid": "665c47161d029f5510250aa8"
+      },
+      "variant": {
+        "$oid": "6665c3949ef241f8ae8c1fdf"
+      },
+      "inventory": {
+        "$oid": "665c47161d029f5510250aaf"
+      },
+      "name": "Quần Dài Kaki Nam Trơn Lưng Thun Rút Dây Form Straight Crop",
+      "variantName": "Mây Bạc",
+      "quantity": 2,
+      "image": "https://res.cloudinary.com/dfbo1ecn9/image/upload/v1717280199/products/upf8ezqhbnjwrcl02zbw.webp",
+      "price": 540000,
+      "size": "M",
+      "_id": {
+        "$oid": "666dbabb42e4f5518f826e43"
+      }
+    }
+  ],
+  "paymentInfo": {
+    "id": "1718711483834481894",
+    "status": "Progress"
+  },
+  "paidAt": {
+    "$date": "2024-06-18T11:51:23.855Z"
+  },
+  "itemsPrice": 1080000,
+  "taxPrice": 54000,
+  "shippingPrice": 0,
+  "totalPrice": 1134000,
+  "orderStatus": "Processing",
+  "createAt": {
+    "$date": "2024-06-18T11:51:23.864Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6672f2a3eaeea38d662fb5ac"
+  },
+  "shippingInfo": {
+    "province": "Tỉnh Hà Giang",
+    "district": "Huyện Mèo Vạc",
+    "town": "Xã Khâu Vai",
+    "location": "Ho Chi Minh City, VNM",
+    "phone": "0367562350"
+  },
+  "user": {
+    "$oid": "6627e33c55f5c45cedf90d21"
+  },
+  "userName": "Trần Trung Phá",
+  "orderItems": [
+    {
+      "product": {
+        "$oid": "665c47161d029f5510250aa8"
+      },
+      "variant": {
+        "$oid": "6665c3949ef241f8ae8c1fdf"
+      },
+      "inventory": {
+        "$oid": "665c47161d029f5510250ab0"
+      },
+      "name": "Quần Dài Kaki Nam Trơn Lưng Thun Rút Dây Form Straight Crop",
+      "variantName": "Mây Bạc",
+      "quantity": 1,
+      "image": "https://res.cloudinary.com/dfbo1ecn9/image/upload/v1717280199/products/upf8ezqhbnjwrcl02zbw.webp",
+      "price": 560000,
+      "size": "L",
+      "_id": {
+        "$oid": "6672effceaeea38d662f723a"
+      }
+    }
+  ],
+  "paymentInfo": {
+    "id": "1718809251005838165",
+    "status": "Progress"
+  },
+  "paidAt": {
+    "$date": "2024-06-19T15:00:51.027Z"
+  },
+  "itemsPrice": 560000,
+  "taxPrice": 28000,
+  "shippingPrice": 0,
+  "totalPrice": 588000,
+  "orderStatus": "Processing",
+  "createAt": {
+    "$date": "2024-06-19T15:00:51.034Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6674724e8aee617f2d701938"
+  },
+  "shippingInfo": {
+    "province": "Tỉnh Hà Giang",
+    "district": "Huyện Mèo Vạc",
+    "town": "Xã Khâu Vai",
+    "location": "Ho Chi Minh City, VNM",
+    "phone": "0367562350"
+  },
+  "user": {
+    "$oid": "6627e33c55f5c45cedf90d21"
+  },
+  "userName": "Trần Trung Phá",
+  "orderItems": [
+    {
+      "product": {
+        "$oid": "665c47161d029f5510250aa8"
+      },
+      "variant": {
+        "$oid": "6665c3949ef241f8ae8c1fdf"
+      },
+      "inventory": {
+        "$oid": "665c47161d029f5510250ab2"
+      },
+      "name": "Quần Dài Kaki Nam Trơn Lưng Thun Rút Dây Form Straight Crop",
+      "variantName": "Mây Bạc",
+      "quantity": 1,
+      "image": "https://res.cloudinary.com/dfbo1ecn9/image/upload/v1717280199/products/upf8ezqhbnjwrcl02zbw.webp",
+      "price": 60000,
+      "size": "XXL",
+      "_id": {
+        "$oid": "6672f2e0eaeea38d662fbecd"
+      }
+    }
+  ],
+  "paymentInfo": {
+    "status": "succeeded"
+  },
+  "paidAt": {
+    "$date": "2024-06-20T18:17:50.718Z"
+  },
+  "itemsPrice": 60000,
+  "taxPrice": 3000,
+  "shippingPrice": 0,
+  "totalPrice": 63000,
+  "orderStatus": "Processing",
+  "createAt": {
+    "$date": "2024-06-20T18:17:50.728Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66744b89762f3fda44bfa345"
+  },
+  "shippingInfo": {
+    "province": "Tỉnh Phú Thọ",
+    "district": "Huyện Đoan Hùng",
+    "town": "Xã Tiêu Sơn",
+    "location": "2222",
+    "phone": "124552525"
+  },
+  "user": {
+    "$oid": "6654b2f605a0d7b79eeb7753"
+  },
+  "userName": "Lã Quý Quân",
+  "orderItems": [
+    {
+      "product": {
+        "$oid": "666dd86b55a15a967d335b32"
+      },
+      "variant": {
+        "$oid": "666dd86b55a15a967d335b3d"
+      },
+      "inventory": {
+        "$oid": "666dd86b55a15a967d335b40"
+      },
+      "name": "Quần Dài Kaki Nam Trơn Lưng Thun Rút Dây Form Straight Crop",
+      "variantName": "Đen",
+      "quantity": 2,
+      "image": "https://res.cloudinary.com/dfbo1ecn9/image/upload/v1717280200/products/cd1kysoc2idluvh1zr3l.webp",
+      "price": 540000,
+      "size": "M",
+      "_id": {
+        "$oid": "66744b7b762f3fda44bfa300"
+      }
+    },
+    {
+      "product": {
+        "$oid": "666dd86b55a15a967d335b32"
+      },
+      "variant": {
+        "$oid": "666dd86b55a15a967d335b3d"
+      },
+      "inventory": {
+        "$oid": "666dd86b55a15a967d335b41"
+      },
+      "name": "Quần Dài Kaki Nam Trơn Lưng Thun Rút Dây Form Straight Crop",
+      "variantName": "Đen",
+      "quantity": 1,
+      "image": "https://res.cloudinary.com/dfbo1ecn9/image/upload/v1717280200/products/cd1kysoc2idluvh1zr3l.webp",
+      "price": 560000,
+      "size": "L",
+      "_id": {
+        "$oid": "66744b7d762f3fda44bfa310"
+      }
+    }
+  ],
+  "paymentInfo": {
+    "id": "1718897545922582340",
+    "status": "succeeded"
+  },
+  "paidAt": {
+    "$date": "2024-01-20T15:32:25.943Z"
+  },
+  "itemsPrice": 1640000,
+  "taxPrice": 82000,
+  "shippingPrice": 0,
+  "totalPrice": 1722000,
+  "orderStatus": "Delivered",
+  "createAt": {
+    "$date": "2024-01-20T15:32:25.955Z"
+  },
+  "__v": 0,
+  "deliverAt": {
+    "$date": "2024-01-20T15:38:31.643Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66744b9e762f3fda44bfa865"
+  },
+  "shippingInfo": {
+    "province": "Tỉnh Phú Thọ",
+    "district": "Huyện Đoan Hùng",
+    "town": "Xã Tiêu Sơn",
+    "location": "2222",
+    "phone": "124552525"
+  },
+  "user": {
+    "$oid": "6654b2f605a0d7b79eeb7753"
+  },
+  "userName": "Lã Quý Quân",
+  "orderItems": [
+    {
+      "product": {
+        "$oid": "666dd86b55a15a967d335af3"
+      },
+      "variant": {
+        "$oid": "666dd86b55a15a967d335afd"
+      },
+      "inventory": {
+        "$oid": "666dd86b55a15a967d335b04"
+      },
+      "name": "Áo polo nam Gavani pol eternal form unisex cơ bản",
+      "variantName": "Đen",
+      "quantity": 2,
+      "image": "https://res.cloudinary.com/dfbo1ecn9/image/upload/v1717278166/products/nihofj8lftziezliceet.webp",
+      "price": 420000,
+      "size": "L",
+      "_id": {
+        "$oid": "66744b95762f3fda44bfa835"
+      }
+    }
+  ],
+  "paymentInfo": {
+    "id": "1718897566702656417",
+    "status": "succeeded"
+  },
+  "paidAt": {
+    "$date": "2024-02-20T15:32:46.764Z"
+  },
+  "itemsPrice": 840000,
+  "taxPrice": 42000,
+  "shippingPrice": 0,
+  "totalPrice": 882000,
+  "orderStatus": "Delivered",
+  "createAt": {
+    "$date": "2024-02-20T15:32:46.767Z"
+  },
+  "__v": 0,
+  "deliverAt": {
+    "$date": "2024-02-20T15:38:26.053Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66744c0f762f3fda44bfad83"
+  },
+  "shippingInfo": {
+    "province": "Thành phố Hà Nội",
+    "district": "Quận Hà Đông",
+    "town": "Phường Đồng Mai",
+    "location": "111",
+    "phone": "1234567897"
+  },
+  "user": {
+    "$oid": "6654b2f605a0d7b79eeb7753"
+  },
+  "userName": "Lã Quý Quân",
+  "orderItems": [
+    {
+      "product": {
+        "$oid": "666dd86b55a15a967d335ab8"
+      },
+      "variant": {
+        "$oid": "666dd86b55a15a967d335ac1"
+      },
+      "inventory": {
+        "$oid": "666dd86b55a15a967d335ac5"
+      },
+      "name": "Áo thun nữ croptop tay ngắn",
+      "variantName": "Hồng",
+      "quantity": 2,
+      "image": "https://res.cloudinary.com/dfbo1ecn9/image/upload/v1717276620/products/qwpnl1vwqtzvhbpxbwoe.webp",
+      "price": 280000,
+      "size": "S",
+      "_id": {
+        "$oid": "66744c07762f3fda44bfad53"
+      }
+    }
+  ],
+  "paymentInfo": {
+    "id": "1718897679278892824",
+    "status": "succeeded"
+  },
+  "paidAt": {
+    "$date": "2024-03-20T15:34:39.298Z"
+  },
+  "itemsPrice": 560000,
+  "taxPrice": 28000,
+  "shippingPrice": 0,
+  "totalPrice": 588000,
+  "orderStatus": "Delivered",
+  "createAt": {
+    "$date": "2024-03-20T15:34:39.301Z"
+  },
+  "__v": 0,
+  "deliverAt": {
+    "$date": "2024-03-20T15:38:20.982Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66744c27762f3fda44bfb332"
+  },
+  "shippingInfo": {
+    "province": "Tỉnh Đắk Lắk",
+    "district": "Huyện Krông Năng",
+    "town": "Xã EaHồ",
+    "location": "18 Buôn Giêr",
+    "phone": "0397144780"
+  },
+  "user": {
+    "$oid": "6654b2f605a0d7b79eeb7753"
+  },
+  "userName": "Lã Quý Quân",
+  "orderItems": [
+    {
+      "product": {
+        "$oid": "666dd86b55a15a967d335ae7"
+      },
+      "variant": {
+        "$oid": "666dd86b55a15a967d335aea"
+      },
+      "inventory": {
+        "$oid": "666dd86b55a15a967d335aed"
+      },
+      "name": "Áo thun nam form rộng, ngắn tay Gavani Dreamer",
+      "variantName": "Đỏ",
+      "quantity": 2,
+      "image": "https://res.cloudinary.com/dfbo1ecn9/image/upload/v1717277944/products/jxmttx00ilbbqbryvtoo.jpg",
+      "price": 300000,
+      "size": "M",
+      "_id": {
+        "$oid": "66744c1d762f3fda44bfb2ed"
+      }
+    },
+    {
+      "product": {
+        "$oid": "666dd86b55a15a967d335ae7"
+      },
+      "variant": {
+        "$oid": "666dd86b55a15a967d335aee"
+      },
+      "inventory": {
+        "$oid": "666dd86b55a15a967d335af2"
+      },
+      "name": "Áo thun nam form rộng, ngắn tay Gavani Dreamer",
+      "variantName": "Trắng",
+      "quantity": 2,
+      "image": "https://res.cloudinary.com/dfbo1ecn9/image/upload/v1717277996/products/ckkplji730vy4y9jafl2.webp",
+      "price": 320000,
+      "size": "L",
+      "_id": {
+        "$oid": "66744c20762f3fda44bfb2fd"
+      }
+    }
+  ],
+  "paymentInfo": {
+    "id": "1718897703478825716",
+    "status": "succeeded"
+  },
+  "paidAt": {
+    "$date": "2024-03-20T15:35:03.501Z"
+  },
+  "itemsPrice": 1240000,
+  "taxPrice": 62000,
+  "shippingPrice": 0,
+  "totalPrice": 1302000,
+  "orderStatus": "Delivered",
+  "createAt": {
+    "$date": "2024-03-20T15:35:03.505Z"
+  },
+  "__v": 0,
+  "deliverAt": {
+    "$date": "2024-03-20T15:38:14.026Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66744c60762f3fda44bfca64"
+  },
+  "shippingInfo": {
+    "province": "Thành phố Hà Nội",
+    "district": "Quận Hà Đông",
+    "town": "Phường Đồng Mai",
+    "location": "111",
+    "phone": "1234567897"
+  },
+  "user": {
+    "$oid": "6654b2f605a0d7b79eeb7753"
+  },
+  "userName": "Lã Quý Quân",
+  "orderItems": [
+    {
+      "product": {
+        "$oid": "666dd86b55a15a967d335aa6"
+      },
+      "variant": {
+        "$oid": "666dd86b55a15a967d335aa8"
+      },
+      "inventory": {
+        "$oid": "666dd86b55a15a967d335aac"
+      },
+      "name": "SET ÁO DÀI HOÀNG CÚC",
+      "variantName": "Họa tiết Be",
+      "quantity": 1,
+      "image": "https://res.cloudinary.com/dfbo1ecn9/image/upload/v1717273417/products/o1aq5wy8ss1e4sfopi1w.webp",
+      "price": 690000,
+      "size": "XL",
+      "_id": {
+        "$oid": "66744c3a762f3fda44bfb914"
+      }
+    },
+    {
+      "product": {
+        "$oid": "666dd86b55a15a967d335a84"
+      },
+      "variant": {
+        "$oid": "666dd86b55a15a967d335a86"
+      },
+      "inventory": {
+        "$oid": "666dd86b55a15a967d335a8a"
+      },
+      "name": "ĐẦM ÔM NHÚN TẠO KIỂU",
+      "variantName": "Đen",
+      "quantity": 1,
+      "image": "https://res.cloudinary.com/dfbo1ecn9/image/upload/v1717272559/products/hpng6qdpe3lq7anc6npe.webp",
+      "price": 790000,
+      "size": "XL",
+      "_id": {
+        "$oid": "66744c48762f3fda44bfbeb5"
+      }
+    }
+  ],
+  "paymentInfo": {
+    "id": "1718897760155682491",
+    "status": "succeeded"
+  },
+  "paidAt": {
+    "$date": "2024-04-20T15:36:00.182Z"
+  },
+  "itemsPrice": 1480000,
+  "taxPrice": 74000,
+  "shippingPrice": 0,
+  "totalPrice": 1554000,
+  "orderStatus": "Delivered",
+  "createAt": {
+    "$date": "2024-04-20T15:36:00.185Z"
+  },
+  "__v": 0,
+  "deliverAt": {
+    "$date": "2024-04-20T15:38:09.604Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66744c68762f3fda44bfcaf5"
+  },
+  "shippingInfo": {
+    "province": "Tỉnh Phú Thọ",
+    "district": "Huyện Đoan Hùng",
+    "town": "Xã Tiêu Sơn",
+    "location": "2222",
+    "phone": "124552525"
+  },
+  "user": {
+    "$oid": "6654b2f605a0d7b79eeb7753"
+  },
+  "userName": "Lã Quý Quân",
+  "orderItems": [
+    {
+      "product": {
+        "$oid": "666dd86b55a15a967d335a30"
+      },
+      "variant": {
+        "$oid": "666dd86b55a15a967d335a32"
+      },
+      "inventory": {
+        "$oid": "666dd86b55a15a967d335a37"
+      },
+      "name": "ĐẦM XÒE CỔ V PHỐI ĐAI",
+      "variantName": "Kem",
+      "quantity": 1,
+      "image": "https://res.cloudinary.com/dfbo1ecn9/image/upload/v1717271769/products/tdglwltm0fwnodlrsqwv.webp",
+      "price": 630000,
+      "size": "XS",
+      "_id": {
+        "$oid": "66744c55762f3fda44bfca25"
+      }
+    }
+  ],
+  "paymentInfo": {
+    "id": "1718897768311853092",
+    "status": "succeeded"
+  },
+  "paidAt": {
+    "$date": "2024-04-20T15:36:08.332Z"
+  },
+  "itemsPrice": 630000,
+  "taxPrice": 31500,
+  "shippingPrice": 0,
+  "totalPrice": 661500,
+  "orderStatus": "Delivered",
+  "createAt": {
+    "$date": "2024-04-20T15:36:08.335Z"
+  },
+  "__v": 0,
+  "deliverAt": {
+    "$date": "2024-04-20T15:38:03.462Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66744c70762f3fda44bfcb49"
+  },
+  "shippingInfo": {
+    "province": "Tỉnh Đắk Lắk",
+    "district": "Huyện Krông Năng",
+    "town": "Xã EaHồ",
+    "location": "18 Buôn Giêr",
+    "phone": "0397144780"
+  },
+  "user": {
+    "$oid": "6654b2f605a0d7b79eeb7753"
+  },
+  "userName": "Lã Quý Quân",
+  "orderItems": [
+    {
+      "product": {
+        "$oid": "666dd86b55a15a967d335aa6"
+      },
+      "variant": {
+        "$oid": "666dd86b55a15a967d335aa8"
+      },
+      "inventory": {
+        "$oid": "666dd86b55a15a967d335aad"
+      },
+      "name": "SET ÁO DÀI HOÀNG CÚC",
+      "variantName": "Họa tiết Be",
+      "quantity": 2,
+      "image": "https://res.cloudinary.com/dfbo1ecn9/image/upload/v1717273417/products/o1aq5wy8ss1e4sfopi1w.webp",
+      "price": 740000,
+      "size": "XXL",
+      "_id": {
+        "$oid": "66744c3d762f3fda44bfb924"
+      }
+    }
+  ],
+  "paymentInfo": {
+    "id": "1718897776817683696",
+    "status": "succeeded"
+  },
+  "paidAt": {
+    "$date": "2024-05-20T15:36:16.836Z"
+  },
+  "itemsPrice": 1480000,
+  "taxPrice": 74000,
+  "shippingPrice": 0,
+  "totalPrice": 1554000,
+  "orderStatus": "Delivered",
+  "createAt": {
+    "$date": "2024-05-20T15:36:16.840Z"
+  },
+  "__v": 0,
+  "deliverAt": {
+    "$date": "2024-05-20T15:37:57.856Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66744ca4762f3fda44bfe302"
+  },
+  "shippingInfo": {
+    "province": "Tỉnh Phú Thọ",
+    "district": "Huyện Đoan Hùng",
+    "town": "Xã Tiêu Sơn",
+    "location": "2222",
+    "phone": "124552525"
+  },
+  "user": {
+    "$oid": "6654b2f605a0d7b79eeb7753"
+  },
+  "userName": "Lã Quý Quân",
+  "orderItems": [
+    {
+      "product": {
+        "$oid": "666dd86b55a15a967d335a25"
+      },
+      "variant": {
+        "$oid": "666dd86b55a15a967d335a27"
+      },
+      "inventory": {
+        "$oid": "666dd86b55a15a967d335a2b"
+      },
+      "name": "Giày Thể Thao Nam MWC NATT- 5455 Giày Thể Thao Nam Cao Cấp",
+      "variantName": "Đen",
+      "quantity": 2,
+      "image": "https://res.cloudinary.com/dfbo1ecn9/image/upload/v1717271576/products/l51b7hffwndljpodwnps.jpg",
+      "price": 410000,
+      "size": "XL",
+      "_id": {
+        "$oid": "66744c7b762f3fda44bfd11a"
+      }
+    }
+  ],
+  "paymentInfo": {
+    "id": "1718897828113202035",
+    "status": "succeeded"
+  },
+  "paidAt": {
+    "$date": "2024-05-20T15:37:08.133Z"
+  },
+  "itemsPrice": 820000,
+  "taxPrice": 41000,
+  "shippingPrice": 0,
+  "totalPrice": 861000,
+  "orderStatus": "Delivered",
+  "createAt": {
+    "$date": "2024-05-20T15:37:08.136Z"
+  },
+  "__v": 0,
+  "deliverAt": {
+    "$date": "2024-05-20T15:37:53.128Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66744cad762f3fda44bfe394"
+  },
+  "shippingInfo": {
+    "province": "Tỉnh Phú Thọ",
+    "district": "Huyện Đoan Hùng",
+    "town": "Xã Tiêu Sơn",
+    "location": "2222",
+    "phone": "124552525"
+  },
+  "user": {
+    "$oid": "6654b2f605a0d7b79eeb7753"
+  },
+  "userName": "Lã Quý Quân",
+  "orderItems": [
+    {
+      "product": {
+        "$oid": "666dd86b55a15a967d335a25"
+      },
+      "variant": {
+        "$oid": "666dd86b55a15a967d335a27"
+      },
+      "inventory": {
+        "$oid": "666dd86b55a15a967d335a2c"
+      },
+      "name": "Giày Thể Thao Nam MWC NATT- 5455 Giày Thể Thao Nam Cao Cấp",
+      "variantName": "Đen",
+      "quantity": 2,
+      "image": "https://res.cloudinary.com/dfbo1ecn9/image/upload/v1717271576/products/l51b7hffwndljpodwnps.jpg",
+      "price": 290000,
+      "size": "S",
+      "_id": {
+        "$oid": "66744c7e762f3fda44bfd12a"
+      }
+    }
+  ],
+  "paymentInfo": {
+    "id": "1718897837517102849",
+    "status": "succeeded"
+  },
+  "paidAt": {
+    "$date": "2024-05-20T15:37:17.535Z"
+  },
+  "itemsPrice": 580000,
+  "taxPrice": 29000,
+  "shippingPrice": 0,
+  "totalPrice": 609000,
+  "orderStatus": "Delivered",
+  "createAt": {
+    "$date": "2024-05-20T15:37:17.537Z"
+  },
+  "__v": 0,
+  "deliverAt": {
+    "$date": "2024-05-20T15:37:47.102Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66744cb5762f3fda44bfe3ee"
+  },
+  "shippingInfo": {
+    "province": "Tỉnh Phú Thọ",
+    "district": "Huyện Đoan Hùng",
+    "town": "Xã Tiêu Sơn",
+    "location": "2222",
+    "phone": "124552525"
+  },
+  "user": {
+    "$oid": "6654b2f605a0d7b79eeb7753"
+  },
+  "userName": "Lã Quý Quân",
+  "orderItems": [
+    {
+      "product": {
+        "$oid": "666dd86b55a15a967d3359bb"
+      },
+      "variant": {
+        "$oid": "666dd86b55a15a967d3359c0"
+      },
+      "inventory": {
+        "$oid": "666dd86b55a15a967d3359c3"
+      },
+      "name": "Dép cao gót MWC G053",
+      "variantName": "Kem",
+      "quantity": 2,
+      "image": "https://res.cloudinary.com/dfbo1ecn9/image/upload/v1717269565/products/q7943fyzgsnhycbisx7x.jpg",
+      "price": 450000,
+      "size": "XS",
+      "_id": {
+        "$oid": "66744c8a762f3fda44bfd7b1"
+      }
+    },
+    {
+      "product": {
+        "$oid": "666dd86b55a15a967d3359aa"
+      },
+      "variant": {
+        "$oid": "666dd86b55a15a967d3359af"
+      },
+      "inventory": {
+        "$oid": "666dd86b55a15a967d3359b3"
+      },
+      "name": "Giày cao gót MWC G063",
+      "variantName": "Trắng",
+      "quantity": 2,
+      "image": "https://res.cloudinary.com/dfbo1ecn9/image/upload/v1717269433/products/fgzunragobphhseiyuw3.jpg",
+      "price": 290000,
+      "size": "L",
+      "_id": {
+        "$oid": "66744c95762f3fda44bfde53"
+      }
+    }
+  ],
+  "paymentInfo": {
+    "id": "1718897845354547997",
+    "status": "succeeded"
+  },
+  "paidAt": {
+    "$date": "2024-06-20T15:37:25.384Z"
+  },
+  "itemsPrice": 1480000,
+  "taxPrice": 74000,
+  "shippingPrice": 0,
+  "totalPrice": 1554000,
+  "orderStatus": "Delivered",
+  "createAt": {
+    "$date": "2024-06-20T15:37:25.387Z"
+  },
+  "__v": 0,
+  "deliverAt": {
+    "$date": "2024-06-20T15:37:40.265Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66798816c6ec0e9d35c756b3"
+  },
+  "shippingInfo": {
+    "province": "Tỉnh Hà Giang",
+    "district": "Huyện Mèo Vạc",
+    "town": "Xã Khâu Vai",
+    "location": "Ho Chi Minh City, VNM",
+    "phone": "0367562350"
+  },
+  "user": {
+    "$oid": "6627e33c55f5c45cedf90d21"
+  },
+  "userName": "Trần Trung Phá",
+  "orderItems": [
+    {
+      "product": {
+        "$oid": "665c47161d029f5510250a95"
+      },
+      "variant": {
+        "$oid": "6665c3c09ef241f8ae8c26a1"
+      },
+      "inventory": {
+        "$oid": "665c47161d029f5510250aa6"
+      },
+      "name": "Quần Jean Nam Ống Ôm Wash Dye Trơn Form Slim",
+      "variantName": "Gỗ Liêm",
+      "quantity": 1,
+      "image": "https://res.cloudinary.com/dfbo1ecn9/image/upload/v1717279644/products/crr1jwvmttuucxnm2r8h.webp",
+      "price": 590000,
+      "size": "M",
+      "_id": {
+        "$oid": "66747786c5ae2c1871621598"
+      }
+    },
+    {
+      "product": {
+        "$oid": "665c47161d029f5510250a21"
+      },
+      "variant": {
+        "$oid": "665c47161d029f5510250a23"
+      },
+      "inventory": {
+        "$oid": "665c47161d029f5510250a26"
+      },
+      "name": "SET ÁO DÀI HOÀNG CÚC",
+      "variantName": "Họa tiết Be",
+      "quantity": 1,
+      "image": "https://res.cloudinary.com/dfbo1ecn9/image/upload/v1717273417/products/o1aq5wy8ss1e4sfopi1w.webp",
+      "price": 67,
+      "size": "L",
+      "_id": {
+        "$oid": "66747906c5ae2c1871622101"
+      }
+    },
+    {
+      "product": {
+        "$oid": "665c47161d029f5510250a21"
+      },
+      "variant": {
+        "$oid": "66747bd616beec02850d9a0c"
+      },
+      "inventory": {
+        "$oid": "66747bd616beec02850d9a11"
+      },
+      "name": "SET ÁO DÀI HOÀNG CÚC",
+      "variantName": "Họa tiết Be",
+      "quantity": 1,
+      "image": "https://res.cloudinary.com/dfbo1ecn9/image/upload/v1717273417/products/o1aq5wy8ss1e4sfopi1w.webp",
+      "price": 1000,
+      "size": "M",
+      "_id": {
+        "$oid": "66747c0516beec02850db0a8"
+      }
+    }
+  ],
+  "paymentInfo": {
+    "status": "succeeded"
+  },
+  "paidAt": {
+    "$date": "2024-06-24T14:52:06.370Z"
+  },
+  "itemsPrice": 1000,
+  "taxPrice": 50,
+  "shippingPrice": 0,
+  "totalPrice": 1050,
+  "orderStatus": "Processing",
+  "createAt": {
+    "$date": "2024-06-24T14:52:06.381Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66798cb3c6ec0e9d35c75cbf"
+  },
+  "shippingInfo": {
+    "province": "Tỉnh Hà Giang",
+    "district": "Huyện Mèo Vạc",
+    "town": "Xã Khâu Vai",
+    "location": "Ho Chi Minh City, VNM",
+    "phone": "0367562350"
+  },
+  "user": {
+    "$oid": "6627e33c55f5c45cedf90d21"
+  },
+  "userName": "Trần Trung Phá",
+  "orderItems": [
+    {
+      "product": {
+        "$oid": "665c47161d029f5510250aa8"
+      },
+      "variant": {
+        "$oid": "6679508e717e72efb563357b"
+      },
+      "inventory": {
+        "$oid": "665c47161d029f5510250aaf"
+      },
+      "name": "Quần Dài Kaki Nam Trơn Lưng Thun Rút Dây Form Straight Crop",
+      "variantName": "Mây Bạc",
+      "quantity": 1,
+      "image": "https://res.cloudinary.com/dfbo1ecn9/image/upload/v1717280199/products/upf8ezqhbnjwrcl02zbw.webp",
+      "price": 540000,
+      "size": "M",
+      "_id": {
+        "$oid": "6679891ec6ec0e9d35c75c1a"
+      }
+    }
+  ],
+  "paymentInfo": {
+    "id": "1719241907964753247",
+    "status": "Progress"
+  },
+  "paidAt": {
+    "$date": "2024-06-24T15:11:47.975Z"
+  },
+  "itemsPrice": 540000,
+  "taxPrice": 27000,
+  "shippingPrice": 0,
+  "totalPrice": 567000,
+  "orderStatus": "Processing",
+  "createAt": {
+    "$date": "2024-06-24T15:11:47.976Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "667993abc6ec0e9d35c76914"
+  },
+  "shippingInfo": {
+    "province": "Tỉnh Hà Giang",
+    "district": "Huyện Mèo Vạc",
+    "town": "Xã Khâu Vai",
+    "location": "Ho Chi Minh City, VNM",
+    "phone": "0367562350"
+  },
+  "user": {
+    "$oid": "6627e33c55f5c45cedf90d21"
+  },
+  "userName": "Trần Trung Phá",
+  "orderItems": [
+    {
+      "product": {
+        "$oid": "665c47161d029f5510250a21"
+      },
+      "variant": {
+        "$oid": "66747bd616beec02850d9a0c"
+      },
+      "inventory": {
+        "$oid": "66747bd616beec02850d9a11"
+      },
+      "name": "SET ÁO DÀI HOÀNG CÚC",
+      "variantName": "Họa tiết Be",
+      "quantity": 1,
+      "image": "https://res.cloudinary.com/dfbo1ecn9/image/upload/v1717273417/products/o1aq5wy8ss1e4sfopi1w.webp",
+      "price": 1000,
+      "size": "M",
+      "_id": {
+        "$oid": "6679938dc6ec0e9d35c768d4"
+      }
+    }
+  ],
+  "paymentInfo": {
+    "id": "1719243670659259824",
+    "status": "Progress"
+  },
+  "paidAt": {
+    "$date": "2024-06-24T15:41:31.926Z"
+  },
+  "itemsPrice": 1000,
+  "taxPrice": 50,
+  "shippingPrice": 0,
+  "totalPrice": 1050,
+  "orderStatus": "Processing",
+  "createAt": {
+    "$date": "2024-06-24T15:41:31.929Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "668289c070a185414b18e346"
+  },
+  "shippingInfo": {
+    "province": "Tỉnh Hà Giang",
+    "district": "Huyện Mèo Vạc",
+    "town": "Xã Khâu Vai",
+    "location": "Ho Chi Minh City, VNM",
+    "phone": "0367562350"
+  },
+  "user": {
+    "$oid": "6627e33c55f5c45cedf90d21"
+  },
+  "userName": "Trần Trung Phá",
+  "orderItems": [
+    {
+      "product": {
+        "$oid": "667a2e5236ae183e33e5d18b"
+      },
+      "variant": {
+        "$oid": "66826c2ec9976dedcb997238"
+      },
+      "inventory": {
+        "$oid": "667a2e5236ae183e33e5d193"
+      },
+      "name": "Quần Dài Kaki Nam Trơn Lưng Thun Rút Dây Form Straight Crop",
+      "variantName": "Mây Bạc",
+      "quantity": 1,
+      "image": "https://res.cloudinary.com/dfbo1ecn9/image/upload/v1717280199/products/upf8ezqhbnjwrcl02zbw.webp",
+      "price": 560000,
+      "size": "L",
+      "_id": {
+        "$oid": "668289b870a185414b18e307"
+      }
+    }
+  ],
+  "paymentInfo": {
+    "id": "1719830976229408444",
+    "status": "succeeded"
+  },
+  "paidAt": {
+    "$date": "2024-07-01T10:49:36.241Z"
+  },
+  "itemsPrice": 560000,
+  "taxPrice": 28000,
+  "shippingPrice": 0,
+  "totalPrice": 588000,
+  "orderStatus": "Delivered",
+  "createAt": {
+    "$date": "2024-07-01T10:49:36.245Z"
+  },
+  "__v": 0,
+  "deliverAt": {
+    "$date": "2024-07-01T10:49:48.816Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6693cdfcbc1a257213316aa5"
+  },
+  "shippingInfo": {
+    "town": "Xã Khâu Vai",
+    "location": "Ho Chi Minh City, VNM",
+    "phone": "0367562350"
+  },
+  "user": {
+    "$oid": "668eaa384e65fd25de7fc547"
+  },
+  "userName": "Trần Trung Phát",
+  "orderItems": [
+    {
+      "product": {
+        "$oid": "668eaa384e65fd25de7fc533"
+      },
+      "variant": {
+        "$oid": "668eaa384e65fd25de7fc536"
+      },
+      "inventory": {
+        "$oid": "668eaa384e65fd25de7fc53a"
+      },
+      "name": "Quần Dài Kaki Nam Trơn Lưng Thun Rút Dây Form Straight Crop",
+      "variantName": "Mây Bạc",
+      "quantity": 1,
+      "image": "https://res.cloudinary.com/dfbo1ecn9/image/upload/v1717280199/products/upf8ezqhbnjwrcl02zbw.webp",
+      "price": 540000,
+      "size": "M",
+      "_id": {
+        "$oid": "6693cddebc1a257213316a86"
+      }
+    }
+  ],
+  "paymentInfo": {
+    "id": "1720962556414646453",
+    "status": "succeeded"
+  },
+  "paidAt": {
+    "$date": "2024-07-14T13:09:16.431Z"
+  },
+  "itemsPrice": 540000,
+  "taxPrice": 27000,
+  "shippingPrice": 0,
+  "totalPrice": 567000,
+  "orderStatus": "Delivered",
+  "createAt": {
+    "$date": "2024-07-14T13:09:16.434Z"
+  },
+  "__v": 0,
+  "deliverAt": {
+    "$date": "2024-07-21T10:27:42.539Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "669ce1f6c1984e636699fc20"
+  },
+  "shippingInfo": {
+    "town": "Xã Khâu Vai",
+    "location": "Ho Chi Minh City, VNM",
+    "phone": "0367562350"
+  },
+  "user": {
+    "$oid": "668eaa384e65fd25de7fc547"
+  },
+  "userName": "Trần Trung Phát",
+  "orderItems": [
+    {
+      "product": {
+        "$oid": "668eaa384e65fd25de7fc533"
+      },
+      "variant": {
+        "$oid": "668eaa384e65fd25de7fc536"
+      },
+      "inventory": {
+        "$oid": "668eaa384e65fd25de7fc53a"
+      },
+      "name": "Quần Dài Kaki Nam Trơn Lưng Thun Rút Dây Form Straight Crop",
+      "variantName": "Mây Bạc",
+      "quantity": 1,
+      "image": "https://res.cloudinary.com/dfbo1ecn9/image/upload/v1717280199/products/upf8ezqhbnjwrcl02zbw.webp",
+      "price": 540000,
+      "size": "M",
+      "_id": {
+        "$oid": "669ce1f0c1984e636699fc01"
+      }
+    }
+  ],
+  "paymentInfo": {
+    "id": "1721557494941652699",
+    "status": "succeeded"
+  },
+  "paidAt": {
+    "$date": "2024-07-21T10:24:54.956Z"
+  },
+  "itemsPrice": 540000,
+  "taxPrice": 27000,
+  "shippingPrice": 0,
+  "totalPrice": 567000,
+  "orderStatus": "Delivered",
+  "createAt": {
+    "$date": "2024-07-21T10:24:54.961Z"
+  },
+  "__v": 0,
+  "deliverAt": {
+    "$date": "2024-07-21T10:27:38.474Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "669ce22dc1984e63669a057c"
+  },
+  "shippingInfo": {
+    "town": "Xã Khâu Vai",
+    "location": "Ho Chi Minh City, VNM",
+    "phone": "0367562350"
+  },
+  "user": {
+    "$oid": "668eaa384e65fd25de7fc547"
+  },
+  "userName": "Trần Trung Phát",
+  "orderItems": [
+    {
+      "product": {
+        "$oid": "668eaa384e65fd25de7fc51e"
+      },
+      "variant": {
+        "$oid": "668eaa384e65fd25de7fc521"
+      },
+      "inventory": {
+        "$oid": "668eaa384e65fd25de7fc526"
+      },
+      "name": "Quần Jean Nam Ống Ôm Wash Dye Trơn Form Slim",
+      "variantName": "Dừa nướng",
+      "quantity": 1,
+      "image": "https://res.cloudinary.com/dfbo1ecn9/image/upload/v1717279643/products/ywuuuul3dowyglxyntjx.webp",
+      "price": 590000,
+      "size": "M",
+      "_id": {
+        "$oid": "669ce218c1984e63669a055c"
+      }
+    }
+  ],
+  "paymentInfo": {
+    "id": "pi_3PewxfJQzZIRhEZl0U3o0mCH",
+    "status": "succeeded"
+  },
+  "paidAt": {
+    "$date": "2024-07-21T10:25:49.374Z"
+  },
+  "itemsPrice": 590000,
+  "taxPrice": 29500,
+  "shippingPrice": 0,
+  "totalPrice": 619500,
+  "orderStatus": "Delivered",
+  "createAt": {
+    "$date": "2024-07-21T10:25:49.375Z"
+  },
+  "__v": 0,
+  "deliverAt": {
+    "$date": "2024-07-21T10:27:33.810Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "669ce25ec1984e63669a174d"
+  },
+  "shippingInfo": {
+    "province": "Tỉnh Lai Châu",
+    "district": "Huyện Tân Uyên",
+    "town": "Xã Thân Thuộc",
+    "location": "Ho Chi Minh City, VNM",
+    "phone": "0367562350"
+  },
+  "user": {
+    "$oid": "66928b3150c06f738e3d90ff"
+  },
+  "userName": "Phat Tran",
+  "orderItems": [
+    {
+      "product": {
+        "$oid": "668eaa384e65fd25de7fc533"
+      },
+      "variant": {
+        "$oid": "668eaa384e65fd25de7fc53e"
+      },
+      "inventory": {
+        "$oid": "668eaa384e65fd25de7fc541"
+      },
+      "name": "Quần Dài Kaki Nam Trơn Lưng Thun Rút Dây Form Straight Crop",
+      "variantName": "Đen",
+      "quantity": 5,
+      "image": "https://res.cloudinary.com/dfbo1ecn9/image/upload/v1717280200/products/cd1kysoc2idluvh1zr3l.webp",
+      "price": 540000,
+      "size": "M",
+      "_id": {
+        "$oid": "66965431144e4113eccf19b2"
+      }
+    },
+    {
+      "product": {
+        "$oid": "668eaa384e65fd25de7fc533"
+      },
+      "variant": {
+        "$oid": "668eaa384e65fd25de7fc536"
+      },
+      "inventory": {
+        "$oid": "668eaa384e65fd25de7fc53a"
+      },
+      "name": "Quần Dài Kaki Nam Trơn Lưng Thun Rút Dây Form Straight Crop",
+      "variantName": "Mây Bạc",
+      "quantity": 1,
+      "image": "https://res.cloudinary.com/dfbo1ecn9/image/upload/v1717280199/products/upf8ezqhbnjwrcl02zbw.webp",
+      "price": 540000,
+      "size": "M",
+      "_id": {
+        "$oid": "669ce248c1984e63669a172e"
+      }
+    }
+  ],
+  "paymentInfo": {
+    "id": "1721557598070685386",
+    "status": "succeeded"
+  },
+  "paidAt": {
+    "$date": "2024-07-21T10:26:38.089Z"
+  },
+  "itemsPrice": 3240000,
+  "taxPrice": 162000,
+  "shippingPrice": 0,
+  "totalPrice": 3402000,
+  "orderStatus": "Delivered",
+  "createAt": {
+    "$date": "2024-07-21T10:26:38.091Z"
+  },
+  "__v": 0,
+  "deliverAt": {
+    "$date": "2024-07-21T10:27:18.202Z"
+  }
+}]

@@ -125,35 +125,36 @@ const ProductReviews = () => {
       return acc;
     }, {});
 
-    products.forEach((product) => {
-      data.rows.push({
-        category: categoryMap[product.category] || "Trống",
-        image: (
-          <img
-            src={product.images[0].url}
-            alt={product.name}
-            style={{ width: "50px", height: "50px" }}
-          />
-        ),
-        name: product.name,
-        price: `${formatToVNDWithVND(product.price)}`,
-        totalStock: product.totalStock,
-        ratings: product.ratings,
-        actions: (
-          <button
-            className="btn btn-primary py-1 px-2"
-            onClick={() => {
-              console.log("product._id", product._id);
-              setProductId(product._id);
-              setCurrentProduct(product);
-              dispatch(getReviewsInProduct(product._id, "1", "10"));
-            }}
-          >
-            Xem Đánh Giá
-          </button>
-        ),
+    if (products.length > 0) {
+      products.forEach((product) => {
+        data.rows.push({
+          category: categoryMap[product.category] || "Trống",
+          image: (
+            <img
+              src={product.images[0].url}
+              alt={product.name}
+              style={{ width: "50px", height: "50px" }}
+            />
+          ),
+          name: product.name,
+          price: `${formatToVNDWithVND(product.price)}`,
+          totalStock: product.totalStock,
+          ratings: product.ratings,
+          actions: (
+            <button
+              className="btn btn-primary py-1 px-2"
+              onClick={() => {
+                setProductId(product._id);
+                setCurrentProduct(product);
+                dispatch(getReviewsInProduct(product._id, "1", "10"));
+              }}
+            >
+              Xem Đánh Giá
+            </button>
+          ),
+        });
       });
-    });
+    }
 
     return data;
   };
@@ -207,9 +208,7 @@ const ProductReviews = () => {
                   <option value="rejected">Chưa Duyệt</option>
                 </select>
               </div>
-
-              {!loading ? <DataTable data={setProducts()} /> : <Loader />}
-
+              <DataTable data={setProducts()} />
               <Pagination
                 activePage={currentPage}
                 itemsCountPerPage={itemsPerPage}

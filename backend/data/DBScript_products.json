@@ -1,0 +1,180 @@
+[{
+  "_id": {
+    "$oid": "665c5c1126a6edbd729d087c"
+  },
+  "user": {
+    "$oid": "6627e33c55f5c45cedf90d21"
+  },
+  "cartItems": [
+    {
+      "product": {
+        "$oid": "665c47161d029f5510250aa8"
+      },
+      "variant": {
+        "$oid": "6679508e717e72efb563357b"
+      },
+      "inventory": {
+        "$oid": "665c47161d029f5510250ab0"
+      },
+      "name": "Quần Dài Kaki Nam Trơn Lưng Thun Rút Dây Form Straight Crop",
+      "variantName": "Mây Bạc",
+      "quantity": 1,
+      "image": "https://res.cloudinary.com/dfbo1ecn9/image/upload/v1717280199/products/upf8ezqhbnjwrcl02zbw.webp",
+      "price": 560000,
+      "size": "L",
+      "_id": {
+        "$oid": "66798920c6ec0e9d35c75c2a"
+      }
+    },
+    {
+      "product": {
+        "$oid": "665c47161d029f5510250aa8"
+      },
+      "variant": {
+        "$oid": "6679508e717e72efb5633583"
+      },
+      "inventory": {
+        "$oid": "665c47161d029f5510250ab7"
+      },
+      "name": "Quần Dài Kaki Nam Trơn Lưng Thun Rút Dây Form Straight Crop",
+      "variantName": "Đen",
+      "quantity": 1,
+      "image": "https://res.cloudinary.com/dfbo1ecn9/image/upload/v1717280200/products/cd1kysoc2idluvh1zr3l.webp",
+      "price": 560000,
+      "size": "L",
+      "_id": {
+        "$oid": "66798923c6ec0e9d35c75c3d"
+      }
+    },
+    {
+      "product": {
+        "$oid": "665c47161d029f5510250a21"
+      },
+      "variant": {
+        "$oid": "66747bd616beec02850d9a0c"
+      },
+      "inventory": {
+        "$oid": "665c47161d029f5510250a27"
+      },
+      "name": "SET ÁO DÀI HOÀNG CÚC",
+      "variantName": "Họa tiết Be",
+      "quantity": 1,
+      "image": "https://res.cloudinary.com/dfbo1ecn9/image/upload/v1717273417/products/o1aq5wy8ss1e4sfopi1w.webp",
+      "price": 69,
+      "size": "XL",
+      "_id": {
+        "$oid": "66799383c6ec0e9d35c76860"
+      }
+    }
+  ],
+  "__v": 53
+},
+{
+  "_id": {
+    "$oid": "6693cddebc1a257213316a85"
+  },
+  "user": {
+    "$oid": "668eaa384e65fd25de7fc547"
+  },
+  "cartItems": [
+    {
+      "product": {
+        "$oid": "668eaa384e65fd25de7fc533"
+      },
+      "variant": {
+        "$oid": "668eaa384e65fd25de7fc536"
+      },
+      "inventory": {
+        "$oid": "668eaa384e65fd25de7fc53a"
+      },
+      "name": "Quần Dài Kaki Nam Trơn Lưng Thun Rút Dây Form Straight Crop",
+      "variantName": "Mây Bạc",
+      "quantity": 10,
+      "image": "https://res.cloudinary.com/dfbo1ecn9/image/upload/v1717280199/products/upf8ezqhbnjwrcl02zbw.webp",
+      "price": 540000,
+      "size": "M",
+      "_id": {
+        "$oid": "669ce2dac1984e63669a44ee"
+      }
+    }
+  ],
+  "__v": 6
+},
+{
+  "_id": {
+    "$oid": "66965431144e4113eccf19b1"
+  },
+  "user": {
+    "$oid": "66928b3150c06f738e3d90ff"
+  },
+  "cartItems": [],
+  "__v": 3
+},
+{
+  "_id": {
+    "$oid": "66dd5b3aaa383a8c4f4c2ac6"
+  },
+  "user": {
+    "$oid": "66b76210d390818c1c962d42"
+  },
+  "cartItems": [
+    {
+      "product": {
+        "$oid": "66b76202264a3735dea85825"
+      },
+      "category": {
+        "$oid": "669cf9b5006fedb96df12647"
+      },
+      "variant": {
+        "$oid": "66b76202264a3735dea85830"
+      },
+      "inventory": {
+        "$oid": "66b76202264a3735dea85836"
+      },
+      "name": "Quần Jean Nam Ống Ôm Wash Dye Trơn Form Slim",
+      "variantName": "Gỗ Liêm",
+      "quantity": 1,
+      "image": "https://res.cloudinary.com/dfbo1ecn9/image/upload/v1717279644/products/crr1jwvmttuucxnm2r8h.webp",
+      "price": 590000,
+      "size": "M",
+      "_id": {
+        "$oid": "66dd8e923c74e8700055de00"
+      }
+    }
+  ],
+  "__v": 1
+},
+{
+  "_id": {
+    "$oid": "66df0424bc807f8c0014af7a"
+  },
+  "user": {
+    "$oid": "66b8c672cca8d81108877145"
+  },
+  "cartItems": [
+    {
+      "product": {
+        "$oid": "66b76202264a3735dea8583a"
+      },
+      "category": {
+        "$oid": "669cf9b5006fedb96df12647"
+      },
+      "variant": {
+        "$oid": "66b76202264a3735dea8583d"
+      },
+      "inventory": {
+        "$oid": "66b76202264a3735dea85844"
+      },
+      "name": "Quần Dài Kaki Nam Trơn Lưng Thun Rút Dây Form Straight Crop",
+      "variantName": "Mây Bạc",
+      "quantity": 1,
+      "image": "https://res.cloudinary.com/dfbo1ecn9/image/upload/v1717280199/products/upf8ezqhbnjwrcl02zbw.webp",
+      "price": 60000,
+      "size": "XXL",
+      "_id": {
+        "$oid": "66df0424bc807f8c0014af7b"
+      }
+    }
+  ],
+  "__v": 0
+}]

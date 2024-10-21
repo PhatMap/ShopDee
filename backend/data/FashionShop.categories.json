@@ -1,0 +1,48 @@
+[{
+  "_id": {
+    "$oid": "669cf99a006fedb96df12641"
+  },
+  "image": {
+    "public_id": "categories/kzuvfmwfd1kjdttovu1z",
+    "url": "https://res.cloudinary.com/dfbo1ecn9/image/upload/v1725171119/categories/kzuvfmwfd1kjdttovu1z.jpg"
+  },
+  "categoryName": " Shirt",
+  "vietnameseName": "Áo Nam Nữ",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "669cf9b5006fedb96df12647"
+  },
+  "image": {
+    "public_id": "categories/jmsiotqqweutvmtnglqt",
+    "url": "https://res.cloudinary.com/dfbo1ecn9/image/upload/v1725171229/categories/jmsiotqqweutvmtnglqt.jpg"
+  },
+  "categoryName": "Trousers",
+  "vietnameseName": "Quần Nam Nữ",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "669cf9c9006fedb96df1264d"
+  },
+  "image": {
+    "public_id": "categories/kzuvfmwfd1kjdttovu1z",
+    "url": "https://res.cloudinary.com/dfbo1ecn9/image/upload/v1725171119/categories/kzuvfmwfd1kjdttovu1z.jpg"
+  },
+  "categoryName": "Dress",
+  "vietnameseName": "Váy Nữ",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "669cf9d8006fedb96df12653"
+  },
+  "image": {
+    "public_id": "categories/jmsiotqqweutvmtnglqt",
+    "url": "https://res.cloudinary.com/dfbo1ecn9/image/upload/v1725171229/categories/jmsiotqqweutvmtnglqt.jpg"
+  },
+  "categoryName": "Shoe",
+  "vietnameseName": "Giày Nam Nữ",
+  "__v": 0
+}]

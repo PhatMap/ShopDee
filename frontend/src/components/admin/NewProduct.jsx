@@ -13,8 +13,9 @@ import { useNavigate } from "react-router-dom";
 import { getCategoryAll } from "../../actions/categoryActions";
 import RichTextEditor from "../layout/RichTextEditor";
 import ImagesList from "./layout/ImagesList";
-import Selections from "./product/Selections";
+import { FaBeer } from "react-icons/fa";
 import Variant from "./product/Variant";
+import OptionList from "./product/OptionList";
 
 const NewProduct = () => {
   const { loading, error, success } = useSelector((state) => state.newProduct);
@@ -306,12 +307,7 @@ const NewProduct = () => {
               <RichTextEditor value={description} onChange={setDescription} />
             </div>
           </div>
-          <div className="chart-container-1">
-            <div className="new-product-form-group-2">
-              <label>Các lựa chọn </label>
-              <Selections selectionNumber={selectionNumber} />
-            </div>
-          </div>
+          <OptionList />
           <div className="chart-container-1">
             <div className="new-product-form-group-2">
               <label>Ảnh </label>
@@ -435,15 +431,10 @@ const NewProduct = () => {
               </div>
             </div>
           </div>
-          <div className="chart-container-1">
-            <div className="new-product-form-group-4">
-              <label htmlFor="selection_field">Chọn loại đơn vị</label>
-              <Variant
-                selectedUnit={selectedUnit}
-                unitValues={unitValues[selectedUnit]}
-              />
-            </div>
-          </div>
+          <Variant
+            selectedUnit={selectedUnit}
+            unitValues={unitValues[selectedUnit]}
+          />
         </div>
       </div>
     </Fragment>

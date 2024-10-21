@@ -1,0 +1,465 @@
+[{
+  "_id": "NOTIF_1722346859889_ydh06",
+  "message": "Đơn đăng ký của bạn đã bị từ chối",
+  "type": "error",
+  "isRead": true,
+  "userId": {
+    "$oid": "66928b3150c06f738e3d90ff"
+  },
+  "priority": 0,
+  "category": "system",
+  "createdAt": {
+    "$date": "2024-07-30T13:40:59.889Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "NOTIF_1722346860312_v6lfy",
+  "message": "Đơn đăng ký của bạn đã được duyệt",
+  "type": "success",
+  "isRead": true,
+  "userId": {
+    "$oid": "66928b3150c06f738e3d90ff"
+  },
+  "priority": 0,
+  "category": "system",
+  "createdAt": {
+    "$date": "2024-07-30T13:41:00.312Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "NOTIF_1722346871029_uc975",
+  "message": "Đơn đăng ký của bạn đã bị từ chối",
+  "type": "error",
+  "isRead": true,
+  "userId": {
+    "$oid": "66928b3150c06f738e3d90ff"
+  },
+  "priority": 0,
+  "category": "system",
+  "createdAt": {
+    "$date": "2024-07-30T13:41:11.029Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "NOTIF_1722346871373_vb9vq",
+  "message": "Đơn đăng ký của bạn đã được duyệt",
+  "type": "success",
+  "isRead": true,
+  "userId": {
+    "$oid": "66928b3150c06f738e3d90ff"
+  },
+  "priority": 0,
+  "category": "system",
+  "createdAt": {
+    "$date": "2024-07-30T13:41:11.373Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "NOTIF_1722346872156_itlkd",
+  "message": "Đơn đăng ký của bạn đã bị từ chối",
+  "type": "error",
+  "isRead": true,
+  "userId": {
+    "$oid": "66928b3150c06f738e3d90ff"
+  },
+  "priority": 0,
+  "category": "system",
+  "createdAt": {
+    "$date": "2024-07-30T13:41:12.156Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "NOTIF_1722346872941_ol689",
+  "message": "Đơn đăng ký của bạn đã được duyệt",
+  "type": "success",
+  "isRead": true,
+  "userId": {
+    "$oid": "66928b3150c06f738e3d90ff"
+  },
+  "priority": 0,
+  "category": "system",
+  "createdAt": {
+    "$date": "2024-07-30T13:41:12.941Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "NOTIF_1722346890903_ecbrs",
+  "message": "Đơn đăng ký của bạn đã bị từ chối",
+  "type": "error",
+  "isRead": true,
+  "userId": {
+    "$oid": "66928b3150c06f738e3d90ff"
+  },
+  "priority": 0,
+  "category": "system",
+  "createdAt": {
+    "$date": "2024-07-30T13:41:30.903Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "NOTIF_1722346891233_op4mx",
+  "message": "Đơn đăng ký của bạn đã được duyệt",
+  "type": "success",
+  "isRead": true,
+  "userId": {
+    "$oid": "66928b3150c06f738e3d90ff"
+  },
+  "priority": 0,
+  "category": "system",
+  "createdAt": {
+    "$date": "2024-07-30T13:41:31.233Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "NOTIF_1722419303787_3sjcp",
+  "message": "Đơn đăng ký của bạn đã bị từ chối",
+  "type": "error",
+  "isRead": true,
+  "userId": {
+    "$oid": "66928b3150c06f738e3d90ff"
+  },
+  "priority": 0,
+  "category": "system",
+  "createdAt": {
+    "$date": "2024-07-31T09:48:23.787Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "NOTIF_1722419308114_qpld4",
+  "message": "Đơn đăng ký của bạn đã được duyệt",
+  "type": "success",
+  "isRead": true,
+  "userId": {
+    "$oid": "66928b3150c06f738e3d90ff"
+  },
+  "priority": 0,
+  "category": "system",
+  "createdAt": {
+    "$date": "2024-07-31T09:48:28.114Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "NOTIF_1723200936761_6x36y",
+  "message": "Đơn đăng ký của bạn đã được duyệt",
+  "type": "success",
+  "isRead": false,
+  "userId": {
+    "$oid": "66928b3150c06f738e3d90ff"
+  },
+  "priority": 0,
+  "category": "system",
+  "createdAt": {
+    "$date": "2024-08-09T10:55:36.761Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "NOTIF_1723202695736_xtuyj",
+  "message": "Đơn đăng ký của bạn đã bị từ chối",
+  "type": "error",
+  "isRead": false,
+  "userId": {
+    "$oid": "66928b3150c06f738e3d90ff"
+  },
+  "priority": 0,
+  "category": "system",
+  "createdAt": {
+    "$date": "2024-08-09T11:24:55.736Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "NOTIF_1723203968097_riyx2",
+  "message": "Đơn đăng ký của bạn đã được duyệt",
+  "type": "success",
+  "isRead": false,
+  "userId": {
+    "$oid": "66928b3150c06f738e3d90ff"
+  },
+  "priority": 0,
+  "category": "system",
+  "createdAt": {
+    "$date": "2024-08-09T11:46:08.098Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "NOTIF_1723204426039_4beuw",
+  "message": "Đơn đăng ký của bạn đã được duyệt",
+  "type": "success",
+  "isRead": false,
+  "userId": {
+    "$oid": "66928b3150c06f738e3d90ff"
+  },
+  "priority": 0,
+  "category": "system",
+  "createdAt": {
+    "$date": "2024-08-09T11:53:46.039Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "NOTIF_1723204433927_ox9s1",
+  "message": "Đơn đăng ký của bạn đã bị từ chối",
+  "type": "error",
+  "isRead": false,
+  "userId": {
+    "$oid": "66928b3150c06f738e3d90ff"
+  },
+  "priority": 0,
+  "category": "system",
+  "createdAt": {
+    "$date": "2024-08-09T11:53:53.927Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "NOTIF_1723204504156_cf184",
+  "message": "Đơn đăng ký của bạn đã được duyệt",
+  "type": "success",
+  "isRead": false,
+  "userId": {
+    "$oid": "66928b3150c06f738e3d90ff"
+  },
+  "priority": 0,
+  "category": "system",
+  "createdAt": {
+    "$date": "2024-08-09T11:55:04.156Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "NOTIF_1723204514530_748q3",
+  "message": "Đơn đăng ký của bạn đã bị từ chối",
+  "type": "error",
+  "isRead": false,
+  "userId": {
+    "$oid": "66928b3150c06f738e3d90ff"
+  },
+  "priority": 0,
+  "category": "system",
+  "createdAt": {
+    "$date": "2024-08-09T11:55:14.530Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "NOTIF_1723204621394_o95zg",
+  "message": "Đơn đăng ký của bạn đã được duyệt",
+  "type": "success",
+  "isRead": false,
+  "userId": {
+    "$oid": "66928b3150c06f738e3d90ff"
+  },
+  "priority": 0,
+  "category": "system",
+  "createdAt": {
+    "$date": "2024-08-09T11:57:01.394Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "NOTIF_1723204629425_car39",
+  "message": "Đơn đăng ký của bạn đã bị từ chối",
+  "type": "error",
+  "isRead": false,
+  "userId": {
+    "$oid": "66928b3150c06f738e3d90ff"
+  },
+  "priority": 0,
+  "category": "system",
+  "createdAt": {
+    "$date": "2024-08-09T11:57:09.425Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "NOTIF_1723204636218_fsrpc",
+  "message": "Đơn đăng ký của bạn đã được duyệt",
+  "type": "success",
+  "isRead": false,
+  "userId": {
+    "$oid": "66928b3150c06f738e3d90ff"
+  },
+  "priority": 0,
+  "category": "system",
+  "createdAt": {
+    "$date": "2024-08-09T11:57:16.218Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "NOTIF_1723292939350_4jmlc",
+  "message": "Đơn đăng ký của bạn đã được duyệt",
+  "type": "success",
+  "isRead": true,
+  "userId": {
+    "$oid": "66b34c5181b9e8e236a75998"
+  },
+  "priority": 0,
+  "category": "system",
+  "createdAt": {
+    "$date": "2024-08-10T12:28:59.350Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "NOTIF_1723293604902_y4fz9",
+  "message": "Đơn đăng ký của bạn đã bị từ chối",
+  "type": "error",
+  "isRead": true,
+  "userId": {
+    "$oid": "66b34c5181b9e8e236a75998"
+  },
+  "priority": 0,
+  "category": "system",
+  "createdAt": {
+    "$date": "2024-08-10T12:40:04.902Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "NOTIF_1723293613511_acexo",
+  "message": "Đơn đăng ký của bạn đã được duyệt",
+  "type": "success",
+  "isRead": true,
+  "userId": {
+    "$oid": "66b34c5181b9e8e236a75998"
+  },
+  "priority": 0,
+  "category": "system",
+  "createdAt": {
+    "$date": "2024-08-10T12:40:13.511Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "NOTIF_1723294421428_9zaz2",
+  "message": "Đơn đăng ký của bạn đã bị từ chối",
+  "type": "error",
+  "isRead": false,
+  "userId": {
+    "$oid": "66b34c5181b9e8e236a75998"
+  },
+  "priority": 0,
+  "category": "system",
+  "createdAt": {
+    "$date": "2024-08-10T12:53:41.428Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "NOTIF_1723294422403_gnr0b",
+  "message": "Đơn đăng ký của bạn đã được duyệt",
+  "type": "success",
+  "isRead": false,
+  "userId": {
+    "$oid": "66b34c5181b9e8e236a75998"
+  },
+  "priority": 0,
+  "category": "system",
+  "createdAt": {
+    "$date": "2024-08-10T12:53:42.403Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "NOTIF_1723294475877_erxw4",
+  "message": "Đơn đăng ký của bạn đã bị từ chối",
+  "type": "error",
+  "isRead": true,
+  "userId": {
+    "$oid": "66b76210d390818c1c962d42"
+  },
+  "priority": 0,
+  "category": "system",
+  "createdAt": {
+    "$date": "2024-08-10T12:54:35.877Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "NOTIF_1723294478233_i8pdb",
+  "message": "Đơn đăng ký của bạn đã được duyệt",
+  "type": "success",
+  "isRead": true,
+  "userId": {
+    "$oid": "66b76210d390818c1c962d42"
+  },
+  "priority": 0,
+  "category": "system",
+  "createdAt": {
+    "$date": "2024-08-10T12:54:38.233Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "NOTIF_1723294972717_gaq0c",
+  "message": "Đơn đăng ký của bạn đã được duyệt",
+  "type": "success",
+  "isRead": true,
+  "userId": {
+    "$oid": "66b76210d390818c1c962d42"
+  },
+  "priority": 0,
+  "category": "system",
+  "createdAt": {
+    "$date": "2024-08-10T13:02:52.717Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "NOTIF_1723296670117_osgt6",
+  "message": "Đơn đăng ký của bạn đã được duyệt",
+  "type": "success",
+  "isRead": true,
+  "userId": {
+    "$oid": "66b76210d390818c1c962d42"
+  },
+  "priority": 0,
+  "category": "system",
+  "createdAt": {
+    "$date": "2024-08-10T13:31:10.117Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "NOTIF_1723385187689_2zoc7",
+  "message": "Đơn đăng ký của bạn đã bị từ chối",
+  "type": "error",
+  "isRead": true,
+  "userId": {
+    "$oid": "66b76210d390818c1c962d42"
+  },
+  "priority": 0,
+  "category": "system",
+  "createdAt": {
+    "$date": "2024-08-11T14:06:27.689Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "NOTIF_1723385189210_v7ot0",
+  "message": "Đơn đăng ký của bạn đã được duyệt",
+  "type": "success",
+  "isRead": true,
+  "userId": {
+    "$oid": "66b76210d390818c1c962d42"
+  },
+  "priority": 0,
+  "category": "system",
+  "createdAt": {
+    "$date": "2024-08-11T14:06:29.210Z"
+  },
+  "__v": 0
+}]

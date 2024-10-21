@@ -83,38 +83,40 @@ const OrdersList = () => {
       rows: [],
     };
 
-    orders.forEach((order) => {
-      data.rows.push({
-        name: order.userName,
-        numofItems: order.orderItems.length,
-        amount: `${formatToVNDWithVND(order.totalPrice)}`,
-        status: (
-          <p
-            style={{
-              color: order.orderStatus === "Delivered" ? "green" : "red",
-            }}
-          >
-            {statusTranslations[order.orderStatus]}
-          </p>
-        ),
-        actions: (
-          <Fragment>
-            <Link
-              to={`/shop/order/${order._id}`}
-              className="btn btn-primary py-1 px-2"
+    if (orders.length > 0) {
+      orders.forEach((order) => {
+        data.rows.push({
+          name: order.userName,
+          numofItems: order.orderItems.length,
+          amount: `${formatToVNDWithVND(order.totalPrice)}`,
+          status: (
+            <p
+              style={{
+                color: order.orderStatus === "Delivered" ? "green" : "red",
+              }}
             >
-              <i className="fa fa-eye"></i>
-            </Link>
-            <button
-              className="btn btn-danger py-1 px-2 ml-2"
-              onClick={() => deleteOrderHandler(order._id, order.orderStatus)}
-            >
-              <i className="fa fa-trash"></i>
-            </button>
-          </Fragment>
-        ),
+              {statusTranslations[order.orderStatus]}
+            </p>
+          ),
+          actions: (
+            <Fragment>
+              <Link
+                to={`/shop/order/${order._id}`}
+                className="btn btn-primary py-1 px-2"
+              >
+                <i className="fa fa-eye"></i>
+              </Link>
+              <button
+                className="btn btn-danger py-1 px-2 ml-2"
+                onClick={() => deleteOrderHandler(order._id, order.orderStatus)}
+              >
+                <i className="fa fa-trash"></i>
+              </button>
+            </Fragment>
+          ),
+        });
       });
-    });
+    }
 
     return data;
   };
@@ -169,7 +171,7 @@ const OrdersList = () => {
                   </select>
                 </div>
               </div>
-              {!loading ? <DataTable data={setOrders()} /> : <Loader />}
+              <DataTable data={setOrders()} />
               <Pagination
                 activePage={currentPage}
                 itemsCountPerPage={resPerPage}

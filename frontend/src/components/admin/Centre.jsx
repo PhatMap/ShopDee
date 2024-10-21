@@ -28,7 +28,7 @@ const Centre = () => {
   return (
     <div className={`Centre-container background-2`}>
       {showSidebar && <Sidebar path={location.pathname} />}
-      <div className="Centre">
+      <div className="Centre ">
         <Routes>
           <Route path="dashboard" element={<Dashboard />} />
           <Route path="products" element={<ProductsList />} />
