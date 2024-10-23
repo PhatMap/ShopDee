@@ -378,63 +378,6 @@ const NewProduct = () => {
               </div>
             </div>
           </div>
-          <div className="chart-container-1">
-            <div className="new-product-form-group-3">
-              <label htmlFor="question_field">
-                Loại phép chọn{" "}
-                <i
-                  className="fa fa-question-circle"
-                  onClick={(e) => openHelpWindow(e)}
-                ></i>
-              </label>
-              <div className="btns-of-zero">
-                <input
-                  type="radio"
-                  id="red"
-                  onChange={() => handlerSelectionNumber(0)}
-                  checked={selectionNumber === 0}
-                />
-                <label htmlFor="red">Không</label>
-
-                <input
-                  type="radio"
-                  id="green"
-                  onChange={() => handlerSelectionNumber(1)}
-                  checked={selectionNumber === 1}
-                />
-                <label htmlFor="green">Đơn vị</label>
-
-                <input
-                  type="radio"
-                  id="blue"
-                  onChange={() => handlerSelectionNumber(2)}
-                  checked={selectionNumber === 2}
-                />
-                <label htmlFor="blue">Mẫu và đơn vị</label>
-              </div>
-
-              <div className="new-product-form-group-3">
-                <label htmlFor="selection_field">Chọn loại đơn vị</label>
-                <select
-                  className={`form-control `}
-                  id="second_selection_field"
-                  value={selectedUnit}
-                  onChange={(e) => setSelectedUnit(e.target.value)}
-                >
-                  <option value="">Chọn một đơn vị</option>
-                  {units.map((unit, index) => (
-                    <option key={index} value={unit.English}>
-                      {unit.vietnamese}
-                    </option>
-                  ))}
-                </select>
-              </div>
-            </div>
-          </div>
-          <Variant
-            selectedUnit={selectedUnit}
-            unitValues={unitValues[selectedUnit]}
-          />
         </div>
       </div>
     </Fragment>

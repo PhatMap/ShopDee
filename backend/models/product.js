@@ -38,67 +38,38 @@ const productSchema = new mongoose.Schema(
         },
       },
     ],
-    type: {
-      name: {
-        type: String,
-        required: true,
+    options: [
+      {
+        name: {
+          type: String,
+        },
+        values: [
+          {
+            type: String,
+          },
+        ],
       },
-      value: {
-        type: String,
-        required: true,
-      },
-    },
+    ],
     variants: [
       {
-        label: {
-          type: String,
-          required: true,
+        image: {
+          public_id: {
+            type: String,
+          },
+          url: {
+            type: String,
+          },
         },
-        images: [
+        combination: [
           {
-            public_id: {
-              type: String,
-            },
+            type: String,
           },
         ],
-        inventory: [
-          {
-            choice: {
-              type: String,
-              required: true,
-            },
-            price: {
-              type: Number,
-              required: [true, "please enter product price"],
-              validate: {
-                validator: function (value) {
-                  return value >= 0;
-                },
-                message: "Product price cannot be negative",
-              },
-            },
-            stock: {
-              type: Number,
-              maxLength: [5, "Product stock cannot exceed 5 characters"],
-              default: 0,
-              validate: {
-                validator: function (value) {
-                  return value >= 0;
-                },
-                message: "Product stock cannot be negative",
-              },
-            },
-          },
-        ],
-        totalVariants: {
+        price: {
           type: Number,
-          default: 0,
-          validate: {
-            validator: function (value) {
-              return value >= 0;
-            },
-            message: "Product total stock cannot be negative",
-          },
+        },
+        stock: {
+          type: Number,
         },
       },
     ],
